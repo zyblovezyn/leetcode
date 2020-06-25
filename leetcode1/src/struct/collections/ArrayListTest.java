@@ -1,4 +1,4 @@
-package collections;
+package struct.collections;
 
 import java.util.ArrayList;
 import java.util.Iterator;

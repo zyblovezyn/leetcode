@@ -1,4 +1,4 @@
-package collections;
+package struct.collections;
 
 import java.util.Arrays;
 
