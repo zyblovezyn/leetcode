@@ -1,4 +1,4 @@
-package designpattern.abstractfactory;
+package designpattern.factory.abstructfactory.test1;
 
 public class IntelCpu implements Cpu {
     private int pins = 0;

@@ -1,4 +1,4 @@
-package designpattern.abstractfactory;
+package designpattern.factory.abstructfactory.test1;
 
 public class MainboardFactory {
     public static Mainborad createMainboard(int type){

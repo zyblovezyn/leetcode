@@ -1,4 +1,4 @@
-package designpattern.abstractfactory;
+package designpattern.factory.abstructfactory.test1;
 
 public class AmdMainboard implements Mainborad {
     private int cpuHoles = 0;
