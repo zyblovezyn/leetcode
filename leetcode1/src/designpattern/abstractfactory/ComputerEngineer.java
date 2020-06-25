@@ -1,4 +1,4 @@
-package abstractfactory;
+package designpattern.abstractfactory;
 
 public class ComputerEngineer {
 

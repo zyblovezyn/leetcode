@@ -1,4 +1,4 @@
-package abstractfactory;
+package designpattern.abstractfactory;
 
 public class AmdCpu implements Cpu {
     private int pins = 0;

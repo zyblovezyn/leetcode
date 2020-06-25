@@ -1,4 +1,4 @@
-package abstractfactory;
+package designpattern.abstractfactory;
 
 public class CpuFactory {
     public static Cpu createCpu(int type) {
