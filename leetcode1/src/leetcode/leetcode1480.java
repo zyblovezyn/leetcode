@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package leetcode;
 
 public class leetcode1480 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-import java.util.LinkedList;
+package leetcode;
 
 public class leetcode1470 {
     public int[] shuffle(int[]  nums, int n) {
