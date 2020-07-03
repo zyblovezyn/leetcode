@@ -1,15 +1,15 @@
 package test;
 
-import org.junit.Test;
-import org.junit.Before;
 import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
- * leetcode1486 Tester.
+ * leetcode.leetcode1486 Tester.
  *
  * @author <Authors name>
  * @version 1.0
- * @since <pre>7ŒŽ 3, 2020</pre>
+ * @since <pre>7ï¿½ï¿½ 3, 2020</pre>
  */
 public class leetcode1486Test {
 

@@ -1,3 +1,5 @@
+package leetcode;
+
 public class leetcode1486 {
     public static void main(String[] args) {
         System.out.println("xo = " + xorOperation(5, 0));
