@@ -8,7 +8,6 @@ public class Proxy implements Subject {
     }
 
     public Proxy(Object... objects) {
-        this.subject = subject;
     }
 
     @Override

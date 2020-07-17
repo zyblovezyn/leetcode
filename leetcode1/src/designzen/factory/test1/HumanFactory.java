@@ -2,7 +2,7 @@ package designzen.factory.test1;
 
 public class HumanFactory extends AbstractFactory {
     @Override
-    public <T extends Human> T createFactory(Class<T> tClass) {
+    public <T extends Human> T createHuman(Class<T> tClass) {
         Human human = null;
         try {
             human = (T) Class.forName(tClass.getName()).newInstance();
@@ -11,4 +11,5 @@ public class HumanFactory extends AbstractFactory {
         }
         return (T) human;
     }
+
 }
