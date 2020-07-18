@@ -1,6 +1,6 @@
 package designzen.factory.multifactory;
 
-import designzen.factory.Human;
+import designzen.factory.test2.Human;
 
 public class BlackHuman implements Human {
     @Override
