@@ -1,9 +1,9 @@
 package designzen.command.common;
 
-public class ConcreteComand2 extends Command {
+public class ConcreteCommand2 extends Command {
     private Receiver receiver;
 
-    public ConcreteComand2(Receiver receiver) {
+    public ConcreteCommand2(Receiver receiver) {
         this.receiver = receiver;
     }
 
