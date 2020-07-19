@@ -6,11 +6,11 @@ public class leetcode1486 {
         System.out.println("xorOperation(4,3) = " + xorOperation(4, 3));
         System.out.println("xorOperation(1,7) = " + xorOperation(1, 7));
         System.out.println("xorOperation(10,5) = " + xorOperation(10, 5));
-        System.out.println("0^12222 = " + (0 ^ 12222));
-        System.out.println("1^111111 = " + (1 ^ 111111));
+        System.out.println("0^12222 = " + (12222));
+        System.out.println("1^111111 = " + (111110));
         System.out.println("(123^123) = " + (123 ^ 123));
 
-        System.out.println("(12^3^12 = " + (12^3^12));
+        System.out.println("(12^3^12 = " + (12 ^ 3 ^ 12));
     }
 
     public static int xorOperation(int n, int start) {
