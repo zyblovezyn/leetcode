@@ -1,7 +1,5 @@
 package designzen.visitor.common;
 
-
-
 public class Visitor implements IVisitor {
     @Override
     public void visit(ConcreteElement1 e1) {
@@ -12,6 +10,4 @@ public class Visitor implements IVisitor {
     public void visit(ConcreteElement2 e2) {
         e2.doSomething();
     }
-
-
 }
