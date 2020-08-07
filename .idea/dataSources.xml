@@ -8,5 +8,12 @@
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@192.168.21.202:1521:tmg</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="upds" uuid="8cf8025c-8125-4274-9a64-58660659bc47">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@192.168.21.193:1521:SJK</jdbc-url>
+    </data-source>
   </component>
 </project>

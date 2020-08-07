@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>designzen.decorator.ConcreteComponent</OriginalElement>
+  <nodes>
+    <node x="149.50000000000003" y="104.0">designzen.decorator.Decorator</node>
+    <node x="247.0" y="314.0">designzen.decorator.ConcreteDecorator1</node>
+    <node x="275.25" y="0.0">designzen.decorator.Component</node>
+    <node x="0.0" y="314.0">designzen.decorator.ConcreteDecorator2</node>
+    <node x="344.5" y="157.0">designzen.decorator.ConcreteComponent</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="designzen.decorator.Decorator" target="designzen.decorator.Component">
+      <point x="-2.8421709430404007E-14" y="-80.0" />
+      <point x="237.0" y="79.0" />
+      <point x="306.0" y="79.0" />
+      <point x="-30.75" y="27.0" />
+    </edge>
+    <edge source="designzen.decorator.ConcreteDecorator2" target="designzen.decorator.Decorator">
+      <point x="0.0" y="-59.0" />
+      <point x="113.5" y="289.0" />
+      <point x="193.25000000000003" y="289.0" />
+      <point x="-43.75" y="80.0" />
+    </edge>
+    <edge source="designzen.decorator.ConcreteDecorator1" target="designzen.decorator.Decorator">
+      <point x="0.0" y="-59.0" />
+      <point x="360.5" y="289.0" />
+      <point x="280.75" y="289.0" />
+      <point x="43.74999999999997" y="80.0" />
+    </edge>
+    <edge source="designzen.decorator.ConcreteComponent" target="designzen.decorator.Component">
+      <point x="0.0" y="-27.0" />
+      <point x="436.5" y="79.0" />
+      <point x="367.5" y="79.0" />
+      <point x="30.75" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.5000000000000004" x="207.08333333333331" y="318.66666666666663" />
+  <SelectedNodes>
+    <node>designzen.decorator.ConcreteDecorator1</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

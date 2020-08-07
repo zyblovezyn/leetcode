@@ -32,7 +32,7 @@ public class systemarraycopy {
 
         start = System.currentTimeMillis();
         {
-            int b[] = new int[10];
+            int b[] = new int[1000];
             for (int i = 0; i < times; i++) {
                 for (int j = 0; j < b.length; j++)
                     b[j] = a[j];
@@ -44,7 +44,7 @@ public class systemarraycopy {
 
         start = System.currentTimeMillis();
         {
-            int b[] = new int[10];
+            int b[] = new int[1000];
             for (int i = 0; i < times; i++) {
                 System.arraycopy(a, 0, b, 0, b.length);
             }

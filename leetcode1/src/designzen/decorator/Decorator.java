@@ -1,6 +1,6 @@
 package designzen.decorator;
 
-public abstract class Decorator extends Component{
+public abstract class Decorator extends Component {
 
     private Component component = null;
 

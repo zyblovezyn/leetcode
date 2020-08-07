@@ -18,5 +18,22 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="upds" uuid="8cf8025c-8125-4274-9a64-58660659bc47">
+      <database-info product="Oracle" version="Oracle Database 19c Standard Edition 2 Release 19.0.0.0.0 - Production" jdbc-version="4.2" driver-name="Oracle JDBC driver" driver-version="12.2.0.1.0" dbms="ORACLE" exact-version="19.0.0.0.0" exact-driver-version="12.2">
+        <extra-name-characters>$#</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>DJN_FRA_V6</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="PUBLIC" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
   </component>
 </project>
