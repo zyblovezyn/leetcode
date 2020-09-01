@@ -5,4 +5,8 @@ public class CommonUtils {
         boolean isIP = false;
         return isIP;
     }
+
+    public static void main(String[] args) {
+        System.out.println("CommonUtils.main");
+    }
 }
