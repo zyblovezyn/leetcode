@@ -4,7 +4,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -15,6 +14,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DateTimeUtils {
+
+    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 
     public static long translateToMillis(long currentTimeMillis) {
         return currentTimeMillis;
@@ -32,24 +33,11 @@ public class DateTimeUtils {
         return currentTimeMillis / 1000 / (60 * 60);
     }
 
-    public long translateToDays(long currentTimeMillis) {
-        return currentTimeMillis / 1000 / (60 * 60 * 24);
-    }
-
-    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-    public static final String DEFAULT_DATE_FORMATE = "yyyyMMddHHmmss";
-    public static final String DATE_FORMAT_1 = "yyyy-MM-dd HH:mm:ss";
-    public static final String DATE_FORMAT_Day = "yyyyMMdd";
-    public static final String DATE_FORMAT_2 = "yyyy-MM-dd";
-    public static final String DATE_FORMAT_3 = "yyyy”NMMŒdd“ú";
-
     /**
      * æ“¾–^“úŠú??“I“Á’è•\¦Ši®“Iš•„‹ø
      *
-     * @param format
-     *            ??Ši®
-     * @param date
-     *            –^“úŠúiDatej
+     * @param format ??Ši®
+     * @param date   –^“úŠúiDatej
      * @return –^“úŠú“Iš•„‹ø
      */
     public static synchronized String getDate2Str(String format, Date date) {
@@ -60,13 +48,12 @@ public class DateTimeUtils {
     /**
      * æ“¾–^“úŠú??“I“Á’è•\¦Ši®“Iš•„‹ø
      *
-     * @param format
-     *            ??Ši®
+     * @param format ??Ši®
      * @return –^“úŠú“Iš•„‹ø
      */
     public static synchronized String getCurrentDateStr(String format) {
         if (StringUtils.isBlank(format)) {
-            simpleDateFormat.applyPattern(DATE_FORMAT_2);
+            simpleDateFormat.applyPattern(DateFormat.FORMATE_2.getFormat());
         } else {
             simpleDateFormat.applyPattern(format);
         }
@@ -76,13 +63,12 @@ public class DateTimeUtils {
     /**
      * æ“¾–^“úŠú??“I“Á’è•\¦Ši®“Iš•„‹ø
      *
-     * @param format
-     *            ??Ši®
+     * @param format ??Ši®
      * @return –^“úŠú“Iš•„‹ø
      */
     public static synchronized String getCurrentDateTimeStr(String format) {
         if (StringUtils.isBlank(format)) {
-            simpleDateFormat.applyPattern(DATE_FORMAT_1);
+            simpleDateFormat.applyPattern(DateFormat.FORMATE_1.getFormat());
         } else {
             simpleDateFormat.applyPattern(format);
         }
@@ -105,7 +91,7 @@ public class DateTimeUtils {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String da = sdf.format(date);
         da = da + " 00:00:00";
-        Date d = getStrToDate(DATE_FORMAT_1, da);
+        Date d = getStrToDate(DateFormat.FORMATE_1.getFormat(), da);
         return d;
     }
 
@@ -113,7 +99,7 @@ public class DateTimeUtils {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String da = sdf.format(date);
         da = da + " 23:59:59";
-        Date d = getStrToDate(DATE_FORMAT_1, da);
+        Date d = getStrToDate(DateFormat.FORMATE_1.getFormat(), da);
         return d;
     }
 
@@ -122,7 +108,7 @@ public class DateTimeUtils {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String da = sdf.format(date);
         da = da + " 00:00:00";
-        Date d = getStrToDate(DATE_FORMAT_1, da);
+        Date d = getStrToDate(DateFormat.FORMATE_1.getFormat(), da);
         return d;
     }
 
@@ -131,17 +117,15 @@ public class DateTimeUtils {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String da = sdf.format(date);
         da = da + " 23:59:59";
-        Date d = getStrToDate(DATE_FORMAT_1, da);
+        Date d = getStrToDate(DateFormat.FORMATE_1.getFormat(), da);
         return d;
     }
 
     /**
      * «“Á’èŠi®“I??š•„‹ø?‰»?Date?Œ^
      *
-     * @param format
-     *            ??Ši®
-     * @param str
-     *            –^“úŠú“Iš•„‹ø
+     * @param format ??Ši®
+     * @param str    –^“úŠú“Iš•„‹ø
      * @return –^“úŠúiDatej
      */
     public static synchronized Date getStrToDate(String format, String str) {
@@ -151,11 +135,11 @@ public class DateTimeUtils {
     }
 
     public static String date2String(Date date) {
-        return getDate2Str(DEFAULT_DATE_FORMATE, date);
+        return getDate2Str(DateFormat.FORMATE_0.getFormat(), date);
     }
 
     public static String dateFormatString(Date date) {
-        return getDate2Str(DATE_FORMAT_1, date);
+        return getDate2Str(DateFormat.FORMATE_1.getFormat(), date);
     }
 
     public static String date2String(Date date, String format) {
@@ -165,14 +149,12 @@ public class DateTimeUtils {
     /**
      * ??š•„‹ø¥”Û?“úŠú
      *
-     * @param dateTime
-     *            ??š•„‹ø
-     * @param pattern
-     *            Eg "yyyy-MM-dd"
+     * @param dateTime ??š•„‹ø
+     * @param pattern  Eg "yyyy-MM-dd"
      * @return •Ô‰ñ?‰Ê
      */
     public static boolean isDateTime(String dateTime, String pattern) {
-        DateFormat df = new SimpleDateFormat(pattern);
+        SimpleDateFormat df = new SimpleDateFormat(pattern);
         ParsePosition pos = new ParsePosition(0);
         Date dt = df.parse(dateTime, pos);
         return !(dt == null);
@@ -224,8 +206,7 @@ public class DateTimeUtils {
     /**
      * “¾“n¬?‘O??
      *
-     * @param hour
-     *            ¬?”
+     * @param hour ¬?”
      * @return Date
      */
     public static Date getLimitDate(int hour) {
@@ -238,8 +219,7 @@ public class DateTimeUtils {
     /**
      * “¾“w’è??n•ª?@??
      *
-     * @param minute
-     *            ??
+     * @param minute ??
      * @return Date
      * @throws Exception
      */
@@ -254,8 +234,7 @@ public class DateTimeUtils {
     /**
      * “¾“w’è??n¬?‘O??
      *
-     * @param minute
-     *            ??
+     * @param minute ??
      * @return Date
      * @throws Exception
      */
@@ -271,8 +250,7 @@ public class DateTimeUtils {
     /**
      * “¾“w’è??n¬?@??
      *
-     * @param minute
-     *            ??
+     * @param minute ??
      * @return Date
      * @throws Exception
      */
@@ -287,8 +265,7 @@ public class DateTimeUtils {
     /**
      * “¾“w’è??n“V@“úŠú
      *
-     * @param day
-     *            “úŠú
+     * @param day “úŠú
      * @return Date
      * @throws Exception
      */
@@ -302,8 +279,7 @@ public class DateTimeUtils {
     /**
      * “¾“n“V@“úŠú
      *
-     * @param day
-     *            “úŠú
+     * @param day “úŠú
      * @return Date
      */
     public static Date getAfterDate(int day) throws Exception {
@@ -316,8 +292,7 @@ public class DateTimeUtils {
     /**
      * “¾““–‘O??n•ª?‘O??
      *
-     * @param day
-     *            “úŠú
+     * @param day “úŠú
      * @return Date
      * @throws Exception
      */
@@ -332,8 +307,7 @@ public class DateTimeUtils {
     /**
      * “¾““–‘O??n•ª?‘O??
      *
-     * @param day
-     *            “úŠú
+     * @param day “úŠú
      * @return Date
      * @throws Exception
      */
@@ -348,8 +322,7 @@ public class DateTimeUtils {
     /**
      * “¾“w’è??n•ª?‘O??
      *
-     * @param day
-     *            “úŠú
+     * @param day “úŠú
      * @return Date
      * @throws Exception
      */
@@ -364,8 +337,7 @@ public class DateTimeUtils {
     /**
      * “¾“w’è??n“V‘O“úŠú
      *
-     * @param day
-     *            “úŠú
+     * @param day “úŠú
      * @return Date
      * @throws Exception
      */
@@ -378,8 +350,7 @@ public class DateTimeUtils {
     /**
      * “¾“n“V‘O“úŠú
      *
-     * @param day
-     *            “úŠú
+     * @param day “úŠú
      * @return Date
      */
     public static Date getBeforeDate(int day) throws Exception {
@@ -392,8 +363,7 @@ public class DateTimeUtils {
     /**
      * “¾“n“V‘O“úŠú
      *
-     * @param day
-     *            “úŠú
+     * @param day “úŠú
      * @return Date
      */
     public static Date getBeforeDateTime(int day) throws Exception {
@@ -406,8 +376,7 @@ public class DateTimeUtils {
     /**
      * “¾“n“V‘O“úŠú
      *
-     * @param day
-     *            “úŠú
+     * @param day “úŠú
      * @return String
      */
     public static String getBeforeDateStr(int day) throws Exception {
@@ -416,6 +385,7 @@ public class DateTimeUtils {
         cl.setTimeInMillis(clTemp);
         return getDate2Str("yyyy-MM-dd", cl.getTime());
     }
+
     public static String getBeforeDateStr(int day, String format) throws Exception {
         Calendar cl = Calendar.getInstance();
         cl.setTimeInMillis(cl.getTimeInMillis());
@@ -426,8 +396,7 @@ public class DateTimeUtils {
     /**
      * “¾“n“V‘O“úŠú
      *
-     * @param day
-     *            “úŠú
+     * @param day “úŠú
      * @return String
      */
     public static String getBeforeDateTimeStr(int day) throws Exception {
@@ -440,8 +409,7 @@ public class DateTimeUtils {
     /**
      * “¾“n•ª?‘O??
      *
-     * @param minute
-     *            ¬?”
+     * @param minute ¬?”
      * @return Date
      */
     public static Date getLimitDateByMinute(int minute) {
@@ -479,8 +447,7 @@ public class DateTimeUtils {
      *
      * @param date1
      * @param date2
-     * @param type
-     *            •Ô‰ñ?Œ^
+     * @param type  •Ô‰ñ?Œ^
      * @return
      */
     public static String dateIntervalForDate(Date date1, Date date2, String type) {
@@ -501,8 +468,7 @@ public class DateTimeUtils {
      *
      * @param date1
      * @param date2
-     * @param type
-     *            •Ô‰ñ?Œ^
+     * @param type  •Ô‰ñ?Œ^
      * @return
      */
     public static String dateIntervalForString(String date1, String date2,
@@ -567,15 +533,13 @@ public class DateTimeUtils {
         return cal.getTime();
     }
 
-    public static String default_format = "yyyy-MM-dd HH:mm:ss";
-
     public static String getDate2String(Date date, String format) {
         SimpleDateFormat sformat = new SimpleDateFormat(format);
         return sformat.format(date);
     }
 
     public static Date getDateFromString(String date) throws Exception {
-        SimpleDateFormat sformat = new SimpleDateFormat(default_format);
+        SimpleDateFormat sformat = new SimpleDateFormat(DateFormat.FORMATE_0.getFormat());
         return sformat.parse(date);
     }
 
@@ -725,12 +689,11 @@ public class DateTimeUtils {
     }
 
     /**
-     *
      * @param date
      * @param format
      * @return
      */
-    public static Date formatDate(Date date,String format) {
+    public static Date formatDate(Date date, String format) {
         SimpleDateFormat inDf = new SimpleDateFormat(format);
         SimpleDateFormat outDf = new SimpleDateFormat(format);
         String reDate = "";
@@ -752,15 +715,42 @@ public class DateTimeUtils {
 
     /**
      * ?Z??‰„?‘½‹v@“I??
-     * @param date  Œ´n??
-     * @param unit  ‰„??ˆÊFCalendar.*    eg: Calendar.MONTH
-     * @param k     ‰„?—Ê
+     *
+     * @param date Œ´n??
+     * @param unit ‰„??ˆÊFCalendar.*    eg: Calendar.MONTH
+     * @param k    ‰„?—Ê
      * @return
      */
-    public static Date getDateAfterDate(Date date,Integer unit,Integer k){
-        Calendar calendar=Calendar.getInstance();
+    public static Date getDateAfterDate(Date date, Integer unit, Integer k) {
+        Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.add(unit,k);
+        calendar.add(unit, k);
         return calendar.getTime();
     }
+
+    public long translateToDays(long currentTimeMillis) {
+        return currentTimeMillis / 1000 / (60 * 60 * 24);
+    }
+
+    public enum DateFormat {
+        FORMATE_0("yyyyMMddHHmmss"),
+        FORMATE_1("yyyy-MM-dd HH:mm:ss"),
+        FORMATE_2("yyyy/MM/dd HH:mm:ss"),
+        FORMATE_3("yyyyMMdd"),
+        FORMATE_4("yyyy-MM-dd"),
+        FORMATE_5("yyyy/MM/dd"),
+        FORMATE_6("HH:mm:ss");
+
+        private String format;
+
+        DateFormat(String format) {
+            this.format = format;
+        }
+
+        public String getFormat() {
+            return format;
+        }
+    }
 }
+
+
