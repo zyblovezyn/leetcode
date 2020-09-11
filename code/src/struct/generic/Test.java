@@ -1,8 +1,5 @@
 package struct.generic;
 
-import com.sun.org.apache.bcel.internal.generic.IFNULL;
-import sun.rmi.runtime.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 
