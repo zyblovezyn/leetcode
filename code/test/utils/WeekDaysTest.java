@@ -1,4 +1,4 @@
-package test.utils;
+package utils;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -11,7 +11,7 @@ import utils.WeekDays;
  *
  * @author <Authors name>
  * @version 1.0
- * @since <pre>9Œ 7, 2020</pre>
+ * @since <pre>9ï¿½ï¿½ 7, 2020</pre>
  */
 public class WeekDaysTest {
 
@@ -42,13 +42,13 @@ public class WeekDaysTest {
      */
     @Test
     public void testGetDay_jp() throws Exception {
-        Assert.assertEquals(WeekDays.Mon.getDay_jp(),"Œ—j“ú");
-        Assert.assertEquals(WeekDays.Tue.getDay_jp(),"‰Î—j“ú");
-        Assert.assertEquals(WeekDays.Wed.getDay_jp(),"…—j“ú");
-        Assert.assertEquals(WeekDays.Thu.getDay_jp(),"–Ø—j“ú");
-        Assert.assertEquals(WeekDays.Fri.getDay_jp(),"‹à—j“ú");
-        Assert.assertEquals(WeekDays.Sat.getDay_jp(),"“y—j“ú");
-        Assert.assertEquals(WeekDays.Sun.getDay_jp(),"“ú—j“ú");
+        Assert.assertEquals(WeekDays.Mon.getDay_jp(),"ï¿½ï¿½ï¿½jï¿½ï¿½");
+        Assert.assertEquals(WeekDays.Tue.getDay_jp(),"ï¿½Î—jï¿½ï¿½");
+        Assert.assertEquals(WeekDays.Wed.getDay_jp(),"ï¿½ï¿½ï¿½jï¿½ï¿½");
+        Assert.assertEquals(WeekDays.Thu.getDay_jp(),"ï¿½Ø—jï¿½ï¿½");
+        Assert.assertEquals(WeekDays.Fri.getDay_jp(),"ï¿½ï¿½ï¿½jï¿½ï¿½");
+        Assert.assertEquals(WeekDays.Sat.getDay_jp(),"ï¿½yï¿½jï¿½ï¿½");
+        Assert.assertEquals(WeekDays.Sun.getDay_jp(),"ï¿½ï¿½ï¿½jï¿½ï¿½");
     }
 
     /**

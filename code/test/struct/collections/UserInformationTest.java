@@ -1,4 +1,4 @@
-package test.struct.collections;
+package struct.collections;
 
 import org.junit.After;
 import org.junit.Before;

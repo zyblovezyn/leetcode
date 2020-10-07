@@ -1,10 +1,11 @@
-package test.utils;
+package utils;
 
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import utils.DateTimeUtils;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,11 +13,8 @@ import java.util.regex.Pattern;
 
 /**
  * DateTimeUtils Tester.
- *
- * @author <Authors name>
- * @version 1.0
- * @since <pre>9ŒŽ 7, 2020</pre>
  */
+@SuppressWarnings("DateTimeUtilsæµ‹è¯•")
 public class DateTimeUtilsTest {
 
 
@@ -32,30 +30,26 @@ public class DateTimeUtilsTest {
     }
 
     @After
-    public void after() throws Exception {
-    }
-
-    /**
-     * Method: translateToMillis(long currentTimeMillis)
-     */
-    @Test
-    public void testTranslateToMillis() throws Exception {
-//TODO: Test goes here... 
+    public void after() {
+        this.date1 = null;
+        this.date2 = null;
     }
 
     /**
      * Method: translateToSeconds(long currentTimeMillis)
      */
     @Test
-    public void testTranslateToSeconds() throws Exception {
-//TODO: Test goes here... 
+    public void testTranslateToSeconds() {
+        long seconds = DateTimeUtils.translateToSeconds(1000);
+        Assert.assertEquals(1, seconds);
+
     }
 
     /**
      * Method: translateToMinutes(long currentTimeMillis)
      */
     @Test
-    public void testTranslateToMinutes() throws Exception {
+    public void testTranslateToMinutes() {
 //TODO: Test goes here... 
     }
 
@@ -63,7 +57,7 @@ public class DateTimeUtilsTest {
      * Method: translateToHours(long currentTimeMillis)
      */
     @Test
-    public void testTranslateToHours() throws Exception {
+    public void testTranslateToHours() {
 //TODO: Test goes here... 
     }
 
@@ -71,7 +65,7 @@ public class DateTimeUtilsTest {
      * Method: getDate2Str(String format, Date date)
      */
     @Test
-    public void testGetDate2Str() throws Exception {
+    public void testGetDate2Str() {
         String dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_1.getFormat(), date1);
         Assert.assertEquals(dtstr, "2020-09-07 10:10:10");
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_0.getFormat(), date1);
@@ -92,27 +86,27 @@ public class DateTimeUtilsTest {
      * Method: getCurrentDateStr(String format)
      */
     @Test
-    public void testGetCurrentDateStr() throws Exception {
+    public void testGetCurrentDateStr() {
         String dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_0.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_0.getFormat()),dtstr,""),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_0.getFormat()), dtstr, ""));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_1.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_1.getFormat()),dtstr,"-"),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_1.getFormat()), dtstr, "-"));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_2.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_2.getFormat()),dtstr,"/"),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_2.getFormat()), dtstr, "/"));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_3.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_3.getFormat()),dtstr,""),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_3.getFormat()), dtstr, ""));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_4.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_4.getFormat()),dtstr,"-"),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_4.getFormat()), dtstr, "-"));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_5.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_5.getFormat()),dtstr,"/"),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_5.getFormat()), dtstr, "/"));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_6.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_6.getFormat()),dtstr,":"),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_6.getFormat()), dtstr, ":"));
 
     }
 
@@ -126,34 +120,34 @@ public class DateTimeUtilsTest {
      * Method: getCurrentDateTimeStr(String format)
      */
     @Test
-    public void testGetCurrentDateTimeStr() throws Exception {
+    public void testGetCurrentDateTimeStr() {
         String dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_0.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_0.getFormat()),dtstr,""),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_0.getFormat()), dtstr, ""));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_1.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_1.getFormat()),dtstr,"-"),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_1.getFormat()), dtstr, "-"));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_2.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_2.getFormat()),dtstr,"/"),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_2.getFormat()), dtstr, "/"));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_3.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_3.getFormat()),dtstr,""),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_3.getFormat()), dtstr, ""));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_4.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_4.getFormat()),dtstr,"-"),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_4.getFormat()), dtstr, "-"));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_5.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_5.getFormat()),dtstr,"/"),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_5.getFormat()), dtstr, "/"));
 
         dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_6.getFormat(), date1);
-        Assert.assertEquals(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_6.getFormat()),dtstr,":"),true);
+        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_6.getFormat()), dtstr, ":"));
     }
 
     /**
      * Method: getDay()
      */
     @Test
-    public void testGetDay() throws Exception {
+    public void testGetDay() {
 
     }
 
@@ -161,7 +155,7 @@ public class DateTimeUtilsTest {
      * Method: getNowTime()
      */
     @Test
-    public void testGetNowTime() throws Exception {
+    public void testGetNowTime() {
 //TODO: Test goes here... 
     }
 
@@ -169,7 +163,7 @@ public class DateTimeUtilsTest {
      * Method: getTimeMin(Date date)
      */
     @Test
-    public void testGetTimeMinDate() throws Exception {
+    public void testGetTimeMinDate() {
 //TODO: Test goes here... 
     }
 
@@ -177,7 +171,7 @@ public class DateTimeUtilsTest {
      * Method: getTimeMax(Date date)
      */
     @Test
-    public void testGetTimeMaxDate() throws Exception {
+    public void testGetTimeMaxDate() {
 //TODO: Test goes here... 
     }
 
@@ -185,7 +179,7 @@ public class DateTimeUtilsTest {
      * Method: getTimeMin()
      */
     @Test
-    public void testGetTimeMin() throws Exception {
+    public void testGetTimeMin() {
 //TODO: Test goes here... 
     }
 
@@ -193,7 +187,7 @@ public class DateTimeUtilsTest {
      * Method: getTimeMax()
      */
     @Test
-    public void testGetTimeMax() throws Exception {
+    public void testGetTimeMax() {
 //TODO: Test goes here... 
     }
 
@@ -201,7 +195,7 @@ public class DateTimeUtilsTest {
      * Method: getStrToDate(String format, String str)
      */
     @Test
-    public void testGetStrToDate() throws Exception {
+    public void testGetStrToDate() {
 //TODO: Test goes here... 
     }
 
@@ -209,7 +203,7 @@ public class DateTimeUtilsTest {
      * Method: date2String(Date date)
      */
     @Test
-    public void testDate2StringDate() throws Exception {
+    public void testDate2StringDate() {
 //TODO: Test goes here... 
     }
 
@@ -217,7 +211,7 @@ public class DateTimeUtilsTest {
      * Method: dateFormatString(Date date)
      */
     @Test
-    public void testDateFormatString() throws Exception {
+    public void testDateFormatString() {
 //TODO: Test goes here... 
     }
 
@@ -225,7 +219,7 @@ public class DateTimeUtilsTest {
      * Method: date2String(Date date, String format)
      */
     @Test
-    public void testDate2StringForDateFormat() throws Exception {
+    public void testDate2StringForDateFormat() {
 //TODO: Test goes here... 
     }
 
@@ -233,7 +227,7 @@ public class DateTimeUtilsTest {
      * Method: isDateTime(String dateTime, String pattern)
      */
     @Test
-    public void testIsDateTime() throws Exception {
+    public void testIsDateTime() {
 //TODO: Test goes here... 
     }
 
@@ -241,7 +235,7 @@ public class DateTimeUtilsTest {
      * Method: getXMLGregorianCalendar(Date date)
      */
     @Test
-    public void testGetXMLGregorianCalendar() throws Exception {
+    public void testGetXMLGregorianCalendar() {
 //TODO: Test goes here... 
     }
 
@@ -249,7 +243,7 @@ public class DateTimeUtilsTest {
      * Method: getDateFromXmlGregorianCalendar(XMLGregorianCalendar da)
      */
     @Test
-    public void testGetDateFromXmlGregorianCalendar() throws Exception {
+    public void testGetDateFromXmlGregorianCalendar() {
 //TODO: Test goes here... 
     }
 
@@ -257,7 +251,7 @@ public class DateTimeUtilsTest {
      * Method: passTime(Date tempDate, int hour)
      */
     @Test
-    public void testPassTime() throws Exception {
+    public void testPassTime() {
 //TODO: Test goes here... 
     }
 
@@ -265,7 +259,7 @@ public class DateTimeUtilsTest {
      * Method: getLimitDate(int hour)
      */
     @Test
-    public void testGetLimitDate() throws Exception {
+    public void testGetLimitDate() {
 //TODO: Test goes here... 
     }
 
@@ -273,7 +267,7 @@ public class DateTimeUtilsTest {
      * Method: getTimeAfterMinute(int minute, Date date)
      */
     @Test
-    public void testGetTimeAfterMinute() throws Exception {
+    public void testGetTimeAfterMinute() {
 //TODO: Test goes here... 
     }
 
@@ -281,7 +275,7 @@ public class DateTimeUtilsTest {
      * Method: getTimeBeforeHour(int hour, Date date)
      */
     @Test
-    public void testGetTimeBeforeHour() throws Exception {
+    public void testGetTimeBeforeHour() {
 //TODO: Test goes here... 
     }
 
@@ -289,7 +283,7 @@ public class DateTimeUtilsTest {
      * Method: getTimeAfterHour(int hour, Date date)
      */
     @Test
-    public void testGetTimeAfterHour() throws Exception {
+    public void testGetTimeAfterHour() {
 //TODO: Test goes here... 
     }
 
@@ -297,7 +291,7 @@ public class DateTimeUtilsTest {
      * Method: getDateAfterDate(int day, Date date)
      */
     @Test
-    public void testGetDateAfterDateForDayDate() throws Exception {
+    public void testGetDateAfterDateForDayDate() {
 //TODO: Test goes here... 
     }
 
@@ -305,7 +299,7 @@ public class DateTimeUtilsTest {
      * Method: getAfterDate(int day)
      */
     @Test
-    public void testGetAfterDate() throws Exception {
+    public void testGetAfterDate() {
 //TODO: Test goes here... 
     }
 
@@ -313,7 +307,7 @@ public class DateTimeUtilsTest {
      * Method: getBeforeMinute(int minute)
      */
     @Test
-    public void testGetBeforeMinute() throws Exception {
+    public void testGetBeforeMinute() {
 //TODO: Test goes here... 
     }
 
@@ -321,7 +315,7 @@ public class DateTimeUtilsTest {
      * Method: getBeforeHour(int hour)
      */
     @Test
-    public void testGetBeforeHour() throws Exception {
+    public void testGetBeforeHour() {
 //TODO: Test goes here... 
     }
 
@@ -329,7 +323,7 @@ public class DateTimeUtilsTest {
      * Method: getTimeBeforeMinute(int minute, Date date)
      */
     @Test
-    public void testGetTimeBeforeMinute() throws Exception {
+    public void testGetTimeBeforeMinute() {
 //TODO: Test goes here... 
     }
 
@@ -337,7 +331,7 @@ public class DateTimeUtilsTest {
      * Method: getDateBeforeDate(int day, Date date)
      */
     @Test
-    public void testGetDateBeforeDate() throws Exception {
+    public void testGetDateBeforeDate() {
 //TODO: Test goes here... 
     }
 
@@ -345,7 +339,7 @@ public class DateTimeUtilsTest {
      * Method: getBeforeDate(int day)
      */
     @Test
-    public void testGetBeforeDate() throws Exception {
+    public void testGetBeforeDate() {
 //TODO: Test goes here... 
     }
 
@@ -353,7 +347,7 @@ public class DateTimeUtilsTest {
      * Method: getBeforeDateTime(int day)
      */
     @Test
-    public void testGetBeforeDateTime() throws Exception {
+    public void testGetBeforeDateTime() {
 //TODO: Test goes here... 
     }
 
@@ -361,7 +355,7 @@ public class DateTimeUtilsTest {
      * Method: getBeforeDateStr(int day)
      */
     @Test
-    public void testGetBeforeDateStrDay() throws Exception {
+    public void testGetBeforeDateStrDay() {
 //TODO: Test goes here... 
     }
 
@@ -369,7 +363,7 @@ public class DateTimeUtilsTest {
      * Method: getBeforeDateStr(int day, String format)
      */
     @Test
-    public void testGetBeforeDateStrForDayFormat() throws Exception {
+    public void testGetBeforeDateStrForDayFormat() {
 //TODO: Test goes here... 
     }
 
@@ -377,7 +371,7 @@ public class DateTimeUtilsTest {
      * Method: getBeforeDateTimeStr(int day)
      */
     @Test
-    public void testGetBeforeDateTimeStr() throws Exception {
+    public void testGetBeforeDateTimeStr() {
 //TODO: Test goes here... 
     }
 
@@ -385,7 +379,7 @@ public class DateTimeUtilsTest {
      * Method: getLimitDateByMinute(int minute)
      */
     @Test
-    public void testGetLimitDateByMinute() throws Exception {
+    public void testGetLimitDateByMinute() {
 //TODO: Test goes here... 
     }
 
@@ -393,7 +387,7 @@ public class DateTimeUtilsTest {
      * Method: isValidDate(String sDate)
      */
     @Test
-    public void testIsValidDate() throws Exception {
+    public void testIsValidDate() {
 //TODO: Test goes here... 
     }
 
@@ -401,7 +395,7 @@ public class DateTimeUtilsTest {
      * Method: dateIntervalForDate(Date date1, Date date2, String type)
      */
     @Test
-    public void testDateIntervalForDate() throws Exception {
+    public void testDateIntervalForDate() {
 //TODO: Test goes here... 
     }
 
@@ -409,7 +403,7 @@ public class DateTimeUtilsTest {
      * Method: dateIntervalForString(String date1, String date2, String type)
      */
     @Test
-    public void testDateIntervalForString() throws Exception {
+    public void testDateIntervalForString() {
 //TODO: Test goes here... 
     }
 
@@ -417,7 +411,7 @@ public class DateTimeUtilsTest {
      * Method: coreDateInterval(Date date1, Date date2, String type)
      */
     @Test
-    public void testCoreDateInterval() throws Exception {
+    public void testCoreDateInterval() {
 //TODO: Test goes here... 
     }
 
@@ -425,7 +419,7 @@ public class DateTimeUtilsTest {
      * Method: getBetweenDayMs()
      */
     @Test
-    public void testGetBetweenDayMs() throws Exception {
+    public void testGetBetweenDayMs() {
 //TODO: Test goes here... 
     }
 
@@ -433,7 +427,7 @@ public class DateTimeUtilsTest {
      * Method: getPreMonth()
      */
     @Test
-    public void testGetPreMonth() throws Exception {
+    public void testGetPreMonth() {
 //TODO: Test goes here... 
     }
 
@@ -441,7 +435,7 @@ public class DateTimeUtilsTest {
      * Method: getDate2String(Date date, String format)
      */
     @Test
-    public void testGetDate2String() throws Exception {
+    public void testGetDate2String() {
 //TODO: Test goes here... 
     }
 
@@ -449,7 +443,7 @@ public class DateTimeUtilsTest {
      * Method: getDateFromString(String date)
      */
     @Test
-    public void testGetDateFromString() throws Exception {
+    public void testGetDateFromString() {
 //TODO: Test goes here... 
     }
 
@@ -457,7 +451,7 @@ public class DateTimeUtilsTest {
      * Method: getDateFromStr(String date, String format)
      */
     @Test
-    public void testGetDateFromStr() throws Exception {
+    public void testGetDateFromStr() {
 //TODO: Test goes here... 
     }
 
@@ -465,7 +459,7 @@ public class DateTimeUtilsTest {
      * Method: getString2Date(String date, String format)
      */
     @Test
-    public void testGetString2Date() throws Exception {
+    public void testGetString2Date() {
 //TODO: Test goes here... 
     }
 
@@ -473,7 +467,7 @@ public class DateTimeUtilsTest {
      * Method: getFormatDate(Date date, String format)
      */
     @Test
-    public void testGetFormatDate() throws Exception {
+    public void testGetFormatDate() {
 //TODO: Test goes here... 
     }
 
@@ -481,7 +475,7 @@ public class DateTimeUtilsTest {
      * Method: getSwitchPassword()
      */
     @Test
-    public void testGetSwitchPassword() throws Exception {
+    public void testGetSwitchPassword() {
 //TODO: Test goes here... 
     }
 
@@ -646,4 +640,267 @@ public class DateTimeUtilsTest {
     }
 
 
-} 
+    @org.junit.jupiter.api.Test
+    void translateToMillis() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void translateToSeconds() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void translateToMinutes() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void translateToHours() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDate2Str() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getCurrentDateStr() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getCurrentDateTimeStr() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDay() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getNowTime() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getTimeMin() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getTimeMax() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void testGetTimeMin1() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void testGetTimeMax1() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getStrToDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void date2String() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void dateFormatString() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void testDate2String() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void isDateTime() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getXMLGregorianCalendar() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDateFromXmlGregorianCalendar() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void passTime() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getLimitDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getTimeAfterMinute() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getTimeBeforeHour() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getTimeAfterHour() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDateAfterDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getAfterDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getBeforeMinute() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getBeforeHour() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getTimeBeforeMinute() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDateBeforeDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getBeforeDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getBeforeDateTime() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getBeforeDateStr() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void testGetBeforeDateStr() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getBeforeDateTimeStr() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getLimitDateByMinute() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void isValidDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void dateIntervalForDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void dateIntervalForString() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void coreDateInterval() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getBetweenDayMs() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getPreMonth() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDate2String() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDateFromString() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDateFromStr() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getString2Date() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getFormatDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getSwitchPassword() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getSwitchPasswordUrlParam() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getLastDateStr() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDateStrByLong() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDayDiff() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void get5MinuteDiff() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getHourDiff() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDayStart() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getDayEnd() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void get5MStart() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void get5MEnd() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getHourStart() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getHourEnd() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getBeforeDateInfo() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void formatDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void formatDateUTC() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void testGetDateAfterDate() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void translateToDays() {
+    }
+}

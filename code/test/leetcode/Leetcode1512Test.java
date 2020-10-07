@@ -1,6 +1,5 @@
-package test.leetcode;
+package leetcode;
 
-import leetcode.Leetcode1512;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

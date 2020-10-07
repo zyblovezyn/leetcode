@@ -17,10 +17,6 @@ public class DateTimeUtils {
 
     private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 
-    public static long translateToMillis(long currentTimeMillis) {
-        return currentTimeMillis;
-    }
-
     public static long translateToSeconds(long currentTimeMillis) {
         return currentTimeMillis / 1000;
     }
@@ -34,11 +30,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * æ“¾–^“úŠú??“I“Á’è•\¦Ši®“Iš•„‹ø
+     * å–å¾—æ—¥æœŸçš„ç‰¹å®šè¡¨ç¤ºæ ¼å¼çš„å­—ç¬¦ä¸²
      *
-     * @param format ??Ši®
-     * @param date   –^“úŠúiDatej
-     * @return –^“úŠú“Iš•„‹ø
+     * @param format æ—¥æœŸæ ¼å¼
+     * @param date   æ—¥æœŸï¼ˆDateï¼‰
+     * @return æ—¥æœŸçš„å­—ç¬¦ä¸²
      */
     public static synchronized String getDate2Str(String format, Date date) {
         simpleDateFormat.applyPattern(format);
@@ -46,10 +42,10 @@ public class DateTimeUtils {
     }
 
     /**
-     * æ“¾–^“úŠú??“I“Á’è•\¦Ši®“Iš•„‹ø
+     * å–å¾—æŸæ—¥æœŸ??çš„ç‰¹å®šè¡¨ç¤ºæ ¼å¼çš„å­—ç¬¦ä¸²
      *
-     * @param format ??Ši®
-     * @return –^“úŠú“Iš•„‹ø
+     * @param format ??æ ¼å¼
+     * @return æŸæ—¥æœŸçš„å­—ç¬¦ä¸²
      */
     public static synchronized String getCurrentDateStr(String format) {
         if (StringUtils.isBlank(format)) {
@@ -61,10 +57,10 @@ public class DateTimeUtils {
     }
 
     /**
-     * æ“¾–^“úŠú??“I“Á’è•\¦Ši®“Iš•„‹ø
+     * å–å¾—æŸæ—¥æœŸ??çš„ç‰¹å®šè¡¨ç¤ºæ ¼å¼çš„å­—ç¬¦ä¸²
      *
-     * @param format ??Ši®
-     * @return –^“úŠú“Iš•„‹ø
+     * @param format ??æ ¼å¼
+     * @return æŸæ—¥æœŸçš„å­—ç¬¦ä¸²
      */
     public static synchronized String getCurrentDateTimeStr(String format) {
         if (StringUtils.isBlank(format)) {
@@ -122,11 +118,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * «“Á’èŠi®“I??š•„‹ø?‰»?Date?Œ^
+     * å°†ç‰¹å®šæ ¼å¼çš„??å­—ç¬¦ä¸²?åŒ–?Date?å‹
      *
-     * @param format ??Ši®
-     * @param str    –^“úŠú“Iš•„‹ø
-     * @return –^“úŠúiDatej
+     * @param format ??æ ¼å¼
+     * @param str    æŸæ—¥æœŸçš„å­—ç¬¦ä¸²
+     * @return æŸæ—¥æœŸï¼ˆDateï¼‰
      */
     public static synchronized Date getStrToDate(String format, String str) {
         simpleDateFormat.applyPattern(format);
@@ -147,11 +143,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * ??š•„‹ø¥”Û?“úŠú
+     * ??å­—ç¬¦ä¸²æ˜¯å¦?æ—¥æœŸ
      *
-     * @param dateTime ??š•„‹ø
+     * @param dateTime ??å­—ç¬¦ä¸²
      * @param pattern  Eg "yyyy-MM-dd"
-     * @return •Ô‰ñ?‰Ê
+     * @return è¿”å›?æœ
      */
     public static boolean isDateTime(String dateTime, String pattern) {
         SimpleDateFormat df = new SimpleDateFormat(pattern);
@@ -204,9 +200,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“n¬?‘O??
+     * å¾—åˆ°nå°?å‰??
      *
-     * @param hour ¬?”
+     * @param hour å°?æ•°
      * @return Date
      */
     public static Date getLimitDate(int hour) {
@@ -217,7 +213,7 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“w’è??n•ª?@??
+     * å¾—åˆ°æŒ‡å®š??nåˆ†?å??
      *
      * @param minute ??
      * @return Date
@@ -232,7 +228,7 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“w’è??n¬?‘O??
+     * å¾—åˆ°æŒ‡å®š??nå°?å‰??
      *
      * @param minute ??
      * @return Date
@@ -248,7 +244,7 @@ public class DateTimeUtils {
 
 
     /**
-     * “¾“w’è??n¬?@??
+     * å¾—åˆ°æŒ‡å®š??nå°?å??
      *
      * @param minute ??
      * @return Date
@@ -263,9 +259,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“w’è??n“V@“úŠú
+     * å¾—åˆ°æŒ‡å®š??nå¤©åæ—¥æœŸ
      *
-     * @param day “úŠú
+     * @param day æ—¥æœŸ
      * @return Date
      * @throws Exception
      */
@@ -277,9 +273,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“n“V@“úŠú
+     * å¾—åˆ°nå¤©åæ—¥æœŸ
      *
-     * @param day “úŠú
+     * @param day æ—¥æœŸ
      * @return Date
      */
     public static Date getAfterDate(int day) throws Exception {
@@ -290,9 +286,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾““–‘O??n•ª?‘O??
+     * å¾—åˆ°å½“å‰??nåˆ†?å‰??
      *
-     * @param day “úŠú
+     * @param day æ—¥æœŸ
      * @return Date
      * @throws Exception
      */
@@ -305,9 +301,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾““–‘O??n•ª?‘O??
+     * å¾—åˆ°å½“å‰??nåˆ†?å‰??
      *
-     * @param day “úŠú
+     * @param day æ—¥æœŸ
      * @return Date
      * @throws Exception
      */
@@ -320,9 +316,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“w’è??n•ª?‘O??
+     * å¾—åˆ°æŒ‡å®š??nåˆ†?å‰??
      *
-     * @param day “úŠú
+     * @param day æ—¥æœŸ
      * @return Date
      * @throws Exception
      */
@@ -335,9 +331,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“w’è??n“V‘O“úŠú
+     * å¾—åˆ°æŒ‡å®š??nå¤©å‰æ—¥æœŸ
      *
-     * @param day “úŠú
+     * @param day æ—¥æœŸ
      * @return Date
      * @throws Exception
      */
@@ -348,9 +344,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“n“V‘O“úŠú
+     * å¾—åˆ°nå¤©å‰æ—¥æœŸ
      *
-     * @param day “úŠú
+     * @param day æ—¥æœŸ
      * @return Date
      */
     public static Date getBeforeDate(int day) throws Exception {
@@ -361,9 +357,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“n“V‘O“úŠú
+     * å¾—åˆ°nå¤©å‰æ—¥æœŸ
      *
-     * @param day “úŠú
+     * @param day æ—¥æœŸ
      * @return Date
      */
     public static Date getBeforeDateTime(int day) throws Exception {
@@ -374,9 +370,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“n“V‘O“úŠú
+     * å¾—åˆ°nå¤©å‰æ—¥æœŸ
      *
-     * @param day “úŠú
+     * @param day æ—¥æœŸ
      * @return String
      */
     public static String getBeforeDateStr(int day) throws Exception {
@@ -394,9 +390,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“n“V‘O“úŠú
+     * å¾—åˆ°nå¤©å‰æ—¥æœŸ
      *
-     * @param day “úŠú
+     * @param day æ—¥æœŸ
      * @return String
      */
     public static String getBeforeDateTimeStr(int day) throws Exception {
@@ -407,9 +403,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * “¾“n•ª?‘O??
+     * å¾—åˆ°nåˆ†?å‰??
      *
-     * @param minute ¬?”
+     * @param minute å°?æ•°
      * @return Date
      */
     public static Date getLimitDateByMinute(int minute) {
@@ -419,7 +415,7 @@ public class DateTimeUtils {
         return cl.getTime();
     }
 
-    // ”»’f¥•s¥“úŠúŒ^ true‘ã•\¥“úŠúŒ^Cfalse‘ã•\¸?
+    // åˆ¤æ–­æ˜¯ä¸æ˜¯æ—¥æœŸå‹ trueä»£è¡¨æ˜¯æ—¥æœŸå‹ï¼Œfalseä»£è¡¨å¤±?
     public static boolean isValidDate(String sDate) {
         String datePattern1 = "\\d{4}-\\d{2}-\\d{2}";
         String datePattern2 = "^((\\d{2}(([02468][048])|([13579][26]))"
@@ -443,11 +439,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * ?Z??· ?“ü“I¥date?Œ^
+     * ?ç®—??å·® ?å…¥çš„æ˜¯date?å‹
      *
      * @param date1
      * @param date2
-     * @param type  •Ô‰ñ?Œ^
+     * @param type  è¿”å›?å‹
      * @return
      */
     public static String dateIntervalForDate(Date date1, Date date2, String type) {
@@ -455,7 +451,7 @@ public class DateTimeUtils {
             if (date1 != null && !"".equals(date1) && !"null".equals(date1)
                     && date2 != null && !"".equals(date2)
                     && !"null".equals(date2)) {
-                // ??@?—p??·Z–@
+                // ??å?ç”¨??å·®ç®—æ³•
                 return coreDateInterval(date1, date2, type);
             }
         } catch (Exception e) {
@@ -464,11 +460,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * ?Z??· ?“ü“I?Œ^”@‰Ê¥š•„‹øC?—pŸ•û–@??¬date?Œ^CÄ?—p??·Z–@
+     * ?ç®—??å·® ?å…¥çš„?å‹å¦‚æœæ˜¯å­—ç¬¦ä¸²ï¼Œ?ç”¨æ­¤æ–¹æ³•??æˆdate?å‹ï¼Œå†?ç”¨??å·®ç®—æ³•
      *
      * @param date1
      * @param date2
-     * @param type  •Ô‰ñ?Œ^
+     * @param type  è¿”å›?å‹
      * @return
      */
     public static String dateIntervalForString(String date1, String date2,
@@ -481,7 +477,7 @@ public class DateTimeUtils {
                         "yyyy-MM-dd HH:mm:ss");
                 Date date3 = sdf.parse(date1);
                 Date date4 = sdf.parse(date2);
-                // ??@?—p??·Z–@
+                // ??å?ç”¨??å·®ç®—æ³•
                 return coreDateInterval(date3, date4, type);
             }
         } catch (Exception e) {
@@ -490,7 +486,7 @@ public class DateTimeUtils {
     }
 
     /**
-     * ?Z??·ŠjS•û–@
+     * ?ç®—??å·®æ ¸å¿ƒæ–¹æ³•
      *
      * @param args
      */
@@ -501,7 +497,7 @@ public class DateTimeUtils {
         long min = ((l / (60 * 1000)) - day * 24 * 60 - hour * 60);
         long s = (l / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
         if ("1".equals(type)) {
-            return day + "“V" + hour + "¬?" + min + "•ª" + s + "•b";
+            return day + "å¤©" + hour + "å°?" + min + "åˆ†" + s + "ç§’";
         } else if ("2".equals(type)) {
             return day * 24 + hour + ":" + min + ":" + s;
         } else {
@@ -510,7 +506,7 @@ public class DateTimeUtils {
     }
 
     /**
-     * ?Z“–‘O??“—½í??·
+     * ?ç®—å½“å‰??åˆ°å‡Œæ™¨??å·®
      *
      * @param args
      */
@@ -528,8 +524,8 @@ public class DateTimeUtils {
 
     public static Date getPreMonth() {
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -1); // “¾“‘Oˆê“V
-        cal.add(Calendar.MONTH, -1); // “¾“‘Oˆê˜¢Œ
+        cal.add(Calendar.DATE, -1); // å¾—åˆ°å‰ä¸€å¤©
+        cal.add(Calendar.MONTH, -1); // å¾—åˆ°å‰ä¸€ä¸ªæœˆ
         return cal.getTime();
     }
 
@@ -560,7 +556,7 @@ public class DateTimeUtils {
         return getString2Date(dateStr, format);
     }
 
-    // —p˜°??–Í??‹Q”,—á:pwd=091416
+    // ç”¨äº??æ¨¡??æ±‚å‚æ•°,ä¾‹:pwd=091416
     public static String getSwitchPassword() {
         String pwd = "";
         Date date = new Date();
@@ -573,7 +569,7 @@ public class DateTimeUtils {
         return pwd;
     }
 
-    // —p˜°??–Í??‹Q”,—á:pwd=091416
+    // ç”¨äº??æ¨¡??æ±‚å‚æ•°,ä¾‹:pwd=091416
     public static String getSwitchPasswordUrlParam(String uri) {
         if (uri.indexOf("?") == -1) {
             return uri + "?pwd=" + getSwitchPassword();
@@ -714,11 +710,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * ?Z??‰„?‘½‹v@“I??
+     * ?ç®—??å»¶?å¤šä¹…åçš„??
      *
-     * @param date Œ´n??
-     * @param unit ‰„??ˆÊFCalendar.*    eg: Calendar.MONTH
-     * @param k    ‰„?—Ê
+     * @param date åŸå§‹??
+     * @param unit å»¶??ä½ï¼šCalendar.*    eg: Calendar.MONTH
+     * @param k    å»¶?é‡
      * @return
      */
     public static Date getDateAfterDate(Date date, Integer unit, Integer k) {
