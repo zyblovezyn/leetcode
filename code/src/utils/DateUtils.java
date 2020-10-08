@@ -13,9 +13,9 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DateTimeUtils {
+public class DateUtils {
 
-    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+    private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 
     public static long translateToSeconds(long currentTimeMillis) {
         return currentTimeMillis / 1000;
@@ -30,26 +30,14 @@ public class DateTimeUtils {
     }
 
     /**
-     * 取得日期的特定表示格式的字符串
+     * 取得当前日期的指定格式的字符串表示 默认yyyy-Mm-dd HH:mm:ss
      *
      * @param format 日期格式
-     * @param date   日期（Date）
-     * @return 日期的字符串
-     */
-    public static synchronized String getDate2Str(String format, Date date) {
-        simpleDateFormat.applyPattern(format);
-        return simpleDateFormat.format(date);
-    }
-
-    /**
-     * 取得某日期??的特定表示格式的字符串
-     *
-     * @param format ??格式
      * @return 某日期的字符串
      */
     public static synchronized String getCurrentDateStr(String format) {
         if (StringUtils.isBlank(format)) {
-            simpleDateFormat.applyPattern(DateFormat.FORMATE_2.getFormat());
+            simpleDateFormat.applyPattern(DateFormat.DATETIME_DEFAULT.getFormat());
         } else {
             simpleDateFormat.applyPattern(format);
         }
@@ -57,102 +45,129 @@ public class DateTimeUtils {
     }
 
     /**
-     * 取得某日期??的特定表示格式的字符串
-     *
-     * @param format ??格式
-     * @return 某日期的字符串
+     * @Description: 获取当前日期yyyy-MM-dd
+     * @return: string
      */
-    public static synchronized String getCurrentDateTimeStr(String format) {
-        if (StringUtils.isBlank(format)) {
-            simpleDateFormat.applyPattern(DateFormat.FORMATE_1.getFormat());
-        } else {
-            simpleDateFormat.applyPattern(format);
-        }
+    public static String getDate() {
+        simpleDateFormat.applyPattern(DateFormat.DATE_DEFAULT.getFormat());
         return simpleDateFormat.format(new Date());
     }
 
-    public static String getDay() {
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        return sdf.format(date);
+    /**
+     * @Description: 获取当前日期
+     * @return: string
+     */
+    public static String getDate(DateFormat format) {
+        simpleDateFormat.applyPattern(format.getFormat());
+        return simpleDateFormat.format(new Date());
     }
 
-    public static String getNowTime() {
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(date);
+    /**
+     * @Description: 获取当前时间 HH:mm:ss
+     * @return: string
+     */
+    public static String getTime() {
+        simpleDateFormat.applyPattern(DateFormat.TIME.getFormat());
+        return simpleDateFormat.format(new Date());
     }
 
-    public static Date getTimeMin(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String da = sdf.format(date);
-        da = da + " 00:00:00";
-        Date d = getStrToDate(DateFormat.FORMATE_1.getFormat(), da);
-        return d;
+    /**
+     * @Description: 获取当前时间 HH:mm:ss
+     * @return: string
+     */
+    public static String getTime(Date date) {
+        simpleDateFormat.applyPattern(DateFormat.TIME.getFormat());
+        return simpleDateFormat.format(date);
     }
 
-    public static Date getTimeMax(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String da = sdf.format(date);
-        da = da + " 23:59:59";
-        Date d = getStrToDate(DateFormat.FORMATE_1.getFormat(), da);
-        return d;
-    }
-
+    /**
+     * @Description: 获取当前日期yyyy-MM-dd 00:00:00
+     * @return: string
+     */
     public static Date getTimeMin() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String da = sdf.format(date);
         da = da + " 00:00:00";
-        Date d = getStrToDate(DateFormat.FORMATE_1.getFormat(), da);
-        return d;
+        return getStr2Date(DateFormat.DATETIME_DEFAULT, da);
     }
 
+    /**
+     * 字符串转日期
+     *
+     * @param format 日期格式
+     * @param str    日期的字符串
+     * @return 日期（Date）
+     */
+    public static synchronized Date getStr2Date(DateFormat format, String str) {
+        Date date = null;
+        simpleDateFormat.applyPattern(format.getFormat());
+        try {
+            date = simpleDateFormat.parse(str);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    /**
+     * @param date 日期
+     * @Description: 获取当前日期yyyy-MM-dd 00:00:00
+     * @return: string
+     */
+    public static Date getTimeMin(Date date) {
+        simpleDateFormat.applyPattern(DateFormat.DATE_DEFAULT.getFormat());
+        String dateStr = simpleDateFormat.format(date);
+        dateStr = dateStr + " 00:00:00";
+        return getStr2Date(DateFormat.DATETIME_DEFAULT, dateStr);
+    }
+
+    /**
+     * @Description: 获取当前日期yyyy-MM-dd 00:00:00
+     * @return: string
+     */
     public static Date getTimeMax() {
         Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String da = sdf.format(date);
-        da = da + " 23:59:59";
-        Date d = getStrToDate(DateFormat.FORMATE_1.getFormat(), da);
-        return d;
+        simpleDateFormat.applyPattern(DateFormat.DATE_DEFAULT.getFormat());
+        String dateStr = simpleDateFormat.format(date);
+        dateStr = dateStr + " 23:59:59";
+        return getStr2Date(DateFormat.DATETIME_DEFAULT, dateStr);
     }
 
     /**
-     * 将特定格式的??字符串?化?Date?型
-     *
-     * @param format ??格式
-     * @param str    某日期的字符串
-     * @return 某日期（Date）
+     * @param date 日期
+     * @Description: 获取当前日期yyyy-MM-dd 00:00:00
+     * @return: string
      */
-    public static synchronized Date getStrToDate(String format, String str) {
-        simpleDateFormat.applyPattern(format);
-        ParsePosition parseposition = new ParsePosition(0);
-        return simpleDateFormat.parse(str, parseposition);
-    }
-
-    public static String date2String(Date date) {
-        return getDate2Str(DateFormat.FORMATE_0.getFormat(), date);
-    }
-
-    public static String dateFormatString(Date date) {
-        return getDate2Str(DateFormat.FORMATE_1.getFormat(), date);
-    }
-
-    public static String date2String(Date date, String format) {
-        return getDate2Str(format, date);
+    public static Date getTimeMax(Date date) {
+        simpleDateFormat.applyPattern(DateFormat.DATE_DEFAULT.getFormat());
+        String da = simpleDateFormat.format(date);
+        da = da + " 23:59:59";
+        return getStr2Date(DateFormat.DATETIME_DEFAULT, da);
     }
 
     /**
-     * ??字符串是否?日期
+     * 取得日期的特定表示格式的字符串 默认日期格式yyyy-MM-dd HH:mm:dd
      *
-     * @param dateTime ??字符串
+     * @param date 日期（Date）
+     * @return 日期的字符串
+     */
+    public static synchronized String getDate2Str(Date date) {
+        simpleDateFormat.applyPattern(DateFormat.DATETIME_DEFAULT.getFormat());
+        return simpleDateFormat.format(date);
+    }
+
+    /**
+     * 检查字符串是否为日期
+     *
+     * @param dateTime 日期字符串
      * @param pattern  Eg "yyyy-MM-dd"
      * @return 返回?果
      */
     public static boolean isDateTime(String dateTime, String pattern) {
-        SimpleDateFormat df = new SimpleDateFormat(pattern);
+        simpleDateFormat.applyPattern(pattern);
         ParsePosition pos = new ParsePosition(0);
-        Date dt = df.parse(dateTime, pos);
+        Date dt = simpleDateFormat.parse(dateTime, pos);
         return !(dt == null);
     }
 
@@ -171,7 +186,7 @@ public class DateTimeUtils {
                     calendar.get(Calendar.SECOND),
                     calendar.get(Calendar.MILLISECOND),
                     calendar.get(Calendar.ZONE_OFFSET) / (1000 * 60));
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
         return xmlCalendar;
     }
@@ -200,147 +215,185 @@ public class DateTimeUtils {
     }
 
     /**
-     * 得到n小?前??
+     * 得到当前日期减去指定小时后的日期
      *
-     * @param hour 小?数
+     * @param hour 小时数
      * @return Date
      */
     public static Date getLimitDate(int hour) {
         Calendar cl = Calendar.getInstance();
-        Long clTemp = cl.getTimeInMillis() - hour * 60 * 60 * 1000;
+        long clTemp = cl.getTimeInMillis() - hour * 60 * 60 * 1000L;
         cl.setTimeInMillis(clTemp);
         return cl.getTime();
     }
 
     /**
-     * 得到指定??n分?后??
+     * 得到当前日期减去指定分钟后的日期
      *
-     * @param minute ??
+     * @param minute 分钟数
      * @return Date
-     * @throws Exception
      */
-    public static Date getTimeAfterMinute(int minute, Date date)
-            throws Exception {
+    public static Date getTimeAfterMinute(int minute) {
+        Calendar cl = Calendar.getInstance();
+        long dateTemp = cl.getTimeInMillis() + minute * 60 * 1000L;
+        cl.setTimeInMillis(dateTemp);
+        return cl.getTime();
+    }
+
+    /**
+     * 得到指定日期减去指定分钟后的日期
+     *
+     * @param minute 分钟数
+     * @return Date
+     */
+    public static Date getTimeAfterMinute(int minute, Date date) {
         long dateTemp = date.getTime() + minute * 60 * 1000L;
         Date newTime = new Date();
         newTime.setTime(dateTemp);
-        return getFormatDate(newTime, "yyyy-MM-dd HH:mm:ss");
+        return newTime;
     }
 
     /**
-     * 得到指定??n小?前??
+     * 得到当前日期指定小时之前的日期
      *
-     * @param minute ??
+     * @param hour 小时数
      * @return Date
-     * @throws Exception
      */
-    public static Date getTimeBeforeHour(int hour, Date date)
-            throws Exception {
+    public static Date getDateBeforeHour(int hour) {
+        Calendar cl = Calendar.getInstance();
+        long dateTemp = cl.getTimeInMillis() - hour * 60 * 60 * 1000L;
+        cl.setTimeInMillis(dateTemp);
+        return cl.getTime();
+    }
+
+    /**
+     * 得到指定小时之前的日期
+     *
+     * @param hour 小时数
+     * @param date 日期
+     * @return Date
+     */
+    public static Date getDateBeforeHour(int hour, Date date) {
         long dateTemp = date.getTime() - hour * 60 * 60 * 1000L;
         Date newTime = new Date();
         newTime.setTime(dateTemp);
-        return getFormatDate(newTime, "yyyy-MM-dd HH:mm:ss");
+        return newTime;
     }
 
+    /**
+     * 得到当前日期指定小时之后的日期
+     *
+     * @param hour
+     * @return Date
+     */
+    public static Date getDateAfterHour(int hour) {
+        Calendar cl = Calendar.getInstance();
+        long dateTemp = cl.getTimeInMillis() + hour * 60 * 60 * 1000L;
+        cl.setTimeInMillis(dateTemp);
+        return cl.getTime();
+    }
 
     /**
-     * 得到指定??n小?后??
+     * 得到指定小时之后的日期
      *
-     * @param minute ??
+     * @param hour
+     * @param date
      * @return Date
-     * @throws Exception
      */
-    public static Date getTimeAfterHour(int hour, Date date)
-            throws Exception {
+    public static Date getDateAfterHour(int hour, Date date) {
         long dateTemp = date.getTime() + hour * 60 * 60 * 1000L;
         Date newTime = new Date();
         newTime.setTime(dateTemp);
-        return getFormatDate(newTime, "yyyy-MM-dd HH:mm:ss");
+        return  newTime;
+    }
+
+
+    /**
+     * 取得日期的特定表示格式的字符串
+     *
+     * @param format 日期格式
+     * @param date   日期（Date）
+     * @return 日期的字符串
+     */
+    public static synchronized String getDate2Str(Date date, DateFormat format) {
+        simpleDateFormat.applyPattern(format.getFormat());
+        return simpleDateFormat.format(date);
     }
 
     /**
-     * 得到指定??n天后日期
+     * 得到指定天数后日期
      *
      * @param day 日期
      * @return Date
-     * @throws Exception
      */
-    public static Date getDateAfterDate(int day, Date date) throws Exception {
+    public static Date getDateAfterDate(int day) {
+        long dateTemp = new Date().getTime() + day * 24 * 60 * 60 * 1000L;
+        Date newDate = new Date();
+        newDate.setTime(dateTemp);
+        return  newDate ;
+    }
+
+    /**
+     * 得到指定天数后日期
+     *
+     * @param day 日期
+     * @return Date
+     */
+    public static Date getDateAfterDate(int day, Date date) {
         long dateTemp = date.getTime() + day * 24 * 60 * 60 * 1000L;
         Date newDate = new Date();
         newDate.setTime(dateTemp);
-        return getFormatDate(newDate, "yyyy-MM-dd");
+        return  newDate ;
     }
 
     /**
-     * 得到n天后日期
+     * 得到多少分钟前日期
      *
-     * @param day 日期
+     * @param minute 分钟
      * @return Date
      */
-    public static Date getAfterDate(int day) throws Exception {
-        Calendar cl = Calendar.getInstance();
-        Long clTemp = cl.getTimeInMillis() + day * 24 * 60 * 60 * 1000;
-        cl.setTimeInMillis(clTemp);
-        return getFormatDate(cl.getTime(), "yyyy-MM-dd");
-    }
-
-    /**
-     * 得到当前??n分?前??
-     *
-     * @param day 日期
-     * @return Date
-     * @throws Exception
-     */
-    public static Date getBeforeMinute(int minute)
-            throws Exception {
+    public static Date getBeforeMinute(int minute) {
         Date nowtime = new Date();
         long dateTemp = nowtime.getTime() - minute * 60 * 1000L;
         nowtime.setTime(dateTemp);
-        return getFormatDate(nowtime, "yyyy-MM-dd HH:mm:ss");
+        return  nowtime ;
     }
 
     /**
-     * 得到当前??n分?前??
+     * 得到多少小时前日期
      *
-     * @param day 日期
+     * @param hour 日期
      * @return Date
-     * @throws Exception
      */
-    public static Date getBeforeHour(int hour)
-            throws Exception {
+    public static Date getBeforeHour(int hour) {
         Date nowtime = new Date();
         long dateTemp = nowtime.getTime() - hour * 60 * 60 * 1000L;
         nowtime.setTime(dateTemp);
-        return getFormatDate(nowtime, "yyyy-MM-dd HH:mm:ss");
+        return nowtime ;
     }
 
     /**
-     * 得到指定??n分?前??
+     * 得到指定小时前日期
      *
-     * @param day 日期
      * @return Date
-     * @throws Exception
      */
-    public static Date getTimeBeforeMinute(int minute, Date date)
-            throws Exception {
+    public static Date getTimeBeforeMinute(int minute, Date date) {
         long dateTemp = date.getTime() - minute * 60 * 1000L;
         Date newTime = new Date();
         newTime.setTime(dateTemp);
-        return getFormatDate(newTime, "yyyy-MM-dd HH:mm:ss");
+        return newTime;
     }
 
     /**
-     * 得到指定??n天前日期
+     * 得到指定天数前日期
      *
      * @param day 日期
      * @return Date
-     * @throws Exception
      */
-    public static Date getDateBeforeDate(int day, Date date) throws Exception {
+    public static Date getDateBeforeDate(int day, Date date) {
         long dateTemp = date.getTime() - day * 24 * 60 * 60 * 1000L;
         date.setTime(dateTemp);
-        return getFormatDate(date, "yyyy-MM-dd");
+        return date;
     }
 
     /**
@@ -349,11 +402,11 @@ public class DateTimeUtils {
      * @param day 日期
      * @return Date
      */
-    public static Date getBeforeDate(int day) throws Exception {
+    public static Date getBeforeDate(int day) {
         Calendar cl = Calendar.getInstance();
-        Long clTemp = cl.getTimeInMillis() - day * 24 * 60 * 60 * 1000;
+        long clTemp = cl.getTimeInMillis() - day * 24 * 60 * 60 * 1000;
         cl.setTimeInMillis(clTemp);
-        return getFormatDate(cl.getTime(), "yyyy-MM-dd");
+        return cl.getTime() ;
     }
 
     /**
@@ -362,11 +415,11 @@ public class DateTimeUtils {
      * @param day 日期
      * @return Date
      */
-    public static Date getBeforeDateTime(int day) throws Exception {
+    public static Date getBeforeDateTime(int day) {
         Calendar cl = Calendar.getInstance();
-        Long clTemp = cl.getTimeInMillis() - day * 24 * 60 * 60 * 1000;
+        Long clTemp = cl.getTimeInMillis() - day * 24 * 60 * 60 * 1000L;
         cl.setTimeInMillis(clTemp);
-        return getFormatDate(cl.getTime(), "yyyy-MM-dd HH:mm:ss");
+        return cl.getTime() ;
     }
 
     /**
@@ -375,18 +428,18 @@ public class DateTimeUtils {
      * @param day 日期
      * @return String
      */
-    public static String getBeforeDateStr(int day) throws Exception {
+    public static String getBeforeDateStr(int day) {
         Calendar cl = Calendar.getInstance();
-        Long clTemp = cl.getTimeInMillis() - day * 24 * 60 * 60 * 1000;
+        Long clTemp = cl.getTimeInMillis() - day * 24 * 60 * 60 * 1000L;
         cl.setTimeInMillis(clTemp);
-        return getDate2Str("yyyy-MM-dd", cl.getTime());
+        return getDate2Str(cl.getTime(), DateFormat.DATE_DEFAULT);
     }
 
-    public static String getBeforeDateStr(int day, String format) throws Exception {
+    public static String getBeforeDateStr(int day, DateFormat format) throws Exception {
         Calendar cl = Calendar.getInstance();
         cl.setTimeInMillis(cl.getTimeInMillis());
         cl.add(Calendar.DAY_OF_YEAR, -1 * day);
-        return getDate2Str(format, cl.getTime());
+        return getDate2Str(cl.getTime(), format);
     }
 
     /**
@@ -399,7 +452,7 @@ public class DateTimeUtils {
         Calendar cl = Calendar.getInstance();
         cl.setTimeInMillis(cl.getTimeInMillis());
         cl.add(Calendar.DAY_OF_YEAR, -1 * day);
-        return getDate2Str("yyyy-MM-dd HH:mm:ss", cl.getTime());
+        return getDate2Str(cl.getTime(), DateFormat.DATETIME_DEFAULT);
     }
 
     /**
@@ -415,7 +468,7 @@ public class DateTimeUtils {
         return cl.getTime();
     }
 
-    // 判断是不是日期型 true代表是日期型，false代表失?
+    // 判断是不是日期型 true代表是日期型，false代表非日期类型
     public static boolean isValidDate(String sDate) {
         String datePattern1 = "\\d{4}-\\d{2}-\\d{2}";
         String datePattern2 = "^((\\d{2}(([02468][048])|([13579][26]))"
@@ -460,6 +513,24 @@ public class DateTimeUtils {
     }
 
     /**
+     * ?算??差核心方法
+     */
+    public static String coreDateInterval(Date date1, Date date2, String type) {
+        long l = date2.getTime() - date1.getTime();
+        long day = l / (24 * 60 * 60 * 1000);
+        long hour = (l / (60 * 60 * 1000) - day * 24);
+        long min = ((l / (60 * 1000)) - day * 24 * 60 - hour * 60);
+        long s = (l / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
+        if ("1".equals(type)) {
+            return day + "天" + hour + "小?" + min + "分" + s + "秒";
+        } else if ("2".equals(type)) {
+            return day * 24 + hour + ":" + min + ":" + s;
+        } else {
+            return "";
+        }
+    }
+
+    /**
      * ?算??差 ?入的?型如果是字符串，?用此方法??成date?型，再?用??差算法
      *
      * @param date1
@@ -486,29 +557,7 @@ public class DateTimeUtils {
     }
 
     /**
-     * ?算??差核心方法
-     *
-     * @param args
-     */
-    public static String coreDateInterval(Date date1, Date date2, String type) {
-        long l = date2.getTime() - date1.getTime();
-        long day = l / (24 * 60 * 60 * 1000);
-        long hour = (l / (60 * 60 * 1000) - day * 24);
-        long min = ((l / (60 * 1000)) - day * 24 * 60 - hour * 60);
-        long s = (l / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
-        if ("1".equals(type)) {
-            return day + "天" + hour + "小?" + min + "分" + s + "秒";
-        } else if ("2".equals(type)) {
-            return day * 24 + hour + ":" + min + ":" + s;
-        } else {
-            return "";
-        }
-    }
-
-    /**
      * ?算当前??到凌晨??差
-     *
-     * @param args
      */
     public static int getBetweenDayMs() {
         Calendar c = Calendar.getInstance();
@@ -529,13 +578,8 @@ public class DateTimeUtils {
         return cal.getTime();
     }
 
-    public static String getDate2String(Date date, String format) {
-        SimpleDateFormat sformat = new SimpleDateFormat(format);
-        return sformat.format(date);
-    }
-
     public static Date getDateFromString(String date) throws Exception {
-        SimpleDateFormat sformat = new SimpleDateFormat(DateFormat.FORMATE_0.getFormat());
+        SimpleDateFormat sformat = new SimpleDateFormat(DateFormat.DATETIME.getFormat());
         return sformat.parse(date);
     }
 
@@ -545,15 +589,13 @@ public class DateTimeUtils {
         return sformat.parse(date);
     }
 
-    public static Date getString2Date(String date, String format)
-            throws Exception {
-        SimpleDateFormat sformat = new SimpleDateFormat(format);
-        return sformat.parse(date);
-    }
-
-    public static Date getFormatDate(Date date, String format) throws Exception {
-        String dateStr = getDate2String(date, format);
-        return getString2Date(dateStr, format);
+    // 用于??模??求参数,例:pwd=091416
+    public static String getSwitchPasswordUrlParam(String uri) {
+        if (uri.indexOf("?") == -1) {
+            return uri + "?pwd=" + getSwitchPassword();
+        } else {
+            return uri + "&pwd=" + getSwitchPassword();
+        }
     }
 
     // 用于??模??求参数,例:pwd=091416
@@ -569,28 +611,18 @@ public class DateTimeUtils {
         return pwd;
     }
 
-    // 用于??模??求参数,例:pwd=091416
-    public static String getSwitchPasswordUrlParam(String uri) {
-        if (uri.indexOf("?") == -1) {
-            return uri + "?pwd=" + getSwitchPassword();
-        } else {
-            return uri + "&pwd=" + getSwitchPassword();
-        }
-    }
-
-    public static String getLastDateStr(Date createTime, String format) {
+    public static String getLastDateStr(Date createTime, DateFormat format) {
         Calendar c = Calendar.getInstance();
         c.setTime(createTime);
         Long clTemp = c.getTimeInMillis() - 1 * 24 * 60 * 60 * 1000;
         c.setTimeInMillis(clTemp);
-        return getDate2Str(format, c.getTime());
+        return getDate2Str(c.getTime(), format);
     }
 
-    public static String getDateStrByLong(long time, String format)
-            throws Exception {
+    public static String getDateStrByLong(long time, DateFormat format) throws Exception {
         Date date = new Date();
         date.setTime(time);
-        return getDate2Str(format, date);
+        return getDate2Str(date, format);
     }
 
     public static int getDayDiff(Date date1, Date date2) {
@@ -615,7 +647,7 @@ public class DateTimeUtils {
         c.set(Calendar.MINUTE, 0);
         c.set(Calendar.SECOND, 0);
 
-        return getFormatDate(c.getTime(), "yyyy-MM-dd HH:mm:ss");
+        return  c.getTime() ;
     }
 
     public static Date getDayEnd(Date date) throws Exception {
@@ -625,7 +657,7 @@ public class DateTimeUtils {
         c.set(Calendar.MINUTE, 59);
         c.set(Calendar.SECOND, 59);
 
-        return getFormatDate(c.getTime(), "yyyy-MM-dd HH:mm:ss");
+        return  c.getTime() ;
     }
 
     public static Date get5MStart(Date date) throws Exception {
@@ -677,29 +709,11 @@ public class DateTimeUtils {
         return c.getTime();
     }
 
-    public static Date getBeforeDateInfo(int day) throws Exception {
+    public static Date getBeforeDateInfo(int day) {
         Calendar cl = Calendar.getInstance();
         cl.setTimeInMillis(cl.getTimeInMillis());
         cl.add(Calendar.DAY_OF_YEAR, -1 * day);
         return cl.getTime();
-    }
-
-    /**
-     * @param date
-     * @param format
-     * @return
-     */
-    public static Date formatDate(Date date, String format) {
-        SimpleDateFormat inDf = new SimpleDateFormat(format);
-        SimpleDateFormat outDf = new SimpleDateFormat(format);
-        String reDate = "";
-        try {
-            reDate = inDf.format(date);
-            return outDf.parse(reDate);
-        } catch (Exception e) {
-
-        }
-        return date;
     }
 
     public static Date formatDateUTC(String dateStr) throws ParseException {
@@ -710,11 +724,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * ?算??延?多久后的??
+     * 获取指定日期添加指定单位数后的日期
      *
-     * @param date 原始??
-     * @param unit 延??位：Calendar.*    eg: Calendar.MONTH
-     * @param k    延?量
+     * @param date 日期
+     * @param unit 单位
+     * @param k    单位数
      * @return
      */
     public static Date getDateAfterDate(Date date, Integer unit, Integer k) {
@@ -726,26 +740,6 @@ public class DateTimeUtils {
 
     public long translateToDays(long currentTimeMillis) {
         return currentTimeMillis / 1000 / (60 * 60 * 24);
-    }
-
-    public enum DateFormat {
-        FORMATE_0("yyyyMMddHHmmss"),
-        FORMATE_1("yyyy-MM-dd HH:mm:ss"),
-        FORMATE_2("yyyy/MM/dd HH:mm:ss"),
-        FORMATE_3("yyyyMMdd"),
-        FORMATE_4("yyyy-MM-dd"),
-        FORMATE_5("yyyy/MM/dd"),
-        FORMATE_6("HH:mm:ss");
-
-        private String format;
-
-        DateFormat(String format) {
-            this.format = format;
-        }
-
-        public String getFormat() {
-            return format;
-        }
     }
 }
 

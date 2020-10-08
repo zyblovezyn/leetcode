@@ -4,10 +4,10 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -15,11 +15,15 @@ import java.util.regex.Pattern;
  * DateTimeUtils Tester.
  */
 @SuppressWarnings("DateTimeUtils测试")
+@DisplayName("DateTimeUtils测试")
 public class DateTimeUtilsTest {
 
 
     private Date date1;
     private Date date2;
+
+    private String dateStr1 = "2020-09-07 10:10:10";
+    private String dateStr2 = "2020-09-07 14:10:10";
 
     @Before
     public void before() throws Exception {
@@ -38,11 +42,20 @@ public class DateTimeUtilsTest {
     /**
      * Method: translateToSeconds(long currentTimeMillis)
      */
+    @DisplayName("毫秒转秒")
     @Test
     public void testTranslateToSeconds() {
-        long seconds = DateTimeUtils.translateToSeconds(1000);
+        long seconds = DateUtils.translateToSeconds(1000);
         Assert.assertEquals(1, seconds);
 
+        seconds = DateUtils.translateToSeconds(2000);
+        Assert.assertEquals(2, seconds);
+
+        seconds = DateUtils.translateToSeconds(0);
+        Assert.assertEquals(0, seconds);
+
+        seconds = DateUtils.translateToSeconds(1500);
+        Assert.assertEquals(1, seconds);
     }
 
     /**
@@ -50,7 +63,17 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testTranslateToMinutes() {
-//TODO: Test goes here... 
+        long minutes = DateUtils.translateToMinutes(1000 * 60);
+        Assert.assertEquals(1, minutes);
+
+        minutes = DateUtils.translateToMinutes(2000 * 60);
+        Assert.assertEquals(2, minutes);
+
+        minutes = DateUtils.translateToMinutes(0);
+        Assert.assertEquals(0, minutes);
+
+        minutes = DateUtils.translateToMinutes(1500 * 60);
+        Assert.assertEquals(1, minutes);
     }
 
     /**
@@ -66,19 +89,19 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testGetDate2Str() {
-        String dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_1.getFormat(), date1);
+        String dtstr = DateUtils.getDate2Str(date1, DateFormat.DATETIME_DEFAULT);
         Assert.assertEquals(dtstr, "2020-09-07 10:10:10");
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_0.getFormat(), date1);
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATETIME);
         Assert.assertEquals(dtstr, "20200907101010");
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_2.getFormat(), date1);
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATETIME_SLASH);
         Assert.assertEquals(dtstr, "2020/09/07 10:10:10");
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_3.getFormat(), date1);
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATE);
         Assert.assertEquals(dtstr, "20200907");
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_4.getFormat(), date1);
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATE_DEFAULT);
         Assert.assertEquals(dtstr, "2020-09-07");
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_5.getFormat(), date1);
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATE_SLASH);
         Assert.assertEquals(dtstr, "2020/09/07");
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_6.getFormat(), date2);
+        dtstr = DateUtils.getDate2Str(date2, DateFormat.TIME);
         Assert.assertEquals(dtstr, "14:10:10");
     }
 
@@ -87,26 +110,26 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testGetCurrentDateStr() {
-        String dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_0.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_0.getFormat()), dtstr, ""));
+        String dtstr = DateUtils.getDate2Str(date1, DateFormat.DATETIME);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATETIME.getFormat()), dtstr, ""));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_1.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_1.getFormat()), dtstr, "-"));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATETIME_DEFAULT);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATETIME_DEFAULT.getFormat()), dtstr, "-"));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_2.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_2.getFormat()), dtstr, "/"));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATETIME_SLASH);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATETIME_SLASH.getFormat()), dtstr, "/"));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_3.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_3.getFormat()), dtstr, ""));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATE);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATE.getFormat()), dtstr, ""));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_4.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_4.getFormat()), dtstr, "-"));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATE_DEFAULT);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATE_DEFAULT.getFormat()), dtstr, "-"));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_5.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_5.getFormat()), dtstr, "/"));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATE_SLASH);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATE_SLASH.getFormat()), dtstr, "/"));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_6.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_6.getFormat()), dtstr, ":"));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.TIME);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.TIME.getFormat()), dtstr, ":"));
 
     }
 
@@ -121,26 +144,26 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testGetCurrentDateTimeStr() {
-        String dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_0.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_0.getFormat()), dtstr, ""));
+        String dtstr = DateUtils.getDate2Str(date1, DateFormat.DATETIME);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATETIME.getFormat()), dtstr, ""));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_1.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_1.getFormat()), dtstr, "-"));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATETIME_DEFAULT);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATETIME_DEFAULT.getFormat()), dtstr, "-"));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_2.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_2.getFormat()), dtstr, "/"));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATETIME_SLASH);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATETIME_SLASH.getFormat()), dtstr, "/"));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_3.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_3.getFormat()), dtstr, ""));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATE);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATE.getFormat()), dtstr, ""));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_4.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_4.getFormat()), dtstr, "-"));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATE_DEFAULT);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATE_DEFAULT.getFormat()), dtstr, "-"));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_5.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_5.getFormat()), dtstr, "/"));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.DATE_SLASH);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.DATE_SLASH.getFormat()), dtstr, "/"));
 
-        dtstr = DateTimeUtils.getDate2Str(DateTimeUtils.DateFormat.FORMATE_6.getFormat(), date1);
-        Assert.assertTrue(delimit(DateTimeUtils.getCurrentDateStr(DateTimeUtils.DateFormat.FORMATE_6.getFormat()), dtstr, ":"));
+        dtstr = DateUtils.getDate2Str(date1, DateFormat.TIME);
+        Assert.assertTrue(delimit(DateUtils.getCurrentDateStr(DateFormat.TIME.getFormat()), dtstr, ":"));
     }
 
     /**
@@ -164,7 +187,14 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testGetTimeMinDate() {
-//TODO: Test goes here... 
+        Date date = DateUtils.getTimeMin(new Date());
+        System.out.println(DateFormat.DATETIME_DEFAULT.getFormat() + "   " + DateUtils.getDate2Str(date, DateFormat.DATETIME_DEFAULT));
+
+        date = DateUtils.getTimeMin(this.date1);
+        System.out.println(DateFormat.DATETIME_DEFAULT.getFormat() + "   " + DateUtils.getDate2Str(date, DateFormat.DATETIME_DEFAULT));
+
+        date = DateUtils.getTimeMin(this.date2);
+        System.out.println(DateFormat.DATETIME_DEFAULT.getFormat() + "   " + DateUtils.getDate2Str(date, DateFormat.DATETIME_DEFAULT));
     }
 
     /**
@@ -172,7 +202,6 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testGetTimeMaxDate() {
-//TODO: Test goes here... 
     }
 
     /**
@@ -180,7 +209,8 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testGetTimeMin() {
-//TODO: Test goes here... 
+        Date date = DateUtils.getTimeMin();
+        System.out.println(DateFormat.DATETIME_DEFAULT.getFormat() + "   " + DateUtils.getDate2Str(date,DateFormat.DATETIME_DEFAULT));
     }
 
     /**
@@ -188,7 +218,11 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testGetTimeMax() {
-//TODO: Test goes here... 
+        Date date = DateUtils.getTimeMax(new Date());
+        System.out.println(DateFormat.DATETIME_DEFAULT.getFormat() + "   " + DateUtils.getDate2Str(date,DateFormat.DATETIME_DEFAULT));
+
+        date = DateUtils.getTimeMax();
+        System.out.println(DateFormat.DATETIME_DEFAULT.getFormat() + "   " + DateUtils.getDate2Str(date,DateFormat.DATETIME_DEFAULT));
     }
 
     /**
@@ -260,7 +294,11 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testGetLimitDate() {
-//TODO: Test goes here... 
+        Date date = DateUtils.getLimitDate(1);
+        System.out.println(DateUtils.getDate2Str(date,DateFormat.DATETIME_DEFAULT));
+
+        date = DateUtils.getLimitDate(5);
+        System.out.println(DateUtils.getDate2Str(date,DateFormat.DATETIME_DEFAULT));
     }
 
     /**
@@ -268,7 +306,11 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testGetTimeAfterMinute() {
-//TODO: Test goes here... 
+        Date date = DateUtils.getTimeAfterMinute(1,new Date());
+        System.out.println(DateUtils.getDate2Str(date,DateFormat.DATETIME_DEFAULT));
+
+        date = DateUtils.getTimeAfterMinute(5, new Date());
+        System.out.println(DateUtils.getDate2Str(date,DateFormat.DATETIME_DEFAULT));
     }
 
     /**
@@ -276,7 +318,7 @@ public class DateTimeUtilsTest {
      */
     @Test
     public void testGetTimeBeforeHour() {
-//TODO: Test goes here... 
+
     }
 
     /**
@@ -660,8 +702,32 @@ public class DateTimeUtilsTest {
     void getDate2Str() {
     }
 
-    @org.junit.jupiter.api.Test
-    void getCurrentDateStr() {
+    @DisplayName("取得当前日期的指定格式的字符串表示")
+    @Test
+    public void getCurrentDateStr() {
+        String dateStr = DateUtils.getCurrentDateStr("");
+        System.out.println(DateFormat.DATETIME_SLASH.getFormat() + " " + dateStr);
+
+        dateStr = DateUtils.getCurrentDateStr(DateFormat.DATETIME_DEFAULT.getFormat());
+        System.out.println(DateFormat.DATETIME_DEFAULT.getFormat() + " " + dateStr);
+
+        dateStr = DateUtils.getCurrentDateStr(DateFormat.DATETIME.getFormat());
+        System.out.println(DateFormat.DATETIME.getFormat() + " " + dateStr);
+
+        dateStr = DateUtils.getCurrentDateStr(DateFormat.DATETIME_SLASH.getFormat());
+        System.out.println(DateFormat.DATETIME_SLASH.getFormat() + " " + dateStr);
+
+        dateStr = DateUtils.getCurrentDateStr(DateFormat.DATE.getFormat());
+        System.out.println(DateFormat.DATE.getFormat() + " " + dateStr);
+
+        dateStr = DateUtils.getCurrentDateStr(DateFormat.DATE_DEFAULT.getFormat());
+        System.out.println(DateFormat.DATE_DEFAULT.getFormat() + " " + dateStr);
+
+        dateStr = DateUtils.getCurrentDateStr(DateFormat.DATE_SLASH.getFormat());
+        System.out.println(DateFormat.DATE_SLASH.getFormat() + " " + dateStr);
+
+        dateStr = DateUtils.getCurrentDateStr(DateFormat.TIME.getFormat());
+        System.out.println(DateFormat.TIME.getFormat() + " " + dateStr);
     }
 
     @org.junit.jupiter.api.Test
@@ -728,8 +794,14 @@ public class DateTimeUtilsTest {
     void getLimitDate() {
     }
 
-    @org.junit.jupiter.api.Test
-    void getTimeAfterMinute() {
+    @Test
+    public void getTimeAfterMinute() {
+        System.out.println(DateUtils.getDate2Str(DateUtils.getTimeAfterMinute(1)));
+        System.out.println(DateUtils.getDate2Str(DateUtils.getTimeAfterMinute(10)));
+
+        System.out.println(DateUtils.getDate2Str(DateUtils.getTimeAfterMinute(1,this.date1)));
+        System.out.println(DateUtils.getDate2Str(DateUtils.getTimeAfterMinute(10,this.date1)));
+
     }
 
     @org.junit.jupiter.api.Test
@@ -740,8 +812,10 @@ public class DateTimeUtilsTest {
     void getTimeAfterHour() {
     }
 
-    @org.junit.jupiter.api.Test
-    void getDateAfterDate() {
+    @Test
+    public void getDateAfterDate() {
+        Date date = DateUtils.getDateAfterDate(this.date1, Calendar.HOUR, 2);
+        System.out.println(DateUtils.getDate2Str(date));
     }
 
     @org.junit.jupiter.api.Test
@@ -902,5 +976,54 @@ public class DateTimeUtilsTest {
 
     @org.junit.jupiter.api.Test
     void translateToDays() {
+    }
+
+    @Test
+    public void getDate() {
+        String str = DateUtils.getDate();
+        System.out.println(str);
+
+        str = DateUtils.getDate(DateFormat.DATETIME);
+        System.out.println(str);
+
+        str = DateUtils.getDate(DateFormat.DATETIME_DEFAULT);
+        System.out.println(str);
+
+        str = DateUtils.getDate(DateFormat.DATETIME_SLASH);
+        System.out.println(str);
+
+        str = DateUtils.getDate(DateFormat.DATE);
+        System.out.println(str);
+
+        str = DateUtils.getDate(DateFormat.DATE_DEFAULT);
+        System.out.println(str);
+
+        str = DateUtils.getDate(DateFormat.DATE_SLASH);
+        System.out.println(str);
+    }
+
+
+    @Test
+    public void getTime() {
+        String str = DateUtils.getTime();
+        System.out.println(str);
+
+        str = DateUtils.getTime(new Date());
+        System.out.println(str);
+
+        str = DateUtils.getTime(this.date1);
+        System.out.println(str);
+
+        str = DateUtils.getTime(this.date2);
+        System.out.println(str);
+    }
+
+    @Test
+    public void getStr2Date() {
+        Date date = DateUtils.getStr2Date(DateFormat.DATETIME_DEFAULT, this.dateStr1);
+        Assert.assertEquals(date1, date);
+
+        date = DateUtils.getStr2Date(DateFormat.DATETIME_DEFAULT, this.dateStr2);
+        Assert.assertEquals(date2, date);
     }
 }

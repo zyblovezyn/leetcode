@@ -14,7 +14,7 @@ public class CommonUtils {
 
     public static void endTime() {
         long millis = System.currentTimeMillis() - CURRENTTIMEMILLIS;
-        long seconds = DateTimeUtils.translateToSeconds(millis);
+        long seconds = DateUtils.translateToSeconds(millis);
         System.out.println("Millis=" + millis + "    Seconds=" + seconds);
     }
 
