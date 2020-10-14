@@ -16,6 +16,9 @@ public class DateUtils {
 
     private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 
+    public DateUtils() {
+    }
+
     /**
      * @Description: 毫秒转秒
      * @Param: [currentTimeMillis]
@@ -23,7 +26,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static long translateToSeconds(long currentTimeMillis) {
+    public static synchronized long translateToSeconds(long currentTimeMillis) {
         return currentTimeMillis / 1000;
     }
 
@@ -34,7 +37,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static long translateToMinutes(long currentTimeMillis) {
+    public static synchronized long translateToMinutes(long currentTimeMillis) {
         return currentTimeMillis / 1000 / 60;
     }
 
@@ -45,7 +48,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static long translateToHours(long currentTimeMillis) {
+    public static synchronized long translateToHours(long currentTimeMillis) {
         return currentTimeMillis / 1000 / (60 * 60);
     }
 
@@ -56,7 +59,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static long translateToDays(long currentTimeMillis) {
+    public static synchronized long translateToDays(long currentTimeMillis) {
         return currentTimeMillis / 1000 / (60 * 60 * 24);
     }
 
@@ -91,7 +94,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static String getTime(Date date) {
+    public static synchronized String getTime(Date date) {
         simpleDateFormat.applyPattern(DateFormat.TIME.getFormat());
         return simpleDateFormat.format(date);
     }
@@ -132,7 +135,31 @@ public class DateUtils {
         return date;
     }
 
-    public static XMLGregorianCalendar getXMLGregorianCalendar(Date date) {
+
+    /**
+     * 取得日期的特定表示格式的字符串 默认日期格式yyyy-MM-dd HH:mm:dd
+     *
+     * @param date 日期（Date）
+     * @return 日期的字符串
+     */
+    public static synchronized String getDate2Str(Date date) {
+        simpleDateFormat.applyPattern(DateFormat.DATETIME_DEFAULT.getFormat());
+        return simpleDateFormat.format(date);
+    }
+
+    /**
+     * 取得日期的特定表示格式的字符串
+     *
+     * @param format 日期格式
+     * @param date   日期（Date）
+     * @return 日期的字符串
+     */
+    public static synchronized String getDate2Str(Date date, DateFormat format) {
+        simpleDateFormat.applyPattern(format.getFormat());
+        return simpleDateFormat.format(date);
+    }
+
+    public static synchronized XMLGregorianCalendar getXMLGregorianCalendar(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         XMLGregorianCalendar xmlCalendar = null;
@@ -152,7 +179,7 @@ public class DateUtils {
         return xmlCalendar;
     }
 
-    public static Date getDateFromXmlGregorianCalendar(XMLGregorianCalendar da) {
+    public static synchronized Date getDateFromXmlGregorianCalendar(XMLGregorianCalendar da) {
         if (da != null) {
             int year = da.getYear();
             int month = da.getMonth();
@@ -177,7 +204,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getDateAfterMinute(int minute, Date date) {
+    public static synchronized Date getDateAfterMinute(int minute, Date date) {
         return getDateAfter(date, minute, Calendar.MINUTE);
     }
 
@@ -188,7 +215,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    private static Date getDateAfter(Date date, int number, int unit) {
+    private static synchronized Date getDateAfter(Date date, int number, int unit) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(unit, number);
@@ -202,7 +229,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getDateAfterHour(int hour, Date date) {
+    public static synchronized Date getDateAfterHour(int hour, Date date) {
         return getDateAfter(date, hour, Calendar.HOUR_OF_DAY);
     }
 
@@ -213,7 +240,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getDateAfterDay(int day, Date date) {
+    public static synchronized Date getDateAfterDay(int day, Date date) {
         return getDateAfter(date, day, Calendar.DAY_OF_YEAR);
 
     }
@@ -225,7 +252,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getDateAfterMonth(int month, Date date) {
+    public static synchronized Date getDateAfterMonth(int month, Date date) {
         return getDateAfter(date, month, Calendar.MONTH);
 
     }
@@ -237,7 +264,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getDateAfterYear(int year, Date date) {
+    public static synchronized Date getDateAfterYear(int year, Date date) {
         return getDateAfter(date, year, Calendar.YEAR);
 
     }
@@ -249,7 +276,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static boolean isValidDate(String dataStr) {
+    public static synchronized boolean isValidDate(String dataStr) {
         String patternStr = "^((\\d{2}(([02468][048])|([13579][26]))"
                 + "[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|"
                 + "(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?"
@@ -271,7 +298,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static boolean isDateTime(String dateTime, DateFormat format) {
+    public static synchronized boolean isDateTime(String dateTime, DateFormat format) {
         simpleDateFormat.applyPattern(format.getFormat());
         ParsePosition pos = new ParsePosition(0);
         Date dt = simpleDateFormat.parse(dateTime, pos);
@@ -285,22 +312,12 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static String getLong2Str(long time) {
+    public static synchronized String getLong2Str(long time) {
         Date date = new Date();
         date.setTime(time);
         return getDate2Str(date);
     }
 
-    /**
-     * 取得日期的特定表示格式的字符串 默认日期格式yyyy-MM-dd HH:mm:dd
-     *
-     * @param date 日期（Date）
-     * @return 日期的字符串
-     */
-    public static synchronized String getDate2Str(Date date) {
-        simpleDateFormat.applyPattern(DateFormat.DATETIME_DEFAULT.getFormat());
-        return simpleDateFormat.format(date);
-    }
 
     /**
      * @Description: 毫秒转日期字符串
@@ -309,22 +326,10 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static String getLong2Str(long time, DateFormat format) {
+    public static synchronized String getLong2Str(long time, DateFormat format) {
         Date date = new Date();
         date.setTime(time);
         return getDate2Str(date, format);
-    }
-
-    /**
-     * 取得日期的特定表示格式的字符串
-     *
-     * @param format 日期格式
-     * @param date   日期（Date）
-     * @return 日期的字符串
-     */
-    public static synchronized String getDate2Str(Date date, DateFormat format) {
-        simpleDateFormat.applyPattern(format.getFormat());
-        return simpleDateFormat.format(date);
     }
 
     /**
@@ -334,7 +339,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date get5MinutesStart(Date date) {
+    public static synchronized Date get5MinutesStart(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int minute = c.get(Calendar.MINUTE);
@@ -351,7 +356,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date get5MinutesEnd(Date date) {
+    public static synchronized Date get5MinutesEnd(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int minute = c.get(Calendar.MINUTE);
@@ -368,7 +373,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getHourStart(Date date) {
+    public static synchronized Date getHourStart(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.MINUTE, 0);
@@ -383,7 +388,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getHourEnd(Date date) {
+    public static synchronized Date getHourEnd(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.MINUTE, 59);
@@ -398,7 +403,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getDayStart(Date date) {
+    public static synchronized Date getDayStart(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.HOUR_OF_DAY, 0);
@@ -414,7 +419,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getDayEnd(Date date) {
+    public static synchronized Date getDayEnd(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.HOUR_OF_DAY, 23);
@@ -430,7 +435,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getWeekStart(Date date) {
+    public static synchronized Date getWeekStart(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.DAY_OF_WEEK, 1);
@@ -447,7 +452,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getWeekEnd(Date date) {
+    public static synchronized Date getWeekEnd(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.DAY_OF_WEEK, 7);
@@ -464,7 +469,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getMonthStart(Date date) {
+    public static synchronized Date getMonthStart(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.DAY_OF_MONTH, 1);
@@ -481,7 +486,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getMonthEnd(Date date) {
+    public static synchronized Date getMonthEnd(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int day = c.getActualMaximum(Calendar.DAY_OF_MONTH);
@@ -499,7 +504,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getYearStart(Date date) {
+    public static synchronized Date getYearStart(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int month = c.getActualMinimum(Calendar.MONTH);
@@ -519,7 +524,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static Date getYearEnd(Date date) {
+    public static synchronized Date getYearEnd(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int month = c.getActualMaximum(Calendar.MONTH);
@@ -539,7 +544,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static long getMillisBetweenDate(Date date1, Date date2) {
+    public static synchronized long getMillisBetweenDate(Date date1, Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toMillis();
@@ -552,7 +557,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static long getSecondsBetweenDate(Date date1, Date date2) {
+    public static synchronized long getSecondsBetweenDate(Date date1, Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).getSeconds();
@@ -565,7 +570,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static long getMinutesBetweenDate(Date date1, Date date2) {
+    public static synchronized long getMinutesBetweenDate(Date date1, Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toMinutes();
@@ -578,7 +583,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static long getHoursBetweenDate(Date date1, Date date2) {
+    public static synchronized long getHoursBetweenDate(Date date1, Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toHours();
@@ -591,10 +596,158 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static long getDaysBetweenDate(Date date1, Date date2) {
+    public static synchronized long getDaysBetweenDate(Date date1, Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toDays();
+    }
+
+    /**
+     * @Description: 获取日期的年数
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getYear(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.YEAR);
+    }
+
+    /**
+     * @Description: 获取日期的月数
+     * Calendar.MONTH 月份是从0开始  0-11 对应 1月-12月
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getMonth(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.MONTH) + 1;
+    }
+
+    /**
+     * @Description: 获取日期的日数, 即是一个周中的第几天
+     * 周从周日开始,第一天为1
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getDayOfWeek(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_WEEK);
+    }
+
+    /**
+     * @Description: 获取日期的日数, 即是一个月中的第几天
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getDayOfMonth(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    /**
+     * @Description: 获取日期的日数, 即是一个年中的第几天
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getDayOfYear(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_YEAR);
+    }
+
+    /**
+     * @Description: 获取小时数, 12小时制
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getHour12(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.HOUR);
+    }
+
+    /**
+     * @Description: 获取小时数, 24小时制
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getHour24(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.HOUR_OF_DAY);
+    }
+
+    /**
+     * @Description: 获取分钟数
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getMinute(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.MINUTE);
+    }
+
+    /**
+     * @Description: 获取指定日期的秒数
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getSecond(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.SECOND);
+    }
+
+    /**
+     * @Description: 判断今天是否为指定日期的生日
+     * @Param: [birthDate]
+     * @return: boolean
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized boolean isBirthDay(Date birthDate) {
+        boolean isBirthDay = false;
+
+        Calendar calendar = Calendar.getInstance();
+        Calendar calBirthDate = Calendar.getInstance();
+        calBirthDate.setTime(birthDate);
+        int month = Calendar.MONTH;
+        int nowMonth = calendar.get(month);
+        int birthMonth = calBirthDate.get(month);
+        //月份相等
+        if (nowMonth == birthMonth) {
+            int day = Calendar.DAY_OF_MONTH;
+            int nowDay = calendar.get(day);
+            int birthDay = calBirthDate.get(day);
+            //日份相等
+            if (nowDay == birthDay) {
+                isBirthDay = true;
+            }
+        }
+        return isBirthDay;
     }
 }
 

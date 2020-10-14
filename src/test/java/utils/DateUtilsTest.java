@@ -129,6 +129,63 @@ class DateUtilsTest {
     void getDate2Str() {
         Assertions.assertEquals(this.dataTimeStr1, DateUtils.getDate2Str(this.date1));
         Assertions.assertEquals(this.dataTimeStr2, DateUtils.getDate2Str(this.date2));
+
+        //this.date1 2020-10-09 08:08:08
+        //yyyyMMddHHmmss
+        String str = DateUtils.getDate2Str(this.date1, DateFormat.DATETIME);
+        Assertions.assertEquals("20201009080808", str);
+
+        //yyyy/MM/dd HH:mm:ss
+        str = DateUtils.getDate2Str(this.date1, DateFormat.DATETIME_SLASH);
+        Assertions.assertEquals("2020/10/09 08:08:08", str);
+
+        //yyyy-MM-dd HH:mm:ss
+        str = DateUtils.getDate2Str(this.date1, DateFormat.DATETIME_DEFAULT);
+        Assertions.assertEquals("2020-10-09 08:08:08", str);
+
+        //yyyy年MM月dd日 HH:mm:ss
+        str = DateUtils.getDate2Str(this.date1, DateFormat.DATETIME_CN);
+        Assertions.assertEquals("2020年10月09日 08:08:08", str);
+
+        //yyyy年MM月dd日 HH:mm:ss
+        str = DateUtils.getDate2Str(this.date1, DateFormat.DATETIME_JA);
+        Assertions.assertEquals("2020年10月09日 08:08:08", str);
+
+        //yyyy年MM月dd日 HH:mm:ss
+        str = DateUtils.getDate2Str(this.date1, DateFormat.DATETIME_UTC);
+        System.out.println(str);
+
+        //yyyyMMdd
+        str = DateUtils.getDate2Str(this.date1, DateFormat.DATE);
+        Assertions.assertEquals("20201009", str);
+
+        //yyyy-MM-dd
+        str = DateUtils.getDate2Str(this.date1, DateFormat.DATE_DEFAULT);
+        Assertions.assertEquals("2020-10-09", str);
+
+        //yyyy/MM/dd
+        str = DateUtils.getDate2Str(this.date1, DateFormat.DATE_SLASH);
+        Assertions.assertEquals("2020/10/09", str);
+
+        //yyyy年MM月dd日
+        str = DateUtils.getDate2Str(this.date1, DateFormat.DATE_CN);
+        Assertions.assertEquals("2020年10月09日", str);
+
+        //yyyy年MM月dd日
+        str = DateUtils.getDate2Str(this.date1, DateFormat.DATE_JA);
+        Assertions.assertEquals("2020年10月09日", str);
+
+        //HH:mm:ss
+        str = DateUtils.getDate2Str(this.date1, DateFormat.TIME);
+        Assertions.assertEquals("08:08:08", str);
+
+        //HH时mm分ss秒
+        str = DateUtils.getDate2Str(this.date1, DateFormat.TIME_CN);
+        Assertions.assertEquals("08时08分08秒", str);
+
+        //HH時mm分ss秒
+        str = DateUtils.getDate2Str(this.date1, DateFormat.TIME_JA);
+        Assertions.assertEquals("08時08分08秒", str);
     }
 
     @Test
@@ -213,32 +270,6 @@ class DateUtilsTest {
         date1 = DateUtils.getDayEnd(this.date2);
         dateStr1 = DateUtils.getDate2Str(date1);
         Assertions.assertEquals("2020-09-09 23:59:59", dateStr1);
-    }
-
-    @Test
-    void get5MStart() {
-        //this.date1 = 2020-10-09 08:08:08
-        Date date1 = DateUtils.get5MinutesStart(this.date1);
-        String dateStr1 = DateUtils.getDate2Str(date1);
-        Assertions.assertEquals("2020-10-09 08:03:00", dateStr1);
-
-        //date2 = "2020-09-09 18:18:18";
-        date1 = DateUtils.get5MinutesStart(this.date2);
-        dateStr1 = DateUtils.getDate2Str(date1);
-        Assertions.assertEquals("2020-09-09 18:13:00", dateStr1);
-    }
-
-    @Test
-    void get5MEnd() {
-        //this.date1 = 2020-10-09 08:08:08
-        Date date1 = DateUtils.get5MinutesEnd(this.date1);
-        String dateStr1 = DateUtils.getDate2Str(date1);
-        Assertions.assertEquals("2020-10-09 08:13:59", dateStr1);
-
-        //date2 = "2020-09-09 18:18:18";
-        date1 = DateUtils.get5MinutesEnd(this.date2);
-        dateStr1 = DateUtils.getDate2Str(date1);
-        Assertions.assertEquals("2020-09-09 18:23:59", dateStr1);
     }
 
     @Test
@@ -560,5 +591,119 @@ class DateUtilsTest {
         date2 = calendar.getTime();
         long diff = DateUtils.getDaysBetweenDate(date1, date2);
         Assertions.assertEquals(1, diff);
+    }
+
+    @Test
+    void getXMLGregorianCalendar() {
+    }
+
+    @Test
+    void getDateFromXmlGregorianCalendar() {
+    }
+
+    @Test
+    void get5MinutesStart() {
+        //this.date1 = 2020-10-09 08:08:08
+        Date date1 = DateUtils.get5MinutesStart(this.date1);
+        String dateStr1 = DateUtils.getDate2Str(date1);
+        Assertions.assertEquals("2020-10-09 08:03:00", dateStr1);
+
+        //date2 = "2020-09-09 18:18:18";
+        date1 = DateUtils.get5MinutesStart(this.date2);
+        dateStr1 = DateUtils.getDate2Str(date1);
+        Assertions.assertEquals("2020-09-09 18:13:00", dateStr1);
+    }
+
+    @Test
+    void get5MinutesEnd() {
+        //this.date1 = 2020-10-09 08:08:08
+        Date date1 = DateUtils.get5MinutesEnd(this.date1);
+        String dateStr1 = DateUtils.getDate2Str(date1);
+        Assertions.assertEquals("2020-10-09 08:13:59", dateStr1);
+
+        //date2 = "2020-09-09 18:18:18";
+        date1 = DateUtils.get5MinutesEnd(this.date2);
+        dateStr1 = DateUtils.getDate2Str(date1);
+        Assertions.assertEquals("2020-09-09 18:23:59", dateStr1);
+    }
+
+    @Test
+    void getYear() {
+        int actual = DateUtils.getYear(this.date1);
+        Assertions.assertEquals(2020, actual);
+    }
+
+    @Test
+    void getMonth() {
+        int actual = DateUtils.getMonth(this.date1);
+        Assertions.assertEquals(10, actual);
+    }
+
+    @Test
+    void getDayOfWeek() {
+        int actual = DateUtils.getDayOfWeek(this.date1);
+        Assertions.assertEquals(6, actual);
+    }
+
+    @Test
+    void getDayOfMonth() {
+        int actual = DateUtils.getDayOfMonth(this.date1);
+        Assertions.assertEquals(9, actual);
+    }
+
+    @Test
+    void getDayOfYear() {
+        int actual = DateUtils.getDayOfYear(this.date1);
+        Assertions.assertEquals(283, actual);
+    }
+
+    @Test
+    void getHour12() {
+        int actual = DateUtils.getHour12(this.date1);
+        Assertions.assertEquals(8, actual);
+
+        actual = DateUtils.getHour12(this.date2);
+        Assertions.assertEquals(6, actual);
+    }
+
+    @Test
+    void getHour24() {
+        int actual = DateUtils.getHour24(this.date1);
+        Assertions.assertEquals(8, actual);
+
+        actual = DateUtils.getHour24(this.date2);
+        Assertions.assertEquals(18, actual);
+    }
+
+    @Test
+    void getMinute() {
+        int actual = DateUtils.getMinute(this.date1);
+        Assertions.assertEquals(8, actual);
+
+        actual = DateUtils.getMinute(this.date2);
+        Assertions.assertEquals(18, actual);
+    }
+
+    @Test
+    void getSecond() {
+        int actual = DateUtils.getSecond(this.date1);
+        Assertions.assertEquals(8, actual);
+
+        actual = DateUtils.getSecond(this.date2);
+        Assertions.assertEquals(18, actual);
+    }
+
+    @Test
+    void isBirthDay() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        date1 = calendar.getTime();
+
+        calendar = Calendar.getInstance();
+        calendar.set(2020, 8, 9, 18, 18, 18);
+        date2 = calendar.getTime();
+
+        Assertions.assertTrue(DateUtils.isBirthDay(date1));
+        Assertions.assertFalse(DateUtils.isBirthDay(date2));
     }
 }
