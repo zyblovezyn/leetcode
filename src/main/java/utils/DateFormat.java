@@ -17,6 +17,11 @@ public enum DateFormat {
     DATETIME_SLASH("yyyy/MM/dd HH:mm:ss"),
 
     /**
+     * @Description: 日期格式yyyy/MM/dd HH:mm:ss
+     */
+    DATETIME_UTC("yyyy-MM-dd'T'HH:mm:ss.SSS Z"),
+
+    /**
      * @Description: 日期格式yyyyMMdd
      */
     DATE("yyyyMMdd"),

@@ -5,9 +5,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -60,9 +61,11 @@ public class DateUtils {
     }
 
     /**
-     * 取得当前日期的默认格式的字符串表示 默认yyyy-Mm-dd HH:mm:ss
-     *
-     * @return 某日期的字符串
+     * @Description: 取得当前日期的默认格式的字符串表示 默认yyyy-Mm-dd HH:mm:ss
+     * @Param: []
+     * @return: java.lang.String
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
      */
     public static synchronized String getCurrentDateStr() {
         simpleDateFormat.applyPattern(DateFormat.DATETIME_DEFAULT.getFormat());
@@ -70,10 +73,11 @@ public class DateUtils {
     }
 
     /**
-     * 取得当前日期的指定格式的字符串表示 默认yyyy-Mm-dd HH:mm:ss
-     *
-     * @param format 日期格式
-     * @return 某日期的字符串
+     * @Description: 取得当前日期的指定格式的字符串表示 默认yyyy-Mm-dd HH:mm:ss
+     * @Param: [format]
+     * @return: java.lang.String
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
      */
     public static synchronized String getCurrentDateStr(DateFormat format) {
         simpleDateFormat.applyPattern(format.getFormat());
@@ -82,7 +86,10 @@ public class DateUtils {
 
     /**
      * @Description: 获取时间 HH:mm:ss
-     * @return: string
+     * @Param: [date]
+     * @return: java.lang.String
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
      */
     public static String getTime(Date date) {
         simpleDateFormat.applyPattern(DateFormat.TIME.getFormat());
@@ -108,11 +115,11 @@ public class DateUtils {
     }
 
     /**
-     * 字符串转日期
-     *
-     * @param format 日期格式
-     * @param str    日期的字符串
-     * @return 日期（Date）
+     * @Description: 字符串转日期
+     * @Param: [str, format]
+     * @return: java.util.Date
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
      */
     public static synchronized Date getStr2Date(String str, DateFormat format) {
         Date date = null;
@@ -320,35 +327,6 @@ public class DateUtils {
         return simpleDateFormat.format(date);
     }
 
-    public static int get5MinuteDiff(Date date1, Date date2) {
-        long difference = Math.abs(date2.getTime() - date1.getTime());
-        return (int) (difference / 1000L / 60L / 5L + 1L);
-    }
-
-    /**
-     * @Description: 日期相差的小时数
-     * @Param: [date1, date2]
-     * @return: int
-     * @Author: Mr.Miles
-     * @Date: 2020/10/13
-     */
-    public static int getHourDiff(Date date1, Date date2) {
-        long difference = Math.abs(date2.getTime() - date1.getTime());
-        return (int) (difference / 1000L / 60L / 60L + 1L);
-    }
-
-    /**
-     * @Description: 日期相差的天数
-     * @Param: [date1, date2]
-     * @return: int
-     * @Author: Mr.Miles
-     * @Date: 2020/10/13
-     */
-    public static int getDayDiff(Date date1, Date date2) {
-        long difference = Math.abs(date2.getTime() - date1.getTime());
-        return (int) (difference / 1000L / 60L / 60L / 24L + 1L);
-    }
-
     /**
      * @Description: 获取5分钟前的时间 秒数为0
      * @Param: [date]
@@ -554,13 +532,70 @@ public class DateUtils {
         return c.getTime();
     }
 
-    public static Date formatDateUTC(String dateStr) throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS Z");
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        Date date = simpleDateFormat.parse(dateStr);
-        return date;
+    /**
+     * @Description: 获取日期相差毫秒数
+     * @Param: [date1, date2]
+     * @return: long
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static long getMillisBetweenDate(Date date1, Date date2) {
+        Instant inst1 = Instant.ofEpochMilli(date1.getTime());
+        Instant inst2 = Instant.ofEpochMilli(date2.getTime());
+        return Duration.between(inst1, inst2).toMillis();
     }
 
+    /**
+     * @Description: 获取日期相差秒数
+     * @Param: [date1, date2]
+     * @return: long
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static long getSecondsBetweenDate(Date date1, Date date2) {
+        Instant inst1 = Instant.ofEpochMilli(date1.getTime());
+        Instant inst2 = Instant.ofEpochMilli(date2.getTime());
+        return Duration.between(inst1, inst2).getSeconds();
+    }
+
+    /**
+     * @Description: 获取日期相差分钟数
+     * @Param: [date1, date2]
+     * @return: long
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static long getMinutesBetweenDate(Date date1, Date date2) {
+        Instant inst1 = Instant.ofEpochMilli(date1.getTime());
+        Instant inst2 = Instant.ofEpochMilli(date2.getTime());
+        return Duration.between(inst1, inst2).toMinutes();
+    }
+
+    /**
+     * @Description: 获取日期相差小时数
+     * @Param: [date1, date2]
+     * @return: long
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static long getHoursBetweenDate(Date date1, Date date2) {
+        Instant inst1 = Instant.ofEpochMilli(date1.getTime());
+        Instant inst2 = Instant.ofEpochMilli(date2.getTime());
+        return Duration.between(inst1, inst2).toHours();
+    }
+
+    /**
+     * @Description: 获取日期相差天数
+     * @Param: [date1, date2]
+     * @return: long
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static long getDaysBetweenDate(Date date1, Date date2) {
+        Instant inst1 = Instant.ofEpochMilli(date1.getTime());
+        Instant inst2 = Instant.ofEpochMilli(date2.getTime());
+        return Duration.between(inst1, inst2).toDays();
+    }
 }
 
 

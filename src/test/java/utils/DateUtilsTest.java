@@ -142,29 +142,6 @@ class DateUtilsTest {
         Assertions.assertFalse(DateUtils.isDateTime(this.dataTimeStr1, DateFormat.TIME));
     }
 
-    @Test
-    void getXMLGregorianCalendar() {
-    }
-
-    @Test
-    void getDateFromXmlGregorianCalendar() {
-    }
-
-    @Test
-    void passTime() {
-    }
-
-    @Test
-    void testGetTimeAfterMinute() {
-    }
-
-    @Test
-    void getDateBeforeHour() {
-    }
-
-    @Test
-    void testGetDateBeforeHour() {
-    }
 
     @Test
     void getDateAfterHour() {
@@ -186,61 +163,6 @@ class DateUtilsTest {
         Assertions.assertEquals("2020-10-08 22:08:08", str);
     }
 
-    @Test
-    void testGetDateAfterHour() {
-    }
-
-    @Test
-    void testGetDate2Str() {
-    }
-
-    @Test
-    void getDateAfterDate() {
-    }
-
-    @Test
-    void testGetDateAfterDate() {
-    }
-
-    @Test
-    void getBeforeMinute() {
-    }
-
-    @Test
-    void getBeforeHour() {
-    }
-
-    @Test
-    void getTimeBeforeMinute() {
-    }
-
-    @Test
-    void getDateBeforeDate() {
-    }
-
-    @Test
-    void getBeforeDate() {
-    }
-
-    @Test
-    void getBeforeDateTime() {
-    }
-
-    @Test
-    void getBeforeDateStr() {
-    }
-
-    @Test
-    void testGetBeforeDateStr() {
-    }
-
-    @Test
-    void getBeforeDateTimeStr() {
-    }
-
-    @Test
-    void getLimitDateByMinute() {
-    }
 
     @Test
     void isValidDate() {
@@ -266,61 +188,6 @@ class DateUtilsTest {
         Assertions.assertTrue(isDate);
     }
 
-    @Test
-    void dateIntervalForDate() {
-    }
-
-    @Test
-    void coreDateInterval() {
-    }
-
-    @Test
-    void dateIntervalForString() {
-    }
-
-    @Test
-    void getBetweenDayMs() {
-    }
-
-    @Test
-    void getPreMonth() {
-    }
-
-    @Test
-    void getDateFromString() {
-    }
-
-    @Test
-    void getDateFromStr() {
-    }
-
-    @Test
-    void getSwitchPasswordUrlParam() {
-    }
-
-    @Test
-    void getSwitchPassword() {
-    }
-
-    @Test
-    void getLastDateStr() {
-    }
-
-    @Test
-    void getDateStrByLong() {
-    }
-
-    @Test
-    void getDayDiff() {
-    }
-
-    @Test
-    void get5MinuteDiff() {
-    }
-
-    @Test
-    void getHourDiff() {
-    }
 
     @Test
     void getDayStart() {
@@ -400,17 +267,6 @@ class DateUtilsTest {
         Assertions.assertEquals("2020-09-09 18:59:59", dateStr1);
     }
 
-    @Test
-    void getBeforeDateInfo() {
-    }
-
-    @Test
-    void formatDateUTC() {
-    }
-
-    @Test
-    void testGetDateAfterDate1() {
-    }
 
     @Test
     void getDateAfterMinute() {
@@ -638,5 +494,71 @@ class DateUtilsTest {
 
         date1 = DateUtils.getLong2Str(this.date1.getTime(), DateFormat.DATETIME_SLASH);
         Assertions.assertEquals("2020/10/09 08:08:08", date1);
+    }
+
+    @Test
+    void getSecondsBetweenDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 9, 8, 8, 8);
+        date1 = calendar.getTime();
+
+        calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 9, 8, 9, 9);
+        date2 = calendar.getTime();
+        long diff = DateUtils.getSecondsBetweenDate(date1, date2);
+        Assertions.assertEquals(61, diff);
+    }
+
+    @Test
+    void getMillisBetweenDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 9, 8, 8, 8);
+        date1 = calendar.getTime();
+
+        calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 9, 8, 9, 9);
+        date2 = calendar.getTime();
+        long diff = DateUtils.getMillisBetweenDate(date1, date2);
+        Assertions.assertEquals(61000, diff);
+    }
+
+    @Test
+    void getMinutesBetweenDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 9, 8, 8, 8);
+        date1 = calendar.getTime();
+
+        calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 9, 8, 9, 9);
+        date2 = calendar.getTime();
+        long diff = DateUtils.getMinutesBetweenDate(date1, date2);
+        Assertions.assertEquals(1, diff);
+    }
+
+    @Test
+    void getHoursBetweenDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 9, 8, 8, 8);
+        date1 = calendar.getTime();
+
+        calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 9, 9, 9, 9);
+        date2 = calendar.getTime();
+        long diff = DateUtils.getHoursBetweenDate(date1, date2);
+        Assertions.assertEquals(1, diff);
+
+    }
+
+    @Test
+    void getDaysBetweenDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 9, 8, 8, 8);
+        date1 = calendar.getTime();
+
+        calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 10, 8, 9, 9);
+        date2 = calendar.getTime();
+        long diff = DateUtils.getDaysBetweenDate(date1, date2);
+        Assertions.assertEquals(1, diff);
     }
 }
