@@ -1,5 +1,7 @@
 package utils;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.text.ParseException;
@@ -82,7 +84,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized String getCurrentDateStr(DateFormat format) {
+    public static synchronized String getCurrentDateStr(@NotNull DateFormat format) {
         simpleDateFormat.applyPattern(format.getFormat());
         return simpleDateFormat.format(new Date());
     }
@@ -94,7 +96,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized String getTime(Date date) {
+    public static synchronized String getTime(@NotNull Date date) {
         simpleDateFormat.applyPattern(DateFormat.TIME.getFormat());
         return simpleDateFormat.format(date);
     }
@@ -106,7 +108,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getStr2Date(String str) {
+    public static synchronized Date getStr2Date(@NotNull String str) {
         Date date = null;
         simpleDateFormat.applyPattern(DateFormat.DATETIME_DEFAULT.getFormat());
         try {
@@ -124,7 +126,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized Date getStr2Date(String str, DateFormat format) {
+    public static synchronized Date getStr2Date(@NotNull String str, @NotNull DateFormat format) {
         Date date = null;
         simpleDateFormat.applyPattern(format.getFormat());
         try {
@@ -135,31 +137,7 @@ public class DateUtils {
         return date;
     }
 
-
-    /**
-     * 取得日期的特定表示格式的字符串 默认日期格式yyyy-MM-dd HH:mm:dd
-     *
-     * @param date 日期（Date）
-     * @return 日期的字符串
-     */
-    public static synchronized String getDate2Str(Date date) {
-        simpleDateFormat.applyPattern(DateFormat.DATETIME_DEFAULT.getFormat());
-        return simpleDateFormat.format(date);
-    }
-
-    /**
-     * 取得日期的特定表示格式的字符串
-     *
-     * @param format 日期格式
-     * @param date   日期（Date）
-     * @return 日期的字符串
-     */
-    public static synchronized String getDate2Str(Date date, DateFormat format) {
-        simpleDateFormat.applyPattern(format.getFormat());
-        return simpleDateFormat.format(date);
-    }
-
-    public static synchronized XMLGregorianCalendar getXMLGregorianCalendar(Date date) {
+    public static synchronized XMLGregorianCalendar getXMLGregorianCalendar(@NotNull Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         XMLGregorianCalendar xmlCalendar = null;
@@ -179,22 +157,17 @@ public class DateUtils {
         return xmlCalendar;
     }
 
-    public static synchronized Date getDateFromXmlGregorianCalendar(XMLGregorianCalendar da) {
-        if (da != null) {
-            int year = da.getYear();
-            int month = da.getMonth();
-            int day = da.getDay();
-            int hour = da.getHour();
-            int minute = da.getMinute();
-            int second = da.getSecond();
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(year, month - 1, day, hour, minute, second);
-            Date date = calendar.getTime();
-            return date;
-        } else {
-            return null;
-        }
-
+    public static synchronized Date getDateFromXmlGregorianCalendar(@NotNull XMLGregorianCalendar da) {
+        int year = da.getYear();
+        int month = da.getMonth();
+        int day = da.getDay();
+        int hour = da.getHour();
+        int minute = da.getMinute();
+        int second = da.getSecond();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month - 1, day, hour, minute, second);
+        Date date = calendar.getTime();
+        return date;
     }
 
     /**
@@ -204,7 +177,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDateAfterMinute(int minute, Date date) {
+    public static synchronized Date getDateAfterMinute(int minute, @NotNull Date date) {
         return getDateAfter(date, minute, Calendar.MINUTE);
     }
 
@@ -215,7 +188,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    private static synchronized Date getDateAfter(Date date, int number, int unit) {
+    private static synchronized Date getDateAfter(@NotNull Date date, int number, int unit) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(unit, number);
@@ -229,7 +202,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDateAfterHour(int hour, Date date) {
+    public static synchronized Date getDateAfterHour(int hour, @NotNull Date date) {
         return getDateAfter(date, hour, Calendar.HOUR_OF_DAY);
     }
 
@@ -240,7 +213,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDateAfterDay(int day, Date date) {
+    public static synchronized Date getDateAfterDay(int day, @NotNull Date date) {
         return getDateAfter(date, day, Calendar.DAY_OF_YEAR);
 
     }
@@ -252,7 +225,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDateAfterMonth(int month, Date date) {
+    public static synchronized Date getDateAfterMonth(int month, @NotNull Date date) {
         return getDateAfter(date, month, Calendar.MONTH);
 
     }
@@ -264,46 +237,11 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDateAfterYear(int year, Date date) {
+    public static synchronized Date getDateAfterYear(int year, @NotNull Date date) {
         return getDateAfter(date, year, Calendar.YEAR);
 
     }
 
-    /**
-     * @Description: 判断是不是日期(不包括时间)类型 true代表是日期型，false代表非日期类型
-     * @Param: [dataStr]
-     * @return: boolean
-     * @Author: Mr.Miles
-     * @Date: 2020/10/13
-     */
-    public static synchronized boolean isValidDate(String dataStr) {
-        String patternStr = "^((\\d{2}(([02468][048])|([13579][26]))"
-                + "[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|"
-                + "(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?"
-                + "((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?("
-                + "(((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?"
-                + "((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))";
-        if ((dataStr != null)) {
-            Pattern pattern = Pattern.compile(patternStr);
-            Matcher match = pattern.matcher(dataStr);
-            return match.matches();
-        }
-        return false;
-    }
-
-    /**
-     * @Description: 检查字符串是否为日期
-     * @Param: [dateTime, format]
-     * @return: boolean
-     * @Author: Mr.Miles
-     * @Date: 2020/10/13
-     */
-    public static synchronized boolean isDateTime(String dateTime, DateFormat format) {
-        simpleDateFormat.applyPattern(format.getFormat());
-        ParsePosition pos = new ParsePosition(0);
-        Date dt = simpleDateFormat.parse(dateTime, pos);
-        return !(dt == null);
-    }
 
     /**
      * @Description: 毫秒转字符串
@@ -318,6 +256,16 @@ public class DateUtils {
         return getDate2Str(date);
     }
 
+    /**
+     * 取得日期的特定表示格式的字符串 默认日期格式yyyy-MM-dd HH:mm:dd
+     *
+     * @param date 日期（Date）
+     * @return 日期的字符串
+     */
+    public static synchronized String getDate2Str(@NotNull Date date) {
+        simpleDateFormat.applyPattern(DateFormat.DATETIME_DEFAULT.getFormat());
+        return simpleDateFormat.format(date);
+    }
 
     /**
      * @Description: 毫秒转日期字符串
@@ -326,10 +274,22 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized String getLong2Str(long time, DateFormat format) {
+    public static synchronized String getLong2Str(long time, @NotNull DateFormat format) {
         Date date = new Date();
         date.setTime(time);
         return getDate2Str(date, format);
+    }
+
+    /**
+     * 取得日期的特定表示格式的字符串
+     *
+     * @param format 日期格式
+     * @param date   日期（Date）
+     * @return 日期的字符串
+     */
+    public static synchronized String getDate2Str(@NotNull Date date, @NotNull DateFormat format) {
+        simpleDateFormat.applyPattern(format.getFormat());
+        return simpleDateFormat.format(date);
     }
 
     /**
@@ -339,7 +299,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date get5MinutesStart(Date date) {
+    public static synchronized Date get5MinutesStart(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int minute = c.get(Calendar.MINUTE);
@@ -356,7 +316,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date get5MinutesEnd(Date date) {
+    public static synchronized Date get5MinutesEnd(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int minute = c.get(Calendar.MINUTE);
@@ -373,7 +333,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getHourStart(Date date) {
+    public static synchronized Date getHourStart(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.MINUTE, 0);
@@ -388,7 +348,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getHourEnd(Date date) {
+    public static synchronized Date getHourEnd(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.MINUTE, 59);
@@ -403,7 +363,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDayStart(Date date) {
+    public static synchronized Date getDayStart(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.HOUR_OF_DAY, 0);
@@ -419,7 +379,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDayEnd(Date date) {
+    public static synchronized Date getDayEnd(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.HOUR_OF_DAY, 23);
@@ -435,7 +395,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getWeekStart(Date date) {
+    public static synchronized Date getWeekStart(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.DAY_OF_WEEK, 1);
@@ -452,7 +412,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getWeekEnd(Date date) {
+    public static synchronized Date getWeekEnd(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.DAY_OF_WEEK, 7);
@@ -469,7 +429,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getMonthStart(Date date) {
+    public static synchronized Date getMonthStart(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.DAY_OF_MONTH, 1);
@@ -486,7 +446,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getMonthEnd(Date date) {
+    public static synchronized Date getMonthEnd(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int day = c.getActualMaximum(Calendar.DAY_OF_MONTH);
@@ -504,7 +464,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getYearStart(Date date) {
+    public static synchronized Date getYearStart(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int month = c.getActualMinimum(Calendar.MONTH);
@@ -524,7 +484,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getYearEnd(Date date) {
+    public static synchronized Date getYearEnd(@NotNull Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int month = c.getActualMaximum(Calendar.MONTH);
@@ -544,7 +504,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized long getMillisBetweenDate(Date date1, Date date2) {
+    public static synchronized long getMillisBetweenDate(@NotNull Date date1, @NotNull Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toMillis();
@@ -557,7 +517,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized long getSecondsBetweenDate(Date date1, Date date2) {
+    public static synchronized long getSecondsBetweenDate(@NotNull Date date1, @NotNull Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).getSeconds();
@@ -570,7 +530,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized long getMinutesBetweenDate(Date date1, Date date2) {
+    public static synchronized long getMinutesBetweenDate(@NotNull Date date1, @NotNull Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toMinutes();
@@ -583,90 +543,36 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized long getHoursBetweenDate(Date date1, Date date2) {
+    public static synchronized long getHoursBetweenDate(@NotNull Date date1, @NotNull Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toHours();
     }
 
     /**
-     * @Description: 获取日期相差天数
-     * @Param: [date1, date2]
-     * @return: long
-     * @Author: Mr.Miles
-     * @Date: 2020/10/14
-     */
-    public static synchronized long getDaysBetweenDate(Date date1, Date date2) {
-        Instant inst1 = Instant.ofEpochMilli(date1.getTime());
-        Instant inst2 = Instant.ofEpochMilli(date2.getTime());
-        return Duration.between(inst1, inst2).toDays();
-    }
-
-    /**
-     * @Description: 获取日期的年数
+     * @Description: 获取指定日期的秒数
      * @Param: [date]
      * @return: int
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getYear(Date date) {
+    public static synchronized int getSecond(@NotNull Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return calendar.get(Calendar.YEAR);
+        return calendar.get(Calendar.SECOND);
     }
 
     /**
-     * @Description: 获取日期的月数
-     * Calendar.MONTH 月份是从0开始  0-11 对应 1月-12月
+     * @Description: 获取分钟数
      * @Param: [date]
      * @return: int
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getMonth(Date date) {
+    public static synchronized int getMinute(@NotNull Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return calendar.get(Calendar.MONTH) + 1;
-    }
-
-    /**
-     * @Description: 获取日期的日数, 即是一个周中的第几天
-     * 周从周日开始,第一天为1
-     * @Param: [date]
-     * @return: int
-     * @Author: Mr.Miles
-     * @Date: 2020/10/14
-     */
-    public static synchronized int getDayOfWeek(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        return calendar.get(Calendar.DAY_OF_WEEK);
-    }
-
-    /**
-     * @Description: 获取日期的日数, 即是一个月中的第几天
-     * @Param: [date]
-     * @return: int
-     * @Author: Mr.Miles
-     * @Date: 2020/10/14
-     */
-    public static synchronized int getDayOfMonth(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        return calendar.get(Calendar.DAY_OF_MONTH);
-    }
-
-    /**
-     * @Description: 获取日期的日数, 即是一个年中的第几天
-     * @Param: [date]
-     * @return: int
-     * @Author: Mr.Miles
-     * @Date: 2020/10/14
-     */
-    public static synchronized int getDayOfYear(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        return calendar.get(Calendar.DAY_OF_YEAR);
+        return calendar.get(Calendar.MINUTE);
     }
 
     /**
@@ -676,7 +582,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getHour12(Date date) {
+    public static synchronized int getHour12(@NotNull Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.HOUR);
@@ -689,36 +595,121 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getHour24(Date date) {
+    public static synchronized int getHour24(@NotNull Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.HOUR_OF_DAY);
     }
 
     /**
-     * @Description: 获取分钟数
+     * @Description: 获取日期的日数, 即是一个周中的第几天
+     * 周从周日开始,第一天为1
      * @Param: [date]
      * @return: int
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getMinute(Date date) {
+    public static synchronized int getDayOfWeek(@NotNull Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return calendar.get(Calendar.MINUTE);
+        return calendar.get(Calendar.DAY_OF_WEEK);
     }
 
     /**
-     * @Description: 获取指定日期的秒数
+     * @Description: 获取日期的日数, 即是一个月中的第几天
      * @Param: [date]
      * @return: int
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getSecond(Date date) {
+    public static synchronized int getDayOfMonth(@NotNull Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return calendar.get(Calendar.SECOND);
+        return calendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    /**
+     * @Description: 获取日期的日数, 即是一个年中的第几天
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getDayOfYear(@NotNull Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_YEAR);
+    }
+
+    /**
+     * @Description: 获取日期的月数
+     * Calendar.MONTH 月份是从0开始  0-11 对应 1月-12月
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getMonth(@NotNull Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.MONTH) + 1;
+    }
+
+    /**
+     * @Description: 获取年龄
+     * 参考: https://blog.csdn.net/u012811805/article/details/53814736
+     * @Param: [birthday]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getAgeByBirth(@NotNull Date birthday) {
+        int age = 0;
+        try {
+            // 当前时间
+            Calendar now = Calendar.getInstance();
+            now.setTime(new Date());
+
+            Calendar birth = Calendar.getInstance();
+            birth.setTime(birthday);
+
+            //如果传入的时间，在当前时间的后面，返回0岁
+            if (birth.after(now)) {
+                age = 0;
+            } else {
+                age = now.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
+                if (now.get(Calendar.DAY_OF_YEAR) > birth.get(Calendar.DAY_OF_YEAR)) {
+                    age += 1;
+                }
+            }
+            return age;
+        } catch (Exception e) {//兼容性更强,异常后返回数据
+            return 0;
+        }
+    }
+
+    /**
+     * @Description: 还有几天过生日
+     * @Param: [birthday]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getDayFromBirth(@NotNull Date birthday) {
+        return (int) getDaysBetweenDate(new Date(), birthday);
+    }
+
+    /**
+     * @Description: 获取日期相差天数
+     * @Param: [date1, date2]
+     * @return: long
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized long getDaysBetweenDate(@NotNull Date date1, @NotNull Date date2) {
+        Instant inst1 = Instant.ofEpochMilli(date1.getTime());
+        Instant inst2 = Instant.ofEpochMilli(date2.getTime());
+        return Duration.between(inst1, inst2).toDays();
     }
 
     /**
@@ -728,7 +719,7 @@ public class DateUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized boolean isBirthDay(Date birthDate) {
+    public static synchronized boolean isBirthDay(@NotNull Date birthDate) {
         boolean isBirthDay = false;
 
         Calendar calendar = Calendar.getInstance();
@@ -748,6 +739,73 @@ public class DateUtils {
             }
         }
         return isBirthDay;
+    }
+
+    /**
+     * @Description: 判断是不是日期(不包括时间)类型 true代表是日期型，false代表非日期类型
+     * @Param: [dataStr]
+     * @return: boolean
+     * @Author: Mr.Miles
+     * @Date: 2020/10/13
+     */
+    public static synchronized boolean isValidDate(@NotNull String dataStr) {
+        String patternStr = "^((\\d{2}(([02468][048])|([13579][26]))"
+                + "[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|"
+                + "(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?"
+                + "((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?("
+                + "(((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?"
+                + "((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))";
+
+        Pattern pattern = Pattern.compile(patternStr);
+        Matcher match = pattern.matcher(dataStr);
+        return match.matches();
+    }
+
+    /**
+     * @Description: 检查字符串是否为日期
+     * @Param: [dateTime, format]
+     * @return: boolean
+     * @Author: Mr.Miles
+     * @Date: 2020/10/13
+     */
+    public static synchronized boolean isDateTime(@NotNull String dateTime, @NotNull DateFormat format) {
+        simpleDateFormat.applyPattern(format.getFormat());
+        ParsePosition pos = new ParsePosition(0);
+        Date dt = simpleDateFormat.parse(dateTime, pos);
+        return !(dt == null);
+    }
+
+    /**
+     * @Description: 判断是否为瑞年
+     * <p>
+     * 瑞年判断法
+     * 1. 年份是4的倍数而不是100的倍数；
+     * 2. 年份是400的倍数。
+     * @Param: [date]
+     * @return: boolean
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized boolean isLeapYear(@NotNull Date date) {
+        boolean leapYear = false;
+        int year = getYear(date);
+        if ((year % 4 == 0 & year % 100 != 0) || year % 400 == 0) {
+            leapYear = true;
+        }
+        return leapYear;
+    }
+
+    /**
+     * @Description: 获取日期的年数
+     * @Param: [date]
+     * @return: int
+     * @Author: Mr.Miles
+     * @Date: 2020/10/14
+     */
+    public static synchronized int getYear(@NotNull Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.YEAR);
     }
 }
 

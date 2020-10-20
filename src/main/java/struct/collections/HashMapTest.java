@@ -13,34 +13,33 @@ public class HashMapTest {
             maps.put(i, i);
         }
 
-        CommonUtils.startTime();
+
         for (Integer key : maps.keySet()) {
             Integer temp = key;
         }
-        CommonUtils.endTime();
-        CommonUtils.startTime();
+
 
         Iterator<Map.Entry<Integer, Integer>> iterator = maps.entrySet().iterator();
         while (iterator.hasNext()) {
             int temp = iterator.next().getKey();
         }
-        CommonUtils.endTime();
 
 
-        CommonUtils.startTime();
+
+
 
         for (Map.Entry<Integer, Integer> entry : maps.entrySet()) {
             int temp = entry.getKey();
         }
-        CommonUtils.endTime();
 
 
-        CommonUtils.startTime();
+
+
 
         for (Integer v : maps.values()) {
             int temp = v;
         }
-        CommonUtils.endTime();
+
 
 
     }

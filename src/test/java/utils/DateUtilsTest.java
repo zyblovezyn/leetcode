@@ -591,6 +591,16 @@ class DateUtilsTest {
         date2 = calendar.getTime();
         long diff = DateUtils.getDaysBetweenDate(date1, date2);
         Assertions.assertEquals(1, diff);
+
+        //2：如果抛出的异常与设定的异常相同，则这一步的断言成功并返回一个异常的顶级父类
+        Throwable exception = Assertions.assertThrows(NullPointerException.class, () -> {
+            //1：执行此语句会抛出一个ArithmeticException异常，被assertThrows方法捕获
+            DateUtils.getDaysBetweenDate(null, null);
+        });
+        //3：接下来便可以对返回的异常进行一些其他的测试
+        //比如对异常的信息进行断言测试等。。
+        Assertions.assertEquals(null, exception.getMessage());
+
     }
 
     @Test
@@ -705,5 +715,42 @@ class DateUtilsTest {
 
         Assertions.assertTrue(DateUtils.isBirthDay(date1));
         Assertions.assertFalse(DateUtils.isBirthDay(date2));
+    }
+
+    @Test
+    void getAgeByBirth() {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2020, 8, 9, 18, 18, 18);
+        date2 = calendar.getTime();
+        Assertions.assertEquals(1, DateUtils.getAgeByBirth(date2));
+
+        calendar = Calendar.getInstance();
+        calendar.set(2020, 10, 9, 18, 18, 18);
+        date2 = calendar.getTime();
+        Assertions.assertEquals(0, DateUtils.getAgeByBirth(date2));
+
+
+        calendar.set(2000, 8, 9, 18, 18, 18);
+        date2 = calendar.getTime();
+        Assertions.assertEquals(21, DateUtils.getAgeByBirth(date2));
+
+        calendar.set(2000, 10, 9, 18, 18, 18);
+        date2 = calendar.getTime();
+        Assertions.assertEquals(20, DateUtils.getAgeByBirth(date2));
+
+
+        calendar.set(1900, 8, 9, 18, 18, 18);
+        date2 = calendar.getTime();
+        Assertions.assertEquals(121, DateUtils.getAgeByBirth(date2));
+
+    }
+
+    @Test
+    void getDayFromBirth() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2020, 9, 15, 18, 18, 18);
+        date2 = calendar.getTime();
+        Assertions.assertEquals(1, DateUtils.getDayFromBirth(date2));
     }
 }
