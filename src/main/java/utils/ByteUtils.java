@@ -4,8 +4,18 @@ import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class ByteUtils {
+/**
+ * @Description: <p>
+ * @Author: Mr.Miles
+ * @Date: 2020/10/22
+ */
+public class ByteUtils implements Serializable {
+    private static final long serialVersionUID = -7395625324145448823L;
+
+    public ByteUtils() {
+    }
 
     /**
      * @Description: 二进制流转Base64流

@@ -6,4 +6,5 @@ import lombok.Data;
 public class SubPerson {
     private int id;
     private String name;
+    private Object age;
 }

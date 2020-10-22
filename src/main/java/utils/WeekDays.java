@@ -1,5 +1,11 @@
 package utils;
 
+/**
+* @Description: 周的枚举类型
+* <p>
+* @Author: Mr.Miles
+* @Date: 2020/10/22
+*/
 public enum WeekDays {
     Sun("Sunday", "日曜日"),
     Mon("Monday", "月曜日"),

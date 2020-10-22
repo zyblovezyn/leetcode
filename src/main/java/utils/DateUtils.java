@@ -4,6 +4,7 @@ import com.sun.istack.internal.NotNull;
 
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -14,7 +15,15 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DateUtils {
+/**
+* @Description:
+* <p>
+* @Author: Mr.Miles
+* @Date: 2020/10/22
+*/
+public class DateUtils implements Serializable {
+
+    private static final long serialVersionUID = -7208099072462241010L;
 
     private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 

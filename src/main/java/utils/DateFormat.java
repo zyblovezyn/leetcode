@@ -1,5 +1,10 @@
 package utils;
 
+/**
+ * @Description: <p>
+ * @Author: Mr.Miles
+ * @Date: 2020/10/22
+ */
 public enum DateFormat {
     /**
      * @Description: 日期格式  yyyyMMddHHmmss
