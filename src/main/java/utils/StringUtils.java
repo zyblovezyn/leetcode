@@ -1,12 +1,15 @@
 package utils;
 
+import com.sun.istack.internal.NotNull;
+import lombok.experimental.ExtensionMethod;
+
 import java.io.Serializable;
 
 /**
  * @author Miles
  * @version 1.0.0
+ * @Description 字符串工具类
  * @ClassName StringUtils.java
- * @Description TODO
  * @createTime 2020-10-22 14:17:00
  */
 public class StringUtils implements Serializable {
@@ -27,5 +30,25 @@ public class StringUtils implements Serializable {
     private static final long serialVersionUID = -1553648220029603605L;
 
     public StringUtils() {
+    }
+
+    /**
+    * @Description:
+    * <p>       
+    * @Param: [str, start, end]
+    * @return: java.lang.String
+    * @Author: Mr.Miles
+    * @Date: 2020/10/22
+    */
+     public static synchronized String subString(@NotNull String str, int start, int end) {
+         char[] arr = str.toCharArray();
+         StringBuffer stringBuffer=new StringBuffer();
+         for (int i = start; i < arr.length; i++) {
+             stringBuffer.append(arr[i]);
+             if (i == end) {
+                 break;
+             }
+         }
+         return stringBuffer.toString();
     }
 }
