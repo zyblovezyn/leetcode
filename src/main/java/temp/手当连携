@@ -1,0 +1,1117 @@
+11/2/20 17:33:27 0> SQLRouter LOG Utility - version 2.1.0
+11/2/20 17:33:27 0> SQLRouter/Oracle - version 4.0.0
+11/2/20 17:33:27 0> remotedbname=A_FuGangXianJing,@A_FuGangXianJing
+11/2/20 17:33:27 0> longbuffer=26214400
+11/2/20 17:33:27 0> substitute=",
+11/2/20 17:33:27 0> substitute=SYSSQL.,
+11/2/20 17:33:27 0> fetchrow=20
+11/2/20 17:33:27 0> country=japan
+11/2/20 17:33:27 1> [connect] dbname = A_FUGANGXIANJING username = DJN_9401
+11/2/20 17:33:27 1> _V6
+11/2/20 17:33:27 1> [oracon] login string DJN_9401_V6@A_FuGangXianJing
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [set database parameter] param = 5106 value = 0
+11/2/20 17:33:27 1> [get database parameter] param = 5517
+11/2/20 17:33:27 1> [ERROR] 196 Invalid GET parameter
+11/2/20 17:33:27 2> [connect] dbname = A_FUGANGXIANJING username = DJN_9401
+11/2/20 17:33:27 2> _V6
+11/2/20 17:33:27 2> [oracon] login string DJN_9401_V6@A_FuGangXianJing
+11/2/20 17:33:27 2> [get database parameter] param = 1004
+11/2/20 17:33:27 2> [set database parameter] param = 5106 value = 0
+11/2/20 17:33:27 2> [get database parameter] param = 5517
+11/2/20 17:33:27 2> [ERROR] 196 Invalid GET parameter
+11/2/20 17:33:27 3> [connect] dbname = A_FUGANGXIANJING username = DJN_9401
+11/2/20 17:33:27 3> _V6
+11/2/20 17:33:27 3> [oracon] login string DJN_9401_V6@A_FuGangXianJing
+11/2/20 17:33:27 3> [get database parameter] param = 1004
+11/2/20 17:33:27 3> [set database parameter] param = 5106 value = 0
+11/2/20 17:33:27 3> [get database parameter] param = 5517
+11/2/20 17:33:27 3> [ERROR] 196 Invalid GET parameter
+11/2/20 17:33:27 4> [connect] dbname = A_FUGANGXIANJING username = DJN_9401
+11/2/20 17:33:27 4> _V6
+11/2/20 17:33:27 4> [oracon] login string DJN_9401_V6@A_FuGangXianJing
+11/2/20 17:33:27 4> [get database parameter] param = 1004
+11/2/20 17:33:27 4> [set database parameter] param = 5106 value = 0
+11/2/20 17:33:27 4> [get database parameter] param = 5517
+11/2/20 17:33:27 4> [ERROR] 196 Invalid GET parameter
+11/2/20 17:33:27 5> [connect] dbname = A_FUGANGXIANJING username = DJN_9401
+11/2/20 17:33:27 5> _V6
+11/2/20 17:33:27 5> [oracon] login string DJN_9401_V6@A_FuGangXianJing
+11/2/20 17:33:27 5> [get database parameter] param = 1004
+11/2/20 17:33:27 5> [set database parameter] param = 5106 value = 0
+11/2/20 17:33:27 5> [get database parameter] param = 5517
+11/2/20 17:33:27 5> [ERROR] 196 Invalid GET parameter
+11/2/20 17:33:27 1> [compile]    SELECT NNUMBER01, NVL(NNUMBER03,0)
+11/2/20 17:33:27 1>                         FROM XCKANRI   WHERE SYSDATE BE
+11/2/20 17:33:27 1> TWEEN DSTART AND DEND   AND CMASTERKB = 'VERSION'   AND
+11/2/20 17:33:27 1>  CODE = :1      AND CCOMPKB = :2
+11/2/20 17:33:27 1> [describe] name = NNUMBER01 ,data size = 22, datatype =
+11/2/20 17:33:27 1>  2
+11/2/20 17:33:27 1> [describe] name = NVL(NNUMBER03,0) ,data size = 22, dat
+11/2/20 17:33:27 1> atype = 2
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [1] UPDS
+11/2/20 17:33:27 1> [2] 01
+11/2/20 17:33:27 1> [bind] position = 1, buffer size = 8, datatype = 96
+11/2/20 17:33:27 1> [bind] position = 2, buffer size = 4, datatype = 96
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:27 1> [compile] SELECT     TRUNC( SYSDATE, 'DD' )  , SUBSTR(
+11/2/20 17:33:27 1> SYS_CONTEXT( 'USERENV', 'OS_USER' ), 0, 80 )  , SUBSTR(
+11/2/20 17:33:27 1>  SYS_CONTEXT( 'USERENV', 'TERMINAL' ), 0, 80 )  , SUBST
+11/2/20 17:33:27 1> R( SYS_CONTEXT( 'USERENV', 'IP_ADDRESS' ), 0, 80 )  FRO
+11/2/20 17:33:27 1> M    dual
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1> [describe] name = TRUNC(SYSDATE,'DD') ,data size = 7, d
+11/2/20 17:33:27 1> atatype = 12
+11/2/20 17:33:27 1> [describe] name = SUBSTR(SYS_CONTEXT('USERENV','OS_USER
+11/2/20 17:33:27 1> '),0,80) ,data size = 320, datatype = 1
+11/2/20 17:33:27 1> [describe] name = SUBSTR(SYS_CONTEXT('USERENV','TERMINA
+11/2/20 17:33:27 1> L'),0,80) ,data size = 320, datatype = 1
+11/2/20 17:33:27 1> [describe] name = SUBSTR(SYS_CONTEXT('USERENV','IP_ADDR
+11/2/20 17:33:27 1> ESS'),0,80) ,data size = 320, datatype = 1
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:27 1> [compile]    SELECT   CKYUYOKHN, NCOMPANY,    NSHAINNOU
+11/2/20 17:33:27 1> NIQ, CSHAINNOCOL, CSHAINNONM, NSHAINNOLEN,   CZAISHOKUK
+11/2/20 17:33:27 1> B, CSHUROKB,    CMENUEXE, NLOGINTERVAL, CDBTYPE,    CLO
+11/2/20 17:33:27 1> GINUSER, CLOGINPASS,    NJINJISYS, NKYUYOSYS   FROM   X
+11/2/20 17:33:27 1> CSYSTEM
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1> [describe] name = CKYUYOKHN ,data size = 40, datatype =
+11/2/20 17:33:27 1>  1
+11/2/20 17:33:27 1> [describe] name = NCOMPANY ,data size = 22, datatype =
+11/2/20 17:33:27 1> 2
+11/2/20 17:33:27 1> [describe] name = NSHAINNOUNIQ ,data size = 22, datatyp
+11/2/20 17:33:27 1> e = 2
+11/2/20 17:33:27 1> [describe] name = CSHAINNOCOL ,data size = 20, datatype
+11/2/20 17:33:27 1>  = 1
+11/2/20 17:33:27 1> [describe] name = CSHAINNONM ,data size = 40, datatype
+11/2/20 17:33:27 1> = 1
+11/2/20 17:33:27 1> [describe] name = NSHAINNOLEN ,data size = 22, datatype
+11/2/20 17:33:27 1>  = 2
+11/2/20 17:33:27 1> [describe] name = CZAISHOKUKB ,data size = 6, datatype
+11/2/20 17:33:27 1> = 1
+11/2/20 17:33:27 1> [describe] name = CSHUROKB ,data size = 6, datatype = 1
+11/2/20 17:33:27 1> [describe] name = CMENUEXE ,data size = 40, datatype =
+11/2/20 17:33:27 1> 1
+11/2/20 17:33:27 1> [describe] name = NLOGINTERVAL ,data size = 22, datatyp
+11/2/20 17:33:27 1> e = 2
+11/2/20 17:33:27 1> [describe] name = CDBTYPE ,data size = 20, datatype = 1
+11/2/20 17:33:27 1> [describe] name = CLOGINUSER ,data size = 20, datatype
+11/2/20 17:33:27 1> = 1
+11/2/20 17:33:27 1> [describe] name = CLOGINPASS ,data size = 60, datatype
+11/2/20 17:33:27 1> = 1
+11/2/20 17:33:27 1> [describe] name = NJINJISYS ,data size = 22, datatype =
+11/2/20 17:33:27 1>  2
+11/2/20 17:33:27 1> [describe] name = NKYUYOSYS ,data size = 22, datatype =
+11/2/20 17:33:27 1>  2
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:27 1> [compile]    SELECT      CCOMPNM, CCOMPRYK, CYUBINNO, C
+11/2/20 17:33:27 1> JYUSHO1, CJYUSHO2,   CTELNO, CFAXNO, CTANTO1, CTANTO2,
+11/2/20 17:33:27 1> CEMAIL   FROM   XCDEVELOPER
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1> [describe] name = CCOMPNM ,data size = 100, datatype =
+11/2/20 17:33:27 1> 1
+11/2/20 17:33:27 1> [describe] name = CCOMPRYK ,data size = 40, datatype =
+11/2/20 17:33:27 1> 1
+11/2/20 17:33:27 1> [describe] name = CYUBINNO ,data size = 20, datatype =
+11/2/20 17:33:27 1> 1
+11/2/20 17:33:27 1> [describe] name = CJYUSHO1 ,data size = 100, datatype =
+11/2/20 17:33:27 1>  1
+11/2/20 17:33:27 1> [describe] name = CJYUSHO2 ,data size = 100, datatype =
+11/2/20 17:33:27 1>  1
+11/2/20 17:33:27 1> [describe] name = CTELNO ,data size = 24, datatype = 1
+11/2/20 17:33:27 1> [describe] name = CFAXNO ,data size = 24, datatype = 1
+11/2/20 17:33:27 1> [describe] name = CTANTO1 ,data size = 40, datatype = 1
+11/2/20 17:33:27 1> [describe] name = CTANTO2 ,data size = 40, datatype = 1
+11/2/20 17:33:27 1> [describe] name = CEMAIL ,data size = 100, datatype = 1
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:27 1> [compile] SELECT   CCOMPKB,   CCOMPRYK,   NDDF,   NDDT,
+11/2/20 17:33:27 1>    DYYMM,   DSHOYYMM,   CSTARTPRO   FROM   XCCOMPANY
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1> [describe] name = CCOMPKB ,data size = 4, datatype = 1
+11/2/20 17:33:27 1> [describe] name = CCOMPRYK ,data size = 40, datatype =
+11/2/20 17:33:27 1> 1
+11/2/20 17:33:27 1> [describe] name = NDDF ,data size = 22, datatype = 2
+11/2/20 17:33:27 1> [describe] name = NDDT ,data size = 22, datatype = 2
+11/2/20 17:33:27 1> [describe] name = DYYMM ,data size = 7, datatype = 12
+11/2/20 17:33:27 1> [describe] name = DSHOYYMM ,data size = 7, datatype = 1
+11/2/20 17:33:27 1> 2
+11/2/20 17:33:27 1> [describe] name = CSTARTPRO ,data size = 40, datatype =
+11/2/20 17:33:27 1>  1
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:27 1> [compile] SELECT CDE_VAL                FROM DJND4001 W
+11/2/20 17:33:27 1> HERE CCOMPKB = :1         AND SYSDATE BETWEEN DSTART AN
+11/2/20 17:33:27 1> D DEND AND CDE_SYBT = '003' AND DTA2 = '1'
+11/2/20 17:33:27 1> [describe] name = CDE_VAL ,data size = 16, datatype = 1
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [1] 01
+11/2/20 17:33:27 1> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:27 1> [compile] SELECT  NGRAPH, CGRAPHNAME, CGRAPHPATH, CDDEP
+11/2/20 17:33:27 1> ATH, CSAVEDRV, CSAVEDIR, CPHOTOPATH, NGRAPHMODE, CCOMPN
+11/2/20 17:33:27 1> AME, SYS_CONTEXT( 'USERENV', 'TERMINAL' ), NVL( NMETHOD
+11/2/20 17:33:27 1> , 0 ) FROM XCCLIENT
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1>                                      WHERE CCLIENTID =
+11/2/20 17:33:27 1> :1
+11/2/20 17:33:27 1> [describe] name = NGRAPH ,data size = 22, datatype = 2
+11/2/20 17:33:27 1> [describe] name = CGRAPHNAME ,data size = 100, datatype
+11/2/20 17:33:27 1>  = 1
+11/2/20 17:33:27 1> [describe] name = CGRAPHPATH ,data size = 200, datatype
+11/2/20 17:33:27 1>  = 1
+11/2/20 17:33:27 1> [describe] name = CDDEPATH ,data size = 200, datatype =
+11/2/20 17:33:27 1>  1
+11/2/20 17:33:27 1> [describe] name = CSAVEDRV ,data size = 20, datatype =
+11/2/20 17:33:27 1> 1
+11/2/20 17:33:27 1> [describe] name = CSAVEDIR ,data size = 200, datatype =
+11/2/20 17:33:27 1>  1
+11/2/20 17:33:27 1> [describe] name = CPHOTOPATH ,data size = 200, datatype
+11/2/20 17:33:27 1>  = 1
+11/2/20 17:33:27 1> [describe] name = NGRAPHMODE ,data size = 22, datatype
+11/2/20 17:33:27 1> = 2
+11/2/20 17:33:27 1> [describe] name = CCOMPNAME ,data size = 40, datatype =
+11/2/20 17:33:27 1>  1
+11/2/20 17:33:27 1> [describe] name = SYS_CONTEXT('USERENV','TERMINAL') ,da
+11/2/20 17:33:27 1> ta size = 256, datatype = 1
+11/2/20 17:33:27 1> [describe] name = NVL(NMETHOD,0) ,data size = 22, datat
+11/2/20 17:33:27 1> ype = 2
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [1] X02472
+11/2/20 17:33:27 1> [bind] position = 1, buffer size = 12, datatype = 96
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [compile] SELECT SUBSTR( NVL( F_GET_XCKANRI( SYSDATE, '
+11/2/20 17:33:27 1> 01', 'INIFILE', 'INIFILE' ), '0'), 1, 1 ) FROM DUAL
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1> [describe] name = SUBSTR(NVL(F_GET_XCKANRI(SYSDATE,'01'
+11/2/20 17:33:27 1> ,'INIFILE','INIFILE'),'0'),1,1) ,data size = 2, datatyp
+11/2/20 17:33:27 1> e = 1
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:27 6> [connect] dbname = A_FUGANGXIANJING username = DJN_9401
+11/2/20 17:33:27 6> _V6
+11/2/20 17:33:27 6> [oracon] login string DJN_9401_V6@A_FuGangXianJing
+11/2/20 17:33:27 6> [get database parameter] param = 1004
+11/2/20 17:33:27 6> [set database parameter] param = 5106 value = 0
+11/2/20 17:33:27 6> [get database parameter] param = 5517
+11/2/20 17:33:27 6> [ERROR] 196 Invalid GET parameter
+11/2/20 17:33:27 6> [compile] SELECT 1 FROM DUAL WHERE F_GET_XCKANRI( TRUNC
+11/2/20 17:33:27 6> (SYSDATE), '01', 'ACCESSLOG', 'LOG_SWITCH') = '1'
+11/2/20 17:33:27 6> [describe] name = 1 ,data size = 2, datatype = 2
+11/2/20 17:33:27 6> [execute]
+11/2/20 17:33:27 6> [fetch]
+11/2/20 17:33:27 6> [end of fetch]
+11/2/20 17:33:27 6> [disconnect]
+11/2/20 17:33:27 1> [compile] INSERT INTO XCWHOUSE ( CCOMPKB, CMNCLIENT, CM
+11/2/20 17:33:27 1> NCOMP, CMNUSER, CPROGRAM, DSTART ) VALUES ( :1     , :2
+11/2/20 17:33:27 1>          , :3        , :4          , :5    , SYSDATE )
+11/2/20 17:33:27 1>
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [1] 01
+11/2/20 17:33:27 1> [2] X02472
+11/2/20 17:33:27 1> [3] 01
+11/2/20 17:33:27 1> [4] 99999999
+11/2/20 17:33:27 1> [5] UOUT0020.EXE
+11/2/20 17:33:27 1> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:27 1> [bind] position = 2, buffer size = 12, datatype = 96
+11/2/20 17:33:27 1> [bind] position = 3, buffer size = 4, datatype = 96
+11/2/20 17:33:27 1> [bind] position = 4, buffer size = 16, datatype = 96
+11/2/20 17:33:27 1> [bind] position = 5, buffer size = 24, datatype = 96
+11/2/20 17:33:27 1> [commit]
+11/2/20 17:33:27 1> [compile] SELECT to_number( F_GET_XCKANRI(SYSDATE,'01',
+11/2/20 17:33:27 1> 'GENGOCHECK','GENGOCHECK')) FROM DUAL
+11/2/20 17:33:27 1> [describe] name = TO_NUMBER(F_GET_XCKANRI(SYSDATE,'01',
+11/2/20 17:33:27 1> 'GENGOCHECK','GENGOCHECK')) ,data size = 22, datatype =
+11/2/20 17:33:27 1>  2
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:27 1> [compile]    SELECT NSEQ, CTITLE, CSELECT
+11/2/20 17:33:27 1>                         FROM UCDSPKOMOKU   WHERE SYSDAT
+11/2/20 17:33:27 1> E BETWEEN DSTART AND DEND   AND CID = :1      AND CCOMP
+11/2/20 17:33:27 1> KB = :2
+11/2/20 17:33:27 1> [describe] name = NSEQ ,data size = 22, datatype = 2
+11/2/20 17:33:27 1> [describe] name = CTITLE ,data size = 200, datatype = 1
+11/2/20 17:33:27 1> [describe] name = CSELECT ,data size = 200, datatype =
+11/2/20 17:33:27 1> 1
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [1] KDLGKN
+11/2/20 17:33:27 1> [2] 01
+11/2/20 17:33:27 1> [bind] position = 1, buffer size = 12, datatype = 96
+11/2/20 17:33:27 1> [bind] position = 2, buffer size = 4, datatype = 96
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:27 1> [compile]    SELECT NSEQ, CTITLE, CSELECT
+11/2/20 17:33:27 1>                         FROM UCDSPKOMOKU   WHERE SYSDAT
+11/2/20 17:33:27 1> E BETWEEN DSTART AND DEND   AND CID = :1      AND CCOMP
+11/2/20 17:33:27 1> KB = :2
+11/2/20 17:33:27 1> [describe] name = NSEQ ,data size = 22, datatype = 2
+11/2/20 17:33:27 1> [describe] name = CTITLE ,data size = 200, datatype = 1
+11/2/20 17:33:27 1> [describe] name = CSELECT ,data size = 200, datatype =
+11/2/20 17:33:27 1> 1
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [1] KHEAD
+11/2/20 17:33:27 1> [2] 01
+11/2/20 17:33:27 1> [bind] position = 1, buffer size = 10, datatype = 96
+11/2/20 17:33:27 1> [bind] position = 2, buffer size = 4, datatype = 96
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:27 1> [compile]    SELECT SUBSTR(NAME,1,20)
+11/2/20 17:33:27 1>   FROM XCKANRI   WHERE SYSDATE BETWEEN DSTART AND DEND
+11/2/20 17:33:27 1>   AND CMASTERKB = 'KYOSAIIF'   AND CODE = 'KYOSAIIF'
+11/2/20 17:33:27 1> AND CCOMPKB = :1
+11/2/20 17:33:27 1> [describe] name = SUBSTR(NAME,1,20) ,data size = 40, da
+11/2/20 17:33:27 1> tatype = 1
+11/2/20 17:33:27 1> [get database parameter] param = 1004
+11/2/20 17:33:27 1> [execute]
+11/2/20 17:33:27 1> [1] 01
+11/2/20 17:33:27 1> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:27 1> [fetch]
+11/2/20 17:33:27 1> [end of fetch]
+11/2/20 17:33:28 1> [compile]    SELECT   NFLGCOMP, NFLGQTAIKEI, NFLGGAITO,
+11/2/20 17:33:28 1>  NFLGQSHOYO, NFLGQSHOSEQ,   CCLMCOMP, CCLMQTAIKEI, CCLM
+11/2/20 17:33:28 1> GAITO, CCLMQSHOYO, CCLMQSHOSEQ,   CDEFCOMP, CDEFQTAIKEI
+11/2/20 17:33:28 1> , CDEFGAITO, CDEFQSHOYO, CDEFQSHOSEQ
+11/2/20 17:33:28 1>
+11/2/20 17:33:28 1>
+11/2/20 17:33:28 1>
+11/2/20 17:33:28 1>             FROM   XCTABLEKEY   WHERE   CCOMPKB = :1
+11/2/20 17:33:28 1>      AND CQTAIKEIKB = :2        AND CTABLEID = :3
+11/2/20 17:33:28 1>
+11/2/20 17:33:28 1> [describe] name = NFLGCOMP ,data size = 22, datatype =
+11/2/20 17:33:28 1> 2
+11/2/20 17:33:28 1> [describe] name = NFLGQTAIKEI ,data size = 22, datatype
+11/2/20 17:33:28 1>  = 2
+11/2/20 17:33:28 1> [describe] name = NFLGGAITO ,data size = 22, datatype =
+11/2/20 17:33:28 1>  2
+11/2/20 17:33:28 1> [describe] name = NFLGQSHOYO ,data size = 22, datatype
+11/2/20 17:33:28 1> = 2
+11/2/20 17:33:28 1> [describe] name = NFLGQSHOSEQ ,data size = 22, datatype
+11/2/20 17:33:28 1>  = 2
+11/2/20 17:33:28 1> [describe] name = CCLMCOMP ,data size = 40, datatype =
+11/2/20 17:33:28 1> 1
+11/2/20 17:33:28 1> [describe] name = CCLMQTAIKEI ,data size = 40, datatype
+11/2/20 17:33:28 1>  = 1
+11/2/20 17:33:28 1> [describe] name = CCLMGAITO ,data size = 60, datatype =
+11/2/20 17:33:28 1>  1
+11/2/20 17:33:28 1> [describe] name = CCLMQSHOYO ,data size = 40, datatype
+11/2/20 17:33:28 1> = 1
+11/2/20 17:33:28 1> [describe] name = CCLMQSHOSEQ ,data size = 40, datatype
+11/2/20 17:33:28 1>  = 1
+11/2/20 17:33:28 1> [describe] name = CDEFCOMP ,data size = 200, datatype =
+11/2/20 17:33:28 1>  1
+11/2/20 17:33:28 1> [describe] name = CDEFQTAIKEI ,data size = 200, datatyp
+11/2/20 17:33:28 1> e = 1
+11/2/20 17:33:28 1> [describe] name = CDEFGAITO ,data size = 200, datatype
+11/2/20 17:33:28 1> = 1
+11/2/20 17:33:28 1> [describe] name = CDEFQSHOYO ,data size = 200, datatype
+11/2/20 17:33:28 1>  = 1
+11/2/20 17:33:28 1> [describe] name = CDEFQSHOSEQ ,data size = 200, datatyp
+11/2/20 17:33:28 1> e = 1
+11/2/20 17:33:28 1> [get database parameter] param = 1004
+11/2/20 17:33:28 1> [get database parameter] param = 1004
+11/2/20 17:33:28 1> [get database parameter] param = 1004
+11/2/20 17:33:28 1> [execute]
+11/2/20 17:33:28 1> [1] 01
+11/2/20 17:33:28 1> [2] 00
+11/2/20 17:33:28 1> [3] QINP1090
+11/2/20 17:33:28 1> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:28 1> [bind] position = 2, buffer size = 4, datatype = 96
+11/2/20 17:33:28 1> [bind] position = 3, buffer size = 16, datatype = 96
+11/2/20 17:33:28 1> [fetch]
+11/2/20 17:33:28 1> [end of fetch]
+11/2/20 17:33:31 1> [compile] Select CUSERNAME                from XMLABEL
+11/2/20 17:33:31 1>    where    CCOMPKB =:1      and   SYSDATE BETWEEN DSTA
+11/2/20 17:33:31 1> RT AND DEND and    CPRGID = :2     and    CSYSNAME =:3
+11/2/20 17:33:31 1>
+11/2/20 17:33:31 1> [describe] name = CUSERNAME ,data size = 2000, datatype
+11/2/20 17:33:31 1>  = 1
+11/2/20 17:33:31 1> [get database parameter] param = 1004
+11/2/20 17:33:31 1> [get database parameter] param = 1004
+11/2/20 17:33:31 1> [get database parameter] param = 1004
+11/2/20 17:33:31 1> [execute]
+11/2/20 17:33:31 1> [1] 01
+11/2/20 17:33:31 1> [2] MSG
+11/2/20 17:33:31 1> [3] 諸手当システムからのデータの取込
+11/2/20 17:33:31 1> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:31 1> [bind] position = 2, buffer size = 6, datatype = 96
+11/2/20 17:33:31 1> [bind] position = 3, buffer size = 32, datatype = 96
+11/2/20 17:33:31 1> [fetch]
+11/2/20 17:33:31 1> [end of fetch]
+11/2/20 17:33:31 1> [compile] SELECT NAME, ICONFLG FROM XMMESSAGE
+11/2/20 17:33:31 1>                 WHERE code = :1
+11/2/20 17:33:31 1> [describe] name = NAME ,data size = 200, datatype = 1
+11/2/20 17:33:31 1> [describe] name = ICONFLG ,data size = 22, datatype = 2
+11/2/20 17:33:31 1> [get database parameter] param = 1004
+11/2/20 17:33:31 1> [execute]
+11/2/20 17:33:31 1> [1] 2020
+11/2/20 17:33:31 1> [bind] position = 1, buffer size = 8, datatype = 96
+11/2/20 17:33:31 1> [fetch]
+11/2/20 17:33:31 1> [end of fetch]
+11/2/20 17:33:32 1> [compile] SELECT NVL(CCODE23,'0')               FROM XC
+11/2/20 17:33:32 1> SYSTEM_UPDSPR WHERE CCOMPKB=:1
+11/2/20 17:33:32 1> [describe] name = NVL(CCODE23,'0') ,data size = 20, dat
+11/2/20 17:33:32 1> atype = 1
+11/2/20 17:33:32 1> [get database parameter] param = 1004
+11/2/20 17:33:32 1> [execute]
+11/2/20 17:33:32 1> [1] 01
+11/2/20 17:33:32 1> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 1> [fetch]
+11/2/20 17:33:32 1> [end of fetch]
+11/2/20 17:33:32 1> [compile] SELECT NVL(DTA3,'0')               FROM DJND4
+11/2/20 17:33:32 1> 001 WHERE CDE_SYBT='253' AND DTA1='001'
+11/2/20 17:33:32 1> [describe] name = NVL(DTA3,'0') ,data size = 160, datat
+11/2/20 17:33:32 1> ype = 1
+11/2/20 17:33:32 1> [execute]
+11/2/20 17:33:32 1> [fetch]
+11/2/20 17:33:32 1> [end of fetch]
+11/2/20 17:33:32 1> [compile] SELECT NVL(DTA3,'0')              FROM DJND40
+11/2/20 17:33:32 1> 01 WHERE CDE_SYBT='253' AND DTA1='006'
+11/2/20 17:33:32 1> [describe] name = NVL(DTA3,'0') ,data size = 160, datat
+11/2/20 17:33:32 1> ype = 1
+11/2/20 17:33:32 1> [execute]
+11/2/20 17:33:32 1> [fetch]
+11/2/20 17:33:32 1> [end of fetch]
+11/2/20 17:33:32 1> [compile] SELECT  count(*) FROM DJND25036M
+11/2/20 17:33:32 1>  WHERE  NVL(KYUYO_GET_FLG,'0')  = '0' AND  NINTEI_DTE i
+11/2/20 17:33:32 1> s not null AND  TO_SEIREKI(SIKYU_START_DTE||'01') <= :1
+11/2/20 17:33:32 1>
+11/2/20 17:33:32 1> [describe] name = COUNT(*) ,data size = 22, datatype =
+11/2/20 17:33:32 1> 2
+11/2/20 17:33:32 1> [execute]
+11/2/20 17:33:32 1> [1] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 1> [bind] position = 1, buffer size = 7, datatype = 12
+11/2/20 17:33:32 1> [fetch]
+11/2/20 17:33:32 1> [end of fetch]
+11/2/20 17:33:32 1> [compile] SELECT A.CSHAINNO, A.ROWID, B.CTEIINKB, TO_SE
+11/2/20 17:33:32 1> IREKI(A.KAISEI_DTE), TO_SEIREKI(A.SIKYU_START_DTE||'01'
+11/2/20 17:33:32 1> ), TO_SEIREKI(A.NINTEI_DTE), A.TUKIN_SEQ_NUM, NVL(A.TKB
+11/2/20 17:33:32 1> T_RYKN_NUM,0),  NVL(A.CAR_SHIKYU_NUM,0), NVL(A.UNCHIN_T
+11/2/20 17:33:32 1> OT_NUM,0)+NVL(A.TKBT_RYKN_NUM,0), NVL(A.SOSIKYUGAKU_4,0
+11/2/20 17:33:32 1> ),  NVL(A.SOSIKYUGAKU_5,0),  NVL(A.SOSIKYUGAKU_6,0),  N
+11/2/20 17:33:32 1> VL(A.SOSIKYUGAKU_7,0), NVL(A.SOSIKYUGAKU_8,0),  NVL(A.S
+11/2/20 17:33:32 1> OSIKYUGAKU_9,0),  NVL(A.SOSIKYUGAKU_10,0), NVL(A.SOSIKY
+11/2/20 17:33:32 1> UGAKU_11,0), NVL(A.SOSIKYUGAKU_12,0), NVL(A.SOSIKYUGAKU
+11/2/20 17:33:32 1> _1,0),  NVL(A.SOSIKYUGAKU_2,0),  NVL(A.SOSIKYUGAKU_3,0)
+11/2/20 17:33:32 1>  FROM DJND25036M A, XKKIHON B
+11/2/20 17:33:32 1>
+11/2/20 17:33:32 1>
+11/2/20 17:33:32 1>
+11/2/20 17:33:32 1>
+11/2/20 17:33:32 1>                              WHERE     NVL(A.KYUYO_GET_
+11/2/20 17:33:32 1> FLG,'0')  = '0'  AND A.NINTEI_DTE is not null  AND ( (B
+11/2/20 17:33:32 1> .CTEIINKB = '1' AND TO_SEIREKI(A.SIKYU_START_DTE||'01')
+11/2/20 17:33:32 1>  <= :1       )    OR  (B.CTEIINKB >= '2' AND TO_SEIREKI
+11/2/20 17:33:32 1> (A.SIKYU_START_DTE||'01') <= ADD_MONTHS(:2      , -1) )
+11/2/20 17:33:32 1>  )  AND A.CSHAINNO=B.CSHAINNO  AND B.DGAITONG=(     sel
+11/2/20 17:33:32 1> ect MIN(C.DGAITONG) from XKKIHON C     where C.CSHAINNO
+11/2/20 17:33:32 1> =B.CSHAINNO AND C.CCOMPKB='01' AND C.CQTAIKEIKB='00' AN
+11/2/20 17:33:32 1> D C.NQSHOYOKB=0       AND C.DGAITONG>=A.DSIKYU_START_DT
+11/2/20 17:33:32 1> E )  AND B.CCOMPKB=:3      AND B.CQTAIKEIKB='00' AND B.
+11/2/20 17:33:32 1> NQSHOYOKB=0 ORDER BY A.CSHAINNO, A.SIKYU_START_DTE, A.N
+11/2/20 17:33:32 1> INTEI_DTE, A.KAISEI_DTE, A.DSTART
+11/2/20 17:33:32 1> [describe] name = CSHAINNO ,data size = 16, datatype =
+11/2/20 17:33:32 1> 1
+11/2/20 17:33:32 1> [describe] name = ROWID ,data size = 4, datatype = 104
+11/2/20 17:33:32 1> [describe] name = CTEIINKB ,data size = 20, datatype =
+11/2/20 17:33:32 1> 1
+11/2/20 17:33:32 1> [describe] name = TO_SEIREKI(A.KAISEI_DTE) ,data size =
+11/2/20 17:33:32 1>  7, datatype = 12
+11/2/20 17:33:32 1> [describe] name = TO_SEIREKI(A.SIKYU_START_DTE||'01') ,
+11/2/20 17:33:32 1> data size = 7, datatype = 12
+11/2/20 17:33:32 1> [describe] name = TO_SEIREKI(A.NINTEI_DTE) ,data size =
+11/2/20 17:33:32 1>  7, datatype = 12
+11/2/20 17:33:32 1> [describe] name = TUKIN_SEQ_NUM ,data size = 22, dataty
+11/2/20 17:33:32 1> pe = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.TKBT_RYKN_NUM,0) ,data size = 2
+11/2/20 17:33:32 1> 2, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.CAR_SHIKYU_NUM,0) ,data size =
+11/2/20 17:33:32 1> 22, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.UNCHIN_TOT_NUM,0)+NVL(A.TKBT_RY
+11/2/20 17:33:32 1> KN_NUM,0) ,data size = 22, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_4,0) ,data size = 2
+11/2/20 17:33:32 1> 2, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_5,0) ,data size = 2
+11/2/20 17:33:32 1> 2, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_6,0) ,data size = 2
+11/2/20 17:33:32 1> 2, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_7,0) ,data size = 2
+11/2/20 17:33:32 1> 2, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_8,0) ,data size = 2
+11/2/20 17:33:32 1> 2, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_9,0) ,data size = 2
+11/2/20 17:33:32 1> 2, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_10,0) ,data size =
+11/2/20 17:33:32 1> 22, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_11,0) ,data size =
+11/2/20 17:33:32 1> 22, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_12,0) ,data size =
+11/2/20 17:33:32 1> 22, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_1,0) ,data size = 2
+11/2/20 17:33:32 1> 2, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_2,0) ,data size = 2
+11/2/20 17:33:32 1> 2, datatype = 2
+11/2/20 17:33:32 1> [describe] name = NVL(A.SOSIKYUGAKU_3,0) ,data size = 2
+11/2/20 17:33:32 1> 2, datatype = 2
+11/2/20 17:33:32 1> [get database parameter] param = 1004
+11/2/20 17:33:32 1> [execute]
+11/2/20 17:33:32 1> [1] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 1> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 1> [3] 01
+11/2/20 17:33:32 1> [bind] position = 1, buffer size = 7, datatype = 12
+11/2/20 17:33:32 1> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 1> [bind] position = 3, buffer size = 4, datatype = 96
+11/2/20 17:33:32 1> [fetch]
+11/2/20 17:33:32 1> [end of fetch]
+11/2/20 17:33:32 5> [compile] SELECT NVL(CAR_NUM,0), TUKIN_TODOKE_CDE ,DJJ_
+11/2/20 17:33:32 5> HA_DTE  FROM DJND25016M
+11/2/20 17:33:32 5>        WHERE CSHAINNO=:1      AND TO_SEIREKI(JJ_HA_DTE)
+11/2/20 17:33:32 5> =:2            AND TUKIN_SEQ_NUM=:3
+11/2/20 17:33:32 5> [describe] name = NVL(CAR_NUM,0) ,data size = 22, datat
+11/2/20 17:33:32 5> ype = 2
+11/2/20 17:33:32 5> [describe] name = TUKIN_TODOKE_CDE ,data size = 4, data
+11/2/20 17:33:32 5> type = 1
+11/2/20 17:33:32 5> [describe] name = DJJ_HA_DTE ,data size = 7, datatype =
+11/2/20 17:33:32 5>  12
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 11111111
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 1
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile] SELECT NVL(NTUKNHIGEN,0) FROM UMTUKINTAX
+11/2/20 17:33:32 5>            WHERE CCOMPKB=:1      AND CQTAIKEIKB='00' AN
+11/2/20 17:33:32 5> D CTUKINKB=:2          AND :3                 BETWEEN D
+11/2/20 17:33:32 5> START AND DEND   AND NKYORIIJO<=NVL(:4      ,0 ) AND NV
+11/2/20 17:33:32 5> L(:5      ,0 )<NKYORIMIM
+11/2/20 17:33:32 5> [describe] name = NVL(NTUKNHIGEN,0) ,data size = 22, da
+11/2/20 17:33:32 5> tatype = 2
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 01
+11/2/20 17:33:32 5> [2] 01
+11/2/20 17:33:32 5> [3] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [4] 0
+11/2/20 17:33:32 5> [5] 0
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 4, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 5, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile]    SELECT NTEATE                      FROM UM
+11/2/20 17:33:32 5> TUKINCAR   WHERE CCOMPKB = :1        AND CQTAIKEIKB = '
+11/2/20 17:33:32 5> 00'   AND DSTART <= :2              AND DEND > :3
+11/2/20 17:33:32 5>         AND NKYORIIJO <= round(:4      ,1)   AND NKYORI
+11/2/20 17:33:32 5> MIM > round(:5      ,1)
+11/2/20 17:33:32 5> [describe] name = NTEATE ,data size = 22, datatype = 2
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 01
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [4] 0
+11/2/20 17:33:32 5> [5] 0
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 4, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 5, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile] SELECT MAX(DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,T
+11/2/20 17:33:32 5> EIKIKIKAN_NUM)), SUM(TOKU_KISO_NUM), MAX(DSIKYU_START_D
+11/2/20 17:33:32 5> TE) FROM DJND25026M
+11/2/20 17:33:32 5>  WHERE CSHAINNO=:1      AND TO_SEIREKI(KAISEI_DTE)=:2
+11/2/20 17:33:32 5>           AND TUKIN_SEQ_NUM=:3                AND TOKUB
+11/2/20 17:33:32 5> ETU_KBN = '1'
+11/2/20 17:33:32 5> [describe] name = MAX(DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,
+11/2/20 17:33:32 5> TEIKIKIKAN_NUM)) ,data size = 22, datatype = 2
+11/2/20 17:33:32 5> [describe] name = SUM(TOKU_KISO_NUM) ,data size = 22, d
+11/2/20 17:33:32 5> atatype = 2
+11/2/20 17:33:32 5> [describe] name = MAX(DSIKYU_START_DTE) ,data size = 7,
+11/2/20 17:33:32 5>  datatype = 12
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 11111111
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 1
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile] SELECT MAX(DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,T
+11/2/20 17:33:32 5> EIKIKIKAN_NUM)), SUM(TOKU_KISO_NUM) ,MAX(DSIKYU_START_D
+11/2/20 17:33:32 5> TE) FROM DJND25026M
+11/2/20 17:33:32 5>     WHERE CSHAINNO=:1      AND TO_SEIREKI(KAISEI_DTE)=:
+11/2/20 17:33:32 5> 2            AND TUKIN_SEQ_NUM=:3                AND TO
+11/2/20 17:33:32 5> KUBETU_KBN = '3'
+11/2/20 17:33:32 5> [describe] name = MAX(DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,
+11/2/20 17:33:32 5> TEIKIKIKAN_NUM)) ,data size = 22, datatype = 2
+11/2/20 17:33:32 5> [describe] name = SUM(TOKU_KISO_NUM) ,data size = 22, d
+11/2/20 17:33:32 5> atatype = 2
+11/2/20 17:33:32 5> [describe] name = MAX(DSIKYU_START_DTE) ,data size = 7,
+11/2/20 17:33:32 5>  datatype = 12
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 11111111
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 1
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile] SELECT SUM(NVL(HARAIMODOSIGAKU,0)) FROM DJND2
+11/2/20 17:33:32 5> 5116M             WHERE CSHAINNO=:1      AND TO_SEIREKI
+11/2/20 17:33:32 5> (KAISEI_DTE)=:2            AND TUKIN_SEQ_NUM=:3
+11/2/20 17:33:32 5>
+11/2/20 17:33:32 5> [describe] name = SUM(NVL(HARAIMODOSIGAKU,0)) ,data siz
+11/2/20 17:33:32 5> e = 22, datatype = 2
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 11111111
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 1
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile] DELETE FROM UINP1055 WHERE       CCOMPKB = :1
+11/2/20 17:33:32 5>         AND CQTAIKEIKB = '00'   AND DGAITONG = :2
+11/2/20 17:33:32 5>   AND CSHAINNO = :3
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 01
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 11111111
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [compile] INSERT INTO UINP1055 (CCOMPKB, CQTAIKEIKB, DG
+11/2/20 17:33:32 5> AITONG, CSHAINNO, NMSGSHUB, CMSG, NMNFLG, NMNDATASHUB,
+11/2/20 17:33:32 5> NSTATEFLG, DINSDATE, NINSSEQ, CMNCLIENT, CMNCOMP, CMNUS
+11/2/20 17:33:32 5> ER, DMNDATE, DNINTEI, CTUKINHOKB, CTUKINHONM, NCARKYORI
+11/2/20 17:33:32 5> H, NTOKUREI, NMONTH, DSIKYUS, NCHOSEISHIQ, NHIGEN, NMON
+11/2/20 17:33:32 5> YSUMI, NSHIQGAKUHI, NSHIQGAKUKA, NKOUTUUHI1, NHENNOUGAK
+11/2/20 17:33:32 5> U, NSHIQSTOP,NTOKUREI_2,NMONTH_2,DSIKYUS_2,NUNDER10縲)
+11/2/20 17:33:32 5>  VALUES (:1     , '00', :2     , :3     , 0, NULL, :4
+11/2/20 17:33:32 5>      , 0, 6, SYSDATE, 0, :5         , :6     , :7
+11/2/20 17:33:32 5>     , SYSDATE, :8           , :9       , :10      , DEC
+11/2/20 17:33:32 5> ODE(NVL(:11      ,'00'),'01',NULL,:12     ), :13     ,
+11/2/20 17:33:32 5> :14      , DECODE(NVL(:15             ,0),0,NULL,:16
+11/2/20 17:33:32 5>    ), 0, :17      , 0, :18     , :19    , 0, :20   , 0,
+11/2/20 17:33:32 5> :21    , :22        , :23         ,:24            )
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 01
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 11111111
+11/2/20 17:33:32 5> [4] 0
+11/2/20 17:33:32 5> [5] X02472
+11/2/20 17:33:32 5> [6] 01
+11/2/20 17:33:32 5> [7] 99999999
+11/2/20 17:33:32 5> [8] 2020-11-02-00.00.00.000000
+11/2/20 17:33:32 5> [9] 01
+11/2/20 17:33:32 5> [10] 交通機関
+11/2/20 17:33:32 5> [11] 01
+11/2/20 17:33:32 5> [12] 0
+11/2/20 17:33:32 5> [13]
+11/2/20 17:33:32 5> [14]
+11/2/20 17:33:32 5> [15] 0
+11/2/20 17:33:32 5> [16]
+11/2/20 17:33:32 5> [17] 100000
+11/2/20 17:33:32 5> [18] 31620
+11/2/20 17:33:32 5> [19] 0
+11/2/20 17:33:32 5> [20]
+11/2/20 17:33:32 5> [21]
+11/2/20 17:33:32 5> [22]
+11/2/20 17:33:32 5> [23]
+11/2/20 17:33:32 5> [24] 0
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 4, buffer size = 2, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 5, buffer size = 12, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 6, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 7, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 8, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 9, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 10, buffer size = 8, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 11, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 12, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 13, buffer size = 0, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 14, buffer size = 0, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 15, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 16, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 17, buffer size = 6, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 18, buffer size = 5, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 19, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 20, buffer size = 0, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 21, buffer size = 0, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 22, buffer size = 0, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 23, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 24, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [compile] SELECT KEIRO_NUM, KOUTSU_KIKAN_NME, DECODE(KE
+11/2/20 17:33:32 5> NSYU_CDE,'1',NVL(TEIKIGAKU_NUM,0),NVL(SIKYUGAKU_4,0)),
+11/2/20 17:33:32 5> DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,TEIKIKIKAN_NUM), TRUNC
+11/2/20 17:33:32 5> (NVL(SIKYUGAKU_4,0),4), NVL(MONTH_GAKU_NUM,0) ,DSIKYU_S
+11/2/20 17:33:32 5> TART_DTE FROM DJND25026M
+11/2/20 17:33:32 5>                                              WHERE CSHA
+11/2/20 17:33:32 5> INNO=:1      AND TO_SEIREKI(KAISEI_DTE)=:2            A
+11/2/20 17:33:32 5> ND TUKIN_SEQ_NUM=:3                AND TOKUBETU_KBN !=
+11/2/20 17:33:32 5> '1' AND TOKUBETU_KBN != '3' ORDER BY KEIRO_NUM
+11/2/20 17:33:32 5> [describe] name = KEIRO_NUM ,data size = 22, datatype =
+11/2/20 17:33:32 5>  2
+11/2/20 17:33:32 5> [describe] name = KOUTSU_KIKAN_NME ,data size = 160, da
+11/2/20 17:33:32 5> tatype = 1
+11/2/20 17:33:32 5> [describe] name = DECODE(KENSYU_CDE,'1',NVL(TEIKIGAKU_N
+11/2/20 17:33:32 5> UM,0),NVL(SIKYUGAKU_4,0)) ,data size = 22, datatype = 2
+11/2/20 17:33:32 5> [describe] name = DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,TEIK
+11/2/20 17:33:32 5> IKIKAN_NUM) ,data size = 22, datatype = 2
+11/2/20 17:33:32 5> [describe] name = TRUNC(NVL(SIKYUGAKU_4,0),4) ,data siz
+11/2/20 17:33:32 5> e = 22, datatype = 2
+11/2/20 17:33:32 5> [describe] name = NVL(MONTH_GAKU_NUM,0) ,data size = 22
+11/2/20 17:33:32 5> , datatype = 2
+11/2/20 17:33:32 5> [describe] name = DSIKYU_START_DTE ,data size = 7, data
+11/2/20 17:33:32 5> type = 12
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 11111111
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 1
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 4> [compile] INSERT INTO UINP1055_2 (CCOMPKB, CQTAIKEIKB,
+11/2/20 17:33:32 4> DGAITONG, CSHAINNO, NMSGSHUB, CMSG, NMNFLG, NMNDATASHUB
+11/2/20 17:33:32 4> , NSTATEFLG, DINSDATE, NINSSEQ, CMNCLIENT, CMNCOMP, CMN
+11/2/20 17:33:32 4> USER, DMNDATE, NSEQ, CKOTUSDNKB, CKOTUSDNNM, NKOTUKINGA
+11/2/20 17:33:32 4> KU, NMONTH, DSIKYUS, NSIQFLG ) VALUES (:1     , '00', :
+11/2/20 17:33:32 4> 2     , :3     , 0, NULL, 0, 0, 6, SYSDATE, 0, :4
+11/2/20 17:33:32 4>    , :5     , :6          , SYSDATE, :7    , :8       ,
+11/2/20 17:33:32 4>  :9       , DECODE(:10     ,'1', :11      , :12     ),
+11/2/20 17:33:32 4> DECODE(:13     ,'1',1,:14      ), :15      , 0 )
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [execute]
+11/2/20 17:33:32 4> [1] 01
+11/2/20 17:33:32 4> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 4> [3] 11111111
+11/2/20 17:33:32 4> [4] X02472
+11/2/20 17:33:32 4> [5] 01
+11/2/20 17:33:32 4> [6] 99999999
+11/2/20 17:33:32 4> [7] 1
+11/2/20 17:33:32 4> [8] 01
+11/2/20 17:33:32 4> [9] 鉄道
+11/2/20 17:33:32 4> [10] 0
+11/2/20 17:33:32 4> [11] 0
+11/2/20 17:33:32 4> [12] 31620
+11/2/20 17:33:32 4> [13] 0
+11/2/20 17:33:32 4> [14] 6
+11/2/20 17:33:32 4> [15] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 4> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 4> [bind] position = 3, buffer size = 16, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 4, buffer size = 12, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 5, buffer size = 4, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 6, buffer size = 16, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 7, buffer size = 1, datatype = 1
+11/2/20 17:33:32 4> [bind] position = 8, buffer size = 4, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 9, buffer size = 4, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 10, buffer size = 2, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 11, buffer size = 1, datatype = 1
+11/2/20 17:33:32 4> [bind] position = 12, buffer size = 5, datatype = 1
+11/2/20 17:33:32 4> [bind] position = 13, buffer size = 2, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 14, buffer size = 1, datatype = 1
+11/2/20 17:33:32 4> [bind] position = 15, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [describe] name = PS_COMPKB ,data size = 0, datatype =
+11/2/20 17:33:32 5> 1
+11/2/20 17:33:32 5> [describe] name = PS_QTAIKEIKB ,data size = 0, datatype
+11/2/20 17:33:32 5>  = 1
+11/2/20 17:33:32 5> [describe] name = PS_SHAINNO ,data size = 0, datatype =
+11/2/20 17:33:32 5>  1
+11/2/20 17:33:32 5> [bind] name = A0, buffer size = 32767, datatype = 1
+11/2/20 17:33:32 5> [bind] name = A1, buffer size = 32767, datatype = 1
+11/2/20 17:33:32 5> [bind] name = A2, buffer size = 32767, datatype = 1
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [0] 01
+11/2/20 17:33:32 5> [0] 00
+11/2/20 17:33:32 5> [0] 11111111
+11/2/20 17:33:32 5> [compile] UPDATE DJND25036M SET  KYUYO_GET_FLG = '2',CM
+11/2/20 17:33:32 5> NUSER = :1          ,DMNDATE = SYSDATE WHERE ROWID = :2
+11/2/20 17:33:32 5>
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 99999999
+11/2/20 17:33:32 5> [2] AAAnoCAAKAAAADcAAB
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 36, datatype = 96
+11/2/20 17:33:32 5> [compile] SELECT NVL(CAR_NUM,0), TUKIN_TODOKE_CDE ,DJJ_
+11/2/20 17:33:32 5> HA_DTE  FROM DJND25016M
+11/2/20 17:33:32 5>        WHERE CSHAINNO=:1      AND TO_SEIREKI(JJ_HA_DTE)
+11/2/20 17:33:32 5> =:2            AND TUKIN_SEQ_NUM=:3
+11/2/20 17:33:32 5> [describe] name = NVL(CAR_NUM,0) ,data size = 22, datat
+11/2/20 17:33:32 5> ype = 2
+11/2/20 17:33:32 5> [describe] name = TUKIN_TODOKE_CDE ,data size = 4, data
+11/2/20 17:33:32 5> type = 1
+11/2/20 17:33:32 5> [describe] name = DJJ_HA_DTE ,data size = 7, datatype =
+11/2/20 17:33:32 5>  12
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 44444444
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 1
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile] SELECT NVL(NTUKNHIGEN,0) FROM UMTUKINTAX
+11/2/20 17:33:32 5>            WHERE CCOMPKB=:1      AND CQTAIKEIKB='00' AN
+11/2/20 17:33:32 5> D CTUKINKB=:2          AND :3                 BETWEEN D
+11/2/20 17:33:32 5> START AND DEND   AND NKYORIIJO<=NVL(:4      ,0 ) AND NV
+11/2/20 17:33:32 5> L(:5      ,0 )<NKYORIMIM
+11/2/20 17:33:32 5> [describe] name = NVL(NTUKNHIGEN,0) ,data size = 22, da
+11/2/20 17:33:32 5> tatype = 2
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 01
+11/2/20 17:33:32 5> [2] 01
+11/2/20 17:33:32 5> [3] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [4] 0
+11/2/20 17:33:32 5> [5] 0
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 4, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 5, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile]    SELECT NTEATE                      FROM UM
+11/2/20 17:33:32 5> TUKINCAR   WHERE CCOMPKB = :1        AND CQTAIKEIKB = '
+11/2/20 17:33:32 5> 00'   AND DSTART <= :2              AND DEND > :3
+11/2/20 17:33:32 5>         AND NKYORIIJO <= round(:4      ,1)   AND NKYORI
+11/2/20 17:33:32 5> MIM > round(:5      ,1)
+11/2/20 17:33:32 5> [describe] name = NTEATE ,data size = 22, datatype = 2
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 01
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [4] 0
+11/2/20 17:33:32 5> [5] 0
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 4, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 5, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile] SELECT MAX(DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,T
+11/2/20 17:33:32 5> EIKIKIKAN_NUM)), SUM(TOKU_KISO_NUM), MAX(DSIKYU_START_D
+11/2/20 17:33:32 5> TE) FROM DJND25026M
+11/2/20 17:33:32 5>  WHERE CSHAINNO=:1      AND TO_SEIREKI(KAISEI_DTE)=:2
+11/2/20 17:33:32 5>           AND TUKIN_SEQ_NUM=:3                AND TOKUB
+11/2/20 17:33:32 5> ETU_KBN = '1'
+11/2/20 17:33:32 5> [describe] name = MAX(DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,
+11/2/20 17:33:32 5> TEIKIKIKAN_NUM)) ,data size = 22, datatype = 2
+11/2/20 17:33:32 5> [describe] name = SUM(TOKU_KISO_NUM) ,data size = 22, d
+11/2/20 17:33:32 5> atatype = 2
+11/2/20 17:33:32 5> [describe] name = MAX(DSIKYU_START_DTE) ,data size = 7,
+11/2/20 17:33:32 5>  datatype = 12
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 44444444
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 1
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile] SELECT MAX(DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,T
+11/2/20 17:33:32 5> EIKIKIKAN_NUM)), SUM(TOKU_KISO_NUM) ,MAX(DSIKYU_START_D
+11/2/20 17:33:32 5> TE) FROM DJND25026M
+11/2/20 17:33:32 5>     WHERE CSHAINNO=:1      AND TO_SEIREKI(KAISEI_DTE)=:
+11/2/20 17:33:32 5> 2            AND TUKIN_SEQ_NUM=:3                AND TO
+11/2/20 17:33:32 5> KUBETU_KBN = '3'
+11/2/20 17:33:32 5> [describe] name = MAX(DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,
+11/2/20 17:33:32 5> TEIKIKIKAN_NUM)) ,data size = 22, datatype = 2
+11/2/20 17:33:32 5> [describe] name = SUM(TOKU_KISO_NUM) ,data size = 22, d
+11/2/20 17:33:32 5> atatype = 2
+11/2/20 17:33:32 5> [describe] name = MAX(DSIKYU_START_DTE) ,data size = 7,
+11/2/20 17:33:32 5>  datatype = 12
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 44444444
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 1
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile] SELECT SUM(NVL(HARAIMODOSIGAKU,0)) FROM DJND2
+11/2/20 17:33:32 5> 5116M             WHERE CSHAINNO=:1      AND TO_SEIREKI
+11/2/20 17:33:32 5> (KAISEI_DTE)=:2            AND TUKIN_SEQ_NUM=:3
+11/2/20 17:33:32 5>
+11/2/20 17:33:32 5> [describe] name = SUM(NVL(HARAIMODOSIGAKU,0)) ,data siz
+11/2/20 17:33:32 5> e = 22, datatype = 2
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 44444444
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 1
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 5> [compile] DELETE FROM UINP1055 WHERE       CCOMPKB = :1
+11/2/20 17:33:32 5>         AND CQTAIKEIKB = '00'   AND DGAITONG = :2
+11/2/20 17:33:32 5>   AND CSHAINNO = :3
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 01
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 44444444
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [compile] INSERT INTO UINP1055 (CCOMPKB, CQTAIKEIKB, DG
+11/2/20 17:33:32 5> AITONG, CSHAINNO, NMSGSHUB, CMSG, NMNFLG, NMNDATASHUB,
+11/2/20 17:33:32 5> NSTATEFLG, DINSDATE, NINSSEQ, CMNCLIENT, CMNCOMP, CMNUS
+11/2/20 17:33:32 5> ER, DMNDATE, DNINTEI, CTUKINHOKB, CTUKINHONM, NCARKYORI
+11/2/20 17:33:32 5> H, NTOKUREI, NMONTH, DSIKYUS, NCHOSEISHIQ, NHIGEN, NMON
+11/2/20 17:33:32 5> YSUMI, NSHIQGAKUHI, NSHIQGAKUKA, NKOUTUUHI1, NHENNOUGAK
+11/2/20 17:33:32 5> U, NSHIQSTOP,NTOKUREI_2,NMONTH_2,DSIKYUS_2,NUNDER10縲)
+11/2/20 17:33:32 5>  VALUES (:1     , '00', :2     , :3     , 0, NULL, :4
+11/2/20 17:33:32 5>      , 0, 6, SYSDATE, 0, :5         , :6     , :7
+11/2/20 17:33:32 5>     , SYSDATE, :8           , :9       , :10      , DEC
+11/2/20 17:33:32 5> ODE(NVL(:11      ,'00'),'01',NULL,:12     ), :13     ,
+11/2/20 17:33:32 5> :14      , DECODE(NVL(:15             ,0),0,NULL,:16
+11/2/20 17:33:32 5>    ), 0, :17      , 0, :18     , :19    , 0, :20   , 0,
+11/2/20 17:33:32 5> :21    , :22        , :23         ,:24            )
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 01
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 44444444
+11/2/20 17:33:32 5> [4] 0
+11/2/20 17:33:32 5> [5] X02472
+11/2/20 17:33:32 5> [6] 01
+11/2/20 17:33:32 5> [7] 99999999
+11/2/20 17:33:32 5> [8] 2020-11-02-00.00.00.000000
+11/2/20 17:33:32 5> [9] 01
+11/2/20 17:33:32 5> [10] 交通機関
+11/2/20 17:33:32 5> [11] 01
+11/2/20 17:33:32 5> [12] 0
+11/2/20 17:33:32 5> [13]
+11/2/20 17:33:32 5> [14]
+11/2/20 17:33:32 5> [15] 0
+11/2/20 17:33:32 5> [16]
+11/2/20 17:33:32 5> [17] 100000
+11/2/20 17:33:32 5> [18] 31620
+11/2/20 17:33:32 5> [19] 0
+11/2/20 17:33:32 5> [20]
+11/2/20 17:33:32 5> [21]
+11/2/20 17:33:32 5> [22]
+11/2/20 17:33:32 5> [23]
+11/2/20 17:33:32 5> [24] 0
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 4, buffer size = 2, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 5, buffer size = 12, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 6, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 7, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 8, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 9, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 10, buffer size = 8, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 11, buffer size = 4, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 12, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 13, buffer size = 0, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 14, buffer size = 0, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 15, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 16, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 17, buffer size = 6, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 18, buffer size = 5, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 19, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 20, buffer size = 0, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 21, buffer size = 0, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 22, buffer size = 0, datatype = 1
+11/2/20 17:33:32 5> [bind] position = 23, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 24, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [compile] SELECT KEIRO_NUM, KOUTSU_KIKAN_NME, DECODE(KE
+11/2/20 17:33:32 5> NSYU_CDE,'1',NVL(TEIKIGAKU_NUM,0),NVL(SIKYUGAKU_4,0)),
+11/2/20 17:33:32 5> DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,TEIKIKIKAN_NUM), TRUNC
+11/2/20 17:33:32 5> (NVL(SIKYUGAKU_4,0),4), NVL(MONTH_GAKU_NUM,0) ,DSIKYU_S
+11/2/20 17:33:32 5> TART_DTE FROM DJND25026M
+11/2/20 17:33:32 5>                                              WHERE CSHA
+11/2/20 17:33:32 5> INNO=:1      AND TO_SEIREKI(KAISEI_DTE)=:2            A
+11/2/20 17:33:32 5> ND TUKIN_SEQ_NUM=:3                AND TOKUBETU_KBN !=
+11/2/20 17:33:32 5> '1' AND TOKUBETU_KBN != '3' ORDER BY KEIRO_NUM
+11/2/20 17:33:32 5> [describe] name = KEIRO_NUM ,data size = 22, datatype =
+11/2/20 17:33:32 5>  2
+11/2/20 17:33:32 5> [describe] name = KOUTSU_KIKAN_NME ,data size = 160, da
+11/2/20 17:33:32 5> tatype = 1
+11/2/20 17:33:32 5> [describe] name = DECODE(KENSYU_CDE,'1',NVL(TEIKIGAKU_N
+11/2/20 17:33:32 5> UM,0),NVL(SIKYUGAKU_4,0)) ,data size = 22, datatype = 2
+11/2/20 17:33:32 5> [describe] name = DECODE(NVL(TEIKIKIKAN_NUM,0),0,1,TEIK
+11/2/20 17:33:32 5> IKIKAN_NUM) ,data size = 22, datatype = 2
+11/2/20 17:33:32 5> [describe] name = TRUNC(NVL(SIKYUGAKU_4,0),4) ,data siz
+11/2/20 17:33:32 5> e = 22, datatype = 2
+11/2/20 17:33:32 5> [describe] name = NVL(MONTH_GAKU_NUM,0) ,data size = 22
+11/2/20 17:33:32 5> , datatype = 2
+11/2/20 17:33:32 5> [describe] name = DSIKYU_START_DTE ,data size = 7, data
+11/2/20 17:33:32 5> type = 12
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 44444444
+11/2/20 17:33:32 5> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 5> [3] 1
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [bind] position = 3, buffer size = 1, datatype = 1
+11/2/20 17:33:32 5> [fetch]
+11/2/20 17:33:32 5> [end of fetch]
+11/2/20 17:33:32 4> [compile] INSERT INTO UINP1055_2 (CCOMPKB, CQTAIKEIKB,
+11/2/20 17:33:32 4> DGAITONG, CSHAINNO, NMSGSHUB, CMSG, NMNFLG, NMNDATASHUB
+11/2/20 17:33:32 4> , NSTATEFLG, DINSDATE, NINSSEQ, CMNCLIENT, CMNCOMP, CMN
+11/2/20 17:33:32 4> USER, DMNDATE, NSEQ, CKOTUSDNKB, CKOTUSDNNM, NKOTUKINGA
+11/2/20 17:33:32 4> KU, NMONTH, DSIKYUS, NSIQFLG ) VALUES (:1     , '00', :
+11/2/20 17:33:32 4> 2     , :3     , 0, NULL, 0, 0, 6, SYSDATE, 0, :4
+11/2/20 17:33:32 4>    , :5     , :6          , SYSDATE, :7    , :8       ,
+11/2/20 17:33:32 4>  :9       , DECODE(:10     ,'1', :11      , :12     ),
+11/2/20 17:33:32 4> DECODE(:13     ,'1',1,:14      ), :15      , 0 )
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [get database parameter] param = 1004
+11/2/20 17:33:32 4> [execute]
+11/2/20 17:33:32 4> [1] 01
+11/2/20 17:33:32 4> [2] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 4> [3] 44444444
+11/2/20 17:33:32 4> [4] X02472
+11/2/20 17:33:32 4> [5] 01
+11/2/20 17:33:32 4> [6] 99999999
+11/2/20 17:33:32 4> [7] 1
+11/2/20 17:33:32 4> [8] 01
+11/2/20 17:33:32 4> [9] 鉄道
+11/2/20 17:33:32 4> [10] 0
+11/2/20 17:33:32 4> [11] 0
+11/2/20 17:33:32 4> [12] 31620
+11/2/20 17:33:32 4> [13] 0
+11/2/20 17:33:32 4> [14] 6
+11/2/20 17:33:32 4> [15] 2020-06-01-00.00.00.000000
+11/2/20 17:33:32 4> [bind] position = 1, buffer size = 4, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 2, buffer size = 7, datatype = 12
+11/2/20 17:33:32 4> [bind] position = 3, buffer size = 16, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 4, buffer size = 12, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 5, buffer size = 4, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 6, buffer size = 16, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 7, buffer size = 1, datatype = 1
+11/2/20 17:33:32 4> [bind] position = 8, buffer size = 4, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 9, buffer size = 4, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 10, buffer size = 2, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 11, buffer size = 1, datatype = 1
+11/2/20 17:33:32 4> [bind] position = 12, buffer size = 5, datatype = 1
+11/2/20 17:33:32 4> [bind] position = 13, buffer size = 2, datatype = 96
+11/2/20 17:33:32 4> [bind] position = 14, buffer size = 1, datatype = 1
+11/2/20 17:33:32 4> [bind] position = 15, buffer size = 7, datatype = 12
+11/2/20 17:33:32 5> [describe] name = PS_COMPKB ,data size = 0, datatype =
+11/2/20 17:33:32 5> 1
+11/2/20 17:33:32 5> [describe] name = PS_QTAIKEIKB ,data size = 0, datatype
+11/2/20 17:33:32 5>  = 1
+11/2/20 17:33:32 5> [describe] name = PS_SHAINNO ,data size = 0, datatype =
+11/2/20 17:33:32 5>  1
+11/2/20 17:33:32 5> [bind] name = A0, buffer size = 32767, datatype = 1
+11/2/20 17:33:32 5> [bind] name = A1, buffer size = 32767, datatype = 1
+11/2/20 17:33:32 5> [bind] name = A2, buffer size = 32767, datatype = 1
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [0] 01
+11/2/20 17:33:32 5> [0] 00
+11/2/20 17:33:32 5> [0] 44444444
+11/2/20 17:33:32 5> [compile] UPDATE DJND25036M SET  KYUYO_GET_FLG = '2',CM
+11/2/20 17:33:32 5> NUSER = :1          ,DMNDATE = SYSDATE WHERE ROWID = :2
+11/2/20 17:33:32 5>
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [get database parameter] param = 1004
+11/2/20 17:33:32 5> [execute]
+11/2/20 17:33:32 5> [1] 99999999
+11/2/20 17:33:32 5> [2] AAAnoCAAKAAAADfAAB
+11/2/20 17:33:32 5> [bind] position = 1, buffer size = 16, datatype = 96
+11/2/20 17:33:32 5> [bind] position = 2, buffer size = 36, datatype = 96
+11/2/20 17:33:32 1> [commit]

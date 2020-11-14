@@ -3,10 +3,7 @@ package utils;
 import com.sun.istack.internal.NotNull;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Description: 工具类
@@ -78,36 +75,7 @@ public final class CommonUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/20
      */
-    public static <S, R> R type2Type(@NotNull S resourceType,@NotNull R returnType) throws IllegalAccessException {
-        Field[] resFields = resourceType.getClass().getDeclaredFields();
-        Field[] retFields = returnType.getClass().getDeclaredFields();
-        Arrays.sort(resFields, Comparator.comparing(Field::getName));
-        for (Field retField : retFields) {
-            int index = Arrays.binarySearch(resFields, retField, Comparator.comparing(Field::getName));
-            if (index < 0) {
-                continue;
-            }
-            Field resField = resFields[index];
-            boolean equalType = resField.getType().equals(retField.getType()) ||
-                    retField.getType().getName().equals(Object.class.getTypeName());
-            if (equalType) {
-                retField.setAccessible(true);
-                resField.setAccessible(true);
-                retField.set(returnType, resField.get(resourceType));
-            }
-        }
-        return returnType;
-    }
-
-    /**
-     * @Description: 一种类型的值赋给另一个类型
-     * <p>
-     * @Param: [resourceType, returnType]
-     * @return: R
-     * @Author: Mr.Miles
-     * @Date: 2020/10/20
-     */
-    public static <S, R> R type2TypeExtension(@NotNull S resourceType,@NotNull R returnType) throws IllegalAccessException {
+    public static <S, R> R type2TypeExtension(@NotNull S resourceType, @NotNull R returnType) throws IllegalAccessException {
         Field[] resFields = resourceType.getClass().getDeclaredFields();
         Field[] retFields = returnType.getClass().getDeclaredFields();
         Arrays.sort(resFields, Comparator.comparing(Field::getName));
@@ -156,5 +124,54 @@ public final class CommonUtils {
             }
         }
         return returnType;
+    }
+
+    /**
+     * @param from
+     * @Description: 一种类型的值赋给另一个类型
+     * <p>
+     * @Param: [resourceType, returnType]
+     * @return: R
+     * @Author: Mr.Miles
+     * @Date: 2020/10/20
+     */
+    public static <S, R> List<R> list2List(@NotNull List<S> from, @NotNull R to) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
+        List<R> tos=new ArrayList<>();
+        for (Iterator<S> iterator = from.iterator(); iterator.hasNext(); ) {
+            S res = iterator.next();
+            R r = (R) to.getClass().newInstance();
+            type2Type(res, r);
+            tos.add(r);
+        }
+        return tos;
+    }
+
+    /**
+     * @Description: 一种类型的值赋给另一个类型
+     * <p>
+     * @Param: [resourceType, returnType]
+     * @return: R
+     * @Author: Mr.Miles
+     * @Date: 2020/10/20
+     */
+    public static <S, R> R type2Type(@NotNull S from, @NotNull R to) throws IllegalAccessException {
+        Field[] resFields = from.getClass().getDeclaredFields();
+        Field[] retFields = to.getClass().getDeclaredFields();
+        Arrays.sort(resFields, Comparator.comparing(Field::getName));
+        for (Field retField : retFields) {
+            int index = Arrays.binarySearch(resFields, retField, Comparator.comparing(Field::getName));
+            if (index < 0) {
+                continue;
+            }
+            Field resField = resFields[index];
+            boolean equalType = resField.getType().equals(retField.getType()) ||
+                    retField.getType().getName().equals(Object.class.getTypeName());
+            if (equalType) {
+                retField.setAccessible(true);
+                resField.setAccessible(true);
+                retField.set(to, resField.get(from));
+            }
+        }
+        return to;
     }
 }
