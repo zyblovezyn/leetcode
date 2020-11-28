@@ -1,6 +1,7 @@
 package utils;
 
 import com.sun.istack.internal.NotNull;
+import org.omg.CORBA.Environment;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -25,6 +26,22 @@ public final class CommonUtils {
         StringBuilder stringBuilder = new StringBuilder();
         for (Object arg : args) {
             stringBuilder.append(arg).append("  ");
+        }
+        System.out.println(stringBuilder.toString());
+    }
+
+    /**
+     * @Description: 打印函数
+     * <p>
+     * @Param: [args]
+     * @return: void
+     * @Author: Mr.Miles
+     * @Date: 2020/10/20
+     */
+    public static void println(@NotNull Object... args) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Object arg : args) {
+            stringBuilder.append(arg).append(StringUtils.line());
         }
         System.out.println(stringBuilder.toString());
     }
@@ -74,6 +91,7 @@ public final class CommonUtils {
      * @return: R
      * @Author: Mr.Miles
      * @Date: 2020/10/20
+     * todo
      */
     public static <S, R> R type2TypeExtension(@NotNull S resourceType, @NotNull R returnType) throws IllegalAccessException {
         Field[] resFields = resourceType.getClass().getDeclaredFields();
@@ -136,7 +154,7 @@ public final class CommonUtils {
      * @Date: 2020/10/20
      */
     public static <S, R> List<R> list2List(@NotNull List<S> from, @NotNull R to) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
-        List<R> tos=new ArrayList<>();
+        List<R> tos = new ArrayList<>();
         for (Iterator<S> iterator = from.iterator(); iterator.hasNext(); ) {
             S res = iterator.next();
             R r = (R) to.getClass().newInstance();
@@ -155,15 +173,15 @@ public final class CommonUtils {
      * @Date: 2020/10/20
      */
     public static <S, R> R type2Type(@NotNull S from, @NotNull R to) throws IllegalAccessException {
-        Field[] resFields = from.getClass().getDeclaredFields();
-        Field[] retFields = to.getClass().getDeclaredFields();
-        Arrays.sort(resFields, Comparator.comparing(Field::getName));
-        for (Field retField : retFields) {
-            int index = Arrays.binarySearch(resFields, retField, Comparator.comparing(Field::getName));
+        Field[] fromFields = from.getClass().getDeclaredFields();
+        Field[] toFields = to.getClass().getDeclaredFields();
+        Arrays.sort(fromFields, Comparator.comparing(Field::getName));
+        for (Field retField : toFields) {
+            int index = Arrays.binarySearch(fromFields, retField, Comparator.comparing(Field::getName));
             if (index < 0) {
                 continue;
             }
-            Field resField = resFields[index];
+            Field resField = fromFields[index];
             boolean equalType = resField.getType().equals(retField.getType()) ||
                     retField.getType().getName().equals(Object.class.getTypeName());
             if (equalType) {
@@ -173,5 +191,16 @@ public final class CommonUtils {
             }
         }
         return to;
+    }
+
+    public static boolean isAllEquals(@NotNull Object... args) {
+        for (Object arg1 : args) {
+            for (Object arg2 : args) {
+                if (!arg1.equals(arg2)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

@@ -1,7 +1,6 @@
 package utils;
 
 import com.sun.istack.internal.NotNull;
-import lombok.experimental.ExtensionMethod;
 
 import java.io.Serializable;
 
@@ -32,23 +31,27 @@ public class StringUtils implements Serializable {
     public StringUtils() {
     }
 
+    public static String line() {
+        return System.getProperties().getProperty("line.separator");
+    }
+
+
     /**
-    * @Description:
-    * <p>       
-    * @Param: [str, start, end]
-    * @return: java.lang.String
-    * @Author: Mr.Miles
-    * @Date: 2020/10/22
-    */
-     public static synchronized String subString(@NotNull String str, int start, int end) {
-         char[] arr = str.toCharArray();
-         StringBuffer stringBuffer=new StringBuffer();
-         for (int i = start; i < arr.length; i++) {
-             stringBuffer.append(arr[i]);
-             if (i == end) {
-                 break;
-             }
-         }
-         return stringBuffer.toString();
+     * @Description: <p>
+     * @Param: [str, start, end]
+     * @return: java.lang.String
+     * @Author: Mr.Miles
+     * @Date: 2020/10/22
+     */
+    public static synchronized String subString(@NotNull String str, int start, int end) {
+        char[] arr = str.toCharArray();
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = start; i < arr.length; i++) {
+            stringBuffer.append(arr[i]);
+            if (i == end) {
+                break;
+            }
+        }
+        return stringBuffer.toString();
     }
 }
