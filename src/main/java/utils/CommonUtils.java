@@ -1,7 +1,6 @@
 package utils;
 
 import com.sun.istack.internal.NotNull;
-import org.omg.CORBA.Environment;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -41,6 +40,13 @@ public final class CommonUtils {
     public static void println(@NotNull Object... args) {
         StringBuilder stringBuilder = new StringBuilder();
         for (Object arg : args) {
+            stringBuilder.append(arg).append(StringUtils.line());
+        }
+        System.out.println(stringBuilder.toString());
+    }
+    public static void printInt(@NotNull int[] args) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int arg : args) {
             stringBuilder.append(arg).append(StringUtils.line());
         }
         System.out.println(stringBuilder.toString());
