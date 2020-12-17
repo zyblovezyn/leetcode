@@ -44,6 +44,7 @@ public final class CommonUtils {
         }
         System.out.println(stringBuilder.toString());
     }
+
     public static void printInt(@NotNull int[] args) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int arg : args) {
@@ -51,6 +52,12 @@ public final class CommonUtils {
         }
         System.out.println(stringBuilder.toString());
     }
+
+    public static  void printLine(){
+        System.out.println();
+        System.out.println("-----------------");
+    }
+
 
     /**
      * @Description: 获取分割后的数组集合
