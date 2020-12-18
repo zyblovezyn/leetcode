@@ -1,6 +1,6 @@
 package utils;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -53,7 +53,7 @@ public final class CommonUtils {
         System.out.println(stringBuilder.toString());
     }
 
-    public static  void printLine(){
+    public static void printLine() {
         System.out.println();
         System.out.println("-----------------");
     }
@@ -215,5 +215,11 @@ public final class CommonUtils {
             }
         }
         return true;
+    }
+
+    public static void swap(Object[] arr, int a, int b) {
+        Object temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
     }
 }
