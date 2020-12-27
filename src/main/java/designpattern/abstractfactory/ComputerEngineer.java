@@ -10,7 +10,7 @@ public class ComputerEngineer {
         prepareHardwares(cpuType,mainboardType);
     }
     private void prepareHardwares(int cpuType,int mainboard){
-        this.cpu=CpuFactory.createCpu(cpuType);
+        this.cpu= CpuFactory.createCpu(cpuType);
         this.mainborad=MainboardFactory.createMainboard(mainboard);
 
         this.cpu.calculate();

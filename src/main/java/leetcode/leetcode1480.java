@@ -9,6 +9,7 @@ public class leetcode1480 {
         System.out.println("end ... ");
     }
 }
+
 class Solution {
     public int[] runningSum(int[] nums) {
         int sum=0;

@@ -1,7 +1,5 @@
 package utils;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
@@ -93,7 +91,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized String getCurrentDateStr(@NotNull DateFormat format) {
+    public static synchronized String getCurrentDateStr( DateFormat format) {
         simpleDateFormat.applyPattern(format.getFormat());
         return simpleDateFormat.format(new Date());
     }
@@ -105,7 +103,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized String getTime(@NotNull Date date) {
+    public static synchronized String getTime( Date date) {
         simpleDateFormat.applyPattern(DateFormat.TIME.getFormat());
         return simpleDateFormat.format(date);
     }
@@ -117,7 +115,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getStr2Date(@NotNull String str) {
+    public static synchronized Date getStr2Date( String str) {
         Date date = null;
         simpleDateFormat.applyPattern(DateFormat.DATETIME_DEFAULT.getFormat());
         try {
@@ -135,7 +133,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized Date getStr2Date(@NotNull String str, @NotNull DateFormat format) {
+    public static synchronized Date getStr2Date( String str,  DateFormat format) {
         Date date = null;
         simpleDateFormat.applyPattern(format.getFormat());
         try {
@@ -146,7 +144,7 @@ public class DateUtils implements Serializable {
         return date;
     }
 
-    public static synchronized XMLGregorianCalendar getXMLGregorianCalendar(@NotNull Date date) {
+    public static synchronized XMLGregorianCalendar getXMLGregorianCalendar( Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         XMLGregorianCalendar xmlCalendar = null;
@@ -166,7 +164,7 @@ public class DateUtils implements Serializable {
         return xmlCalendar;
     }
 
-    public static synchronized Date getDateFromXmlGregorianCalendar(@NotNull XMLGregorianCalendar da) {
+    public static synchronized Date getDateFromXmlGregorianCalendar( XMLGregorianCalendar da) {
         int year = da.getYear();
         int month = da.getMonth();
         int day = da.getDay();
@@ -186,7 +184,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDateAfterMinute(int minute, @NotNull Date date) {
+    public static synchronized Date getDateAfterMinute(int minute,  Date date) {
         return getDateAfter(date, minute, Calendar.MINUTE);
     }
 
@@ -197,7 +195,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    private static synchronized Date getDateAfter(@NotNull Date date, int number, int unit) {
+    private static synchronized Date getDateAfter( Date date, int number, int unit) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(unit, number);
@@ -211,7 +209,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDateAfterHour(int hour, @NotNull Date date) {
+    public static synchronized Date getDateAfterHour(int hour,  Date date) {
         return getDateAfter(date, hour, Calendar.HOUR_OF_DAY);
     }
 
@@ -222,7 +220,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDateAfterDay(int day, @NotNull Date date) {
+    public static synchronized Date getDateAfterDay(int day,  Date date) {
         return getDateAfter(date, day, Calendar.DAY_OF_YEAR);
 
     }
@@ -234,7 +232,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDateAfterMonth(int month, @NotNull Date date) {
+    public static synchronized Date getDateAfterMonth(int month,  Date date) {
         return getDateAfter(date, month, Calendar.MONTH);
 
     }
@@ -246,7 +244,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDateAfterYear(int year, @NotNull Date date) {
+    public static synchronized Date getDateAfterYear(int year,  Date date) {
         return getDateAfter(date, year, Calendar.YEAR);
 
     }
@@ -271,7 +269,7 @@ public class DateUtils implements Serializable {
      * @param date 日期（Date）
      * @return 日期的字符串
      */
-    public static synchronized String getDate2Str(@NotNull Date date) {
+    public static synchronized String getDate2Str( Date date) {
         simpleDateFormat.applyPattern(DateFormat.DATETIME_DEFAULT.getFormat());
         return simpleDateFormat.format(date);
     }
@@ -283,7 +281,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized String getLong2Str(long time, @NotNull DateFormat format) {
+    public static synchronized String getLong2Str(long time,  DateFormat format) {
         Date date = new Date();
         date.setTime(time);
         return getDate2Str(date, format);
@@ -296,7 +294,7 @@ public class DateUtils implements Serializable {
      * @param date   日期（Date）
      * @return 日期的字符串
      */
-    public static synchronized String getDate2Str(@NotNull Date date, @NotNull DateFormat format) {
+    public static synchronized String getDate2Str( Date date,  DateFormat format) {
         simpleDateFormat.applyPattern(format.getFormat());
         return simpleDateFormat.format(date);
     }
@@ -308,7 +306,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date get5MinutesStart(@NotNull Date date) {
+    public static synchronized Date get5MinutesStart( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int minute = c.get(Calendar.MINUTE);
@@ -325,7 +323,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date get5MinutesEnd(@NotNull Date date) {
+    public static synchronized Date get5MinutesEnd( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int minute = c.get(Calendar.MINUTE);
@@ -342,7 +340,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getHourStart(@NotNull Date date) {
+    public static synchronized Date getHourStart( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.MINUTE, 0);
@@ -357,7 +355,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getHourEnd(@NotNull Date date) {
+    public static synchronized Date getHourEnd( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.MINUTE, 59);
@@ -372,7 +370,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDayStart(@NotNull Date date) {
+    public static synchronized Date getDayStart( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.HOUR_OF_DAY, 0);
@@ -388,7 +386,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getDayEnd(@NotNull Date date) {
+    public static synchronized Date getDayEnd( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.HOUR_OF_DAY, 23);
@@ -404,7 +402,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getWeekStart(@NotNull Date date) {
+    public static synchronized Date getWeekStart( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.DAY_OF_WEEK, 1);
@@ -421,7 +419,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getWeekEnd(@NotNull Date date) {
+    public static synchronized Date getWeekEnd( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.DAY_OF_WEEK, 7);
@@ -438,7 +436,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getMonthStart(@NotNull Date date) {
+    public static synchronized Date getMonthStart( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.DAY_OF_MONTH, 1);
@@ -455,7 +453,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getMonthEnd(@NotNull Date date) {
+    public static synchronized Date getMonthEnd( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int day = c.getActualMaximum(Calendar.DAY_OF_MONTH);
@@ -473,7 +471,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getYearStart(@NotNull Date date) {
+    public static synchronized Date getYearStart( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int month = c.getActualMinimum(Calendar.MONTH);
@@ -493,7 +491,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized Date getYearEnd(@NotNull Date date) {
+    public static synchronized Date getYearEnd( Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int month = c.getActualMaximum(Calendar.MONTH);
@@ -513,7 +511,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized long getMillisBetweenDate(@NotNull Date date1, @NotNull Date date2) {
+    public static synchronized long getMillisBetweenDate( Date date1,  Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toMillis();
@@ -526,7 +524,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized long getSecondsBetweenDate(@NotNull Date date1, @NotNull Date date2) {
+    public static synchronized long getSecondsBetweenDate( Date date1,  Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).getSeconds();
@@ -539,7 +537,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized long getMinutesBetweenDate(@NotNull Date date1, @NotNull Date date2) {
+    public static synchronized long getMinutesBetweenDate( Date date1,  Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toMinutes();
@@ -552,7 +550,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized long getHoursBetweenDate(@NotNull Date date1, @NotNull Date date2) {
+    public static synchronized long getHoursBetweenDate( Date date1,  Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toHours();
@@ -565,7 +563,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getSecond(@NotNull Date date) {
+    public static synchronized int getSecond( Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.SECOND);
@@ -578,7 +576,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getMinute(@NotNull Date date) {
+    public static synchronized int getMinute( Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.MINUTE);
@@ -591,7 +589,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getHour12(@NotNull Date date) {
+    public static synchronized int getHour12( Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.HOUR);
@@ -604,7 +602,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getHour24(@NotNull Date date) {
+    public static synchronized int getHour24( Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.HOUR_OF_DAY);
@@ -618,7 +616,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getDayOfWeek(@NotNull Date date) {
+    public static synchronized int getDayOfWeek( Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.DAY_OF_WEEK);
@@ -631,7 +629,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getDayOfMonth(@NotNull Date date) {
+    public static synchronized int getDayOfMonth( Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.DAY_OF_MONTH);
@@ -644,7 +642,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getDayOfYear(@NotNull Date date) {
+    public static synchronized int getDayOfYear( Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.DAY_OF_YEAR);
@@ -658,7 +656,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getMonth(@NotNull Date date) {
+    public static synchronized int getMonth( Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.MONTH) + 1;
@@ -672,7 +670,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getAgeByBirth(@NotNull Date birthday) {
+    public static synchronized int getAgeByBirth( Date birthday) {
         int age = 0;
         try {
             // 当前时间
@@ -704,7 +702,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getDayFromBirth(@NotNull Date birthday) {
+    public static synchronized int getDayFromBirth( Date birthday) {
         return (int) getDaysBetweenDate(new Date(), birthday);
     }
 
@@ -715,7 +713,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized long getDaysBetweenDate(@NotNull Date date1, @NotNull Date date2) {
+    public static synchronized long getDaysBetweenDate( Date date1,  Date date2) {
         Instant inst1 = Instant.ofEpochMilli(date1.getTime());
         Instant inst2 = Instant.ofEpochMilli(date2.getTime());
         return Duration.between(inst1, inst2).toDays();
@@ -728,7 +726,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized boolean isBirthDay(@NotNull Date birthDate) {
+    public static synchronized boolean isBirthDay( Date birthDate) {
         boolean isBirthDay = false;
 
         Calendar calendar = Calendar.getInstance();
@@ -757,7 +755,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized boolean isValidDate(@NotNull String dataStr) {
+    public static synchronized boolean isValidDate( String dataStr) {
         String patternStr = "^((\\d{2}(([02468][048])|([13579][26]))"
                 + "[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|"
                 + "(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?"
@@ -777,7 +775,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/13
      */
-    public static synchronized boolean isDateTime(@NotNull String dateTime, @NotNull DateFormat format) {
+    public static synchronized boolean isDateTime( String dateTime,  DateFormat format) {
         simpleDateFormat.applyPattern(format.getFormat());
         ParsePosition pos = new ParsePosition(0);
         Date dt = simpleDateFormat.parse(dateTime, pos);
@@ -795,7 +793,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized boolean isLeapYear(@NotNull Date date) {
+    public static synchronized boolean isLeapYear( Date date) {
         boolean leapYear = false;
         int year = getYear(date);
         if ((year % 4 == 0 & year % 100 != 0) || year % 400 == 0) {
@@ -811,7 +809,7 @@ public class DateUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/14
      */
-    public static synchronized int getYear(@NotNull Date date) {
+    public static synchronized int getYear( Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.YEAR);

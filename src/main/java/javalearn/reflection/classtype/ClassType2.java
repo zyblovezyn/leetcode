@@ -1,7 +1,5 @@
 package javalearn.reflection.classtype;
 
-import sun.awt.SunHints;
-
 public class ClassType2 {
     public static void main(String[] args) {
         printClassInfo("".getClass());

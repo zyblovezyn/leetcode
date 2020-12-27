@@ -1,7 +1,5 @@
 package utils;
 
-import com.sun.istack.internal.NotNull;
-
 import java.io.Serializable;
 
 /**

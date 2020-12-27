@@ -1,10 +1,8 @@
 package utils;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Base64;
 
 /**
  * @Description: <p>
@@ -26,8 +24,7 @@ public class ByteUtils implements Serializable {
      * @Date: 2020/10/17
      */
     public static String getBlob2Base64(byte[] data) throws IOException {
-        BASE64Encoder encoder = new BASE64Encoder();
-        return data != null ? encoder.encode(data) : "";
+        return data != null ? Base64.getEncoder().encode(data).toString() : "";
     }
 
     /**
@@ -39,7 +36,6 @@ public class ByteUtils implements Serializable {
      * @Date: 2020/10/17
      */
     public static byte[] getBase64ToBlob(String base64String) throws IOException {
-        BASE64Decoder decoder = new sun.misc.BASE64Decoder();
-        return base64String != null ? decoder.decodeBuffer(base64String) : null;
+        return base64String != null ? Base64.getDecoder().decode(base64String) : null;
     }
 }

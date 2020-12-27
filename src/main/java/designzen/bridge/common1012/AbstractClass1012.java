@@ -1,7 +1,7 @@
 package designzen.bridge.common1012;
 
 public abstract class AbstractClass1012 {
-    private implementor1012 implementor1012;
+    private designzen.bridge.common1012.implementor1012 implementor1012;
 
     public AbstractClass1012(designzen.bridge.common1012.implementor1012 implementor1012) {
         this.implementor1012 = implementor1012;

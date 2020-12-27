@@ -1,4 +1,6 @@
-package reflect.entry;/**
+package reflect.entry;
+
+/**
  * @Description TODO
  *<p>
  * @ClassName Person.java
@@ -7,18 +9,18 @@ package reflect.entry;/**
  * @createTime 2020-11-28 19:28:00
  */
 public class Person {
-    //„—L‘®«
+    //ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½
     private String name = "Tom";
-    //Œö—L‘®«
+    //ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½
     public int age = 18;
-    //?‘¢•û–@
+    //?ï¿½ï¿½ï¿½ï¿½ï¿½@
     public Person() {
     }
-    //„—L•û–@
+    //ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½@
     private void say(){
         System.out.println("private say()...");
     }
-    //Œö—L•û–@
+    //ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½@
     public void work(){
         System.out.println("public work()...");
     }

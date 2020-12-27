@@ -1,7 +1,5 @@
 package utils;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.lang.reflect.Field;
 import java.util.*;
 
@@ -21,7 +19,7 @@ public final class CommonUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/20
      */
-    public static void print(@NotNull Object... args) {
+    public static void print(Object... args) {
         StringBuilder stringBuilder = new StringBuilder();
         for (Object arg : args) {
             stringBuilder.append(arg).append("  ");
@@ -37,7 +35,7 @@ public final class CommonUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/20
      */
-    public static void println(@NotNull Object... args) {
+    public static void println(Object... args) {
         StringBuilder stringBuilder = new StringBuilder();
         for (Object arg : args) {
             stringBuilder.append(arg).append(StringUtils.line());
@@ -45,7 +43,7 @@ public final class CommonUtils {
         System.out.println(stringBuilder.toString());
     }
 
-    public static void printInt(@NotNull int[] args) {
+    public static void printInt(int[] args) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int arg : args) {
             stringBuilder.append(arg).append(StringUtils.line());
@@ -67,7 +65,7 @@ public final class CommonUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/20
      */
-    public static <E> List<List<E>> getElementsBySplitCount(@NotNull List<E> list) {
+    public static <E> List<List<E>> getElementsBySplitCount(List<E> list) {
         return getElementsBySplitCount(list, 500);
     }
 
@@ -79,7 +77,7 @@ public final class CommonUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/20
      */
-    public static <E> List<List<E>> getElementsBySplitCount(@NotNull List<E> list, int count) {
+    public static <E> List<List<E>> getElementsBySplitCount(List<E> list, int count) {
         int size = count;
         List<E> listTemp = new ArrayList<>();
         List<List<E>> listRet = new ArrayList<>();
@@ -106,7 +104,7 @@ public final class CommonUtils {
      * @Date: 2020/10/20
      * todo
      */
-    public static <S, R> R type2TypeExtension(@NotNull S resourceType, @NotNull R returnType) throws IllegalAccessException {
+    public static <S, R> R type2TypeExtension(S resourceType, R returnType) throws IllegalAccessException {
         Field[] resFields = resourceType.getClass().getDeclaredFields();
         Field[] retFields = returnType.getClass().getDeclaredFields();
         Arrays.sort(resFields, Comparator.comparing(Field::getName));
@@ -166,7 +164,7 @@ public final class CommonUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/20
      */
-    public static <S, R> List<R> list2List(@NotNull List<S> from, @NotNull R to) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
+    public static <S, R> List<R> list2List(List<S> from, R to) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
         List<R> tos = new ArrayList<>();
         for (Iterator<S> iterator = from.iterator(); iterator.hasNext(); ) {
             S res = iterator.next();
@@ -185,7 +183,7 @@ public final class CommonUtils {
      * @Author: Mr.Miles
      * @Date: 2020/10/20
      */
-    public static <S, R> R type2Type(@NotNull S from, @NotNull R to) throws IllegalAccessException {
+    public static <S, R> R type2Type(S from, R to) throws IllegalAccessException {
         Field[] fromFields = from.getClass().getDeclaredFields();
         Field[] toFields = to.getClass().getDeclaredFields();
         Arrays.sort(fromFields, Comparator.comparing(Field::getName));
@@ -206,7 +204,7 @@ public final class CommonUtils {
         return to;
     }
 
-    public static boolean isAllEquals(@NotNull Object... args) {
+    public static boolean isAllEquals(Object... args) {
         for (Object arg1 : args) {
             for (Object arg2 : args) {
                 if (!arg1.equals(arg2)) {

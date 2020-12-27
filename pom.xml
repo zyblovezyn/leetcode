@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.learn.leetcode</groupId>
-    <artifactId>leetcode</artifactId>
+    <groupId>org.example</groupId>
+    <artifactId>com.leetcode</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -41,12 +41,6 @@
             <version>5.4.2</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -59,5 +53,13 @@
             <version>4.12</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version><![CDATA[1.18.14]]></version>
+        </dependency>
     </dependencies>
+
+
 </project>

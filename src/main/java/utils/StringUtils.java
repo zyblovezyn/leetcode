@@ -1,7 +1,5 @@
 package utils;
 
-import com.sun.istack.internal.NotNull;
-
 import java.io.Serializable;
 
 /**
@@ -43,7 +41,7 @@ public class StringUtils implements Serializable {
      * @Author: Mr.Miles
      * @Date: 2020/10/22
      */
-    public static synchronized String subString(@NotNull String str, int start, int end) {
+    public static synchronized String subString(String str, int start, int end) {
         char[] arr = str.toCharArray();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = start; i < arr.length; i++) {

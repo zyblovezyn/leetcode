@@ -1,6 +1,8 @@
 package temp.treemaptest;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Miles
@@ -15,5 +17,9 @@ public class SortedTest {
 
     public SortedTest(int age) {
         this.age = age;
+    }
+
+    public int getAge() {
+        return age;
     }
 }

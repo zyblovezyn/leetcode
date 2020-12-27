@@ -1,16 +1,15 @@
 package designzen.proxy.commonProxyFactory;
 
-import java.io.ObjectInputStream;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * ?Œš??‘ã—?Û
- * ??‘ã—•sù—v??ÚŒû,’A¥ù—vw’èÚŒû?Œ^
+ * ?ï¿½ï¿½??ï¿½ã—?ï¿½ï¿½
+ * ??ï¿½ã—ï¿½sï¿½ï¿½ï¿½v??ï¿½ÚŒï¿½,ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½vï¿½wï¿½ï¿½ÚŒï¿½?ï¿½^
  */
 public class ProxyFactory {
-    //??ˆê˜¢–Ú??Û
+    //??ï¿½ê˜¢ï¿½ï¿½??ï¿½ï¿½
     private Object target;
 
     public ProxyFactory(Object target) {
@@ -25,7 +24,7 @@ public class ProxyFactory {
                     @Override
                     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                         System.out.println("start commit!");
-                        //?s–Ú??Û•û–@
+                        //?ï¿½sï¿½ï¿½??ï¿½Û•ï¿½ï¿½@
                         Object returnValue = method.invoke(target, args);
                         System.out.println("commit");
                         return returnValue;

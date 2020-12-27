@@ -1,6 +1,6 @@
 package designpattern.prototype.test1;
 
-public class ConcretePrototype1 implements Prototype{
+public class ConcretePrototype1 implements Prototype {
     /**
     * @Description: 新建一个自身对象
     * @Param: []

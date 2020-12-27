@@ -1,7 +1,5 @@
 package mianshiti;
 
-import static java.lang.Character.getNumericValue;
-
 public class m46 {
     public static void main(String[] args) {
         System.out.println(translateNum(18580));

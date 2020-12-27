@@ -1,8 +1,6 @@
 package reflect;
 
 import reflect.entry.Person;
-import sun.applet.Main;
-import utils.CommonUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

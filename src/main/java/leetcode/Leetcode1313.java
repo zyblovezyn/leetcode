@@ -1,4 +1,6 @@
-package leetcode;/**
+package leetcode;
+
+/**
  * @Description TODO
  *<p>
  * @ClassName leetcode1311.java
