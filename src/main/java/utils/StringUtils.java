@@ -52,4 +52,19 @@ public class StringUtils implements Serializable {
         }
         return stringBuffer.toString();
     }
+
+    /**
+     * @Description: <p>
+     * @Param:
+     * @return:
+     * @Author: Mr.Miles
+     * @Date: 2021/01/22
+     */
+    public static boolean isNullOrEnpty(String str) {
+        if (str == null || str.length() <= 0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

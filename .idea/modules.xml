@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/leetcode1/leetcode1.iml" filepath="$PROJECT_DIR$/leetcode1/leetcode1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../tomcat/tomcat7.iml" filepath="$PROJECT_DIR$/../tomcat/tomcat7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.leetcode.iml" filepath="$PROJECT_DIR$/com.leetcode.iml" />
     </modules>
   </component>
 </project>
