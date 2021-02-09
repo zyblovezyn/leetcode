@@ -56,7 +56,6 @@ public final class CommonUtils {
         System.out.println("-----------------");
     }
 
-
     /**
      * @Description: 获取分割后的数组集合
      * <p>
@@ -219,5 +218,11 @@ public final class CommonUtils {
         Object temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
+    }
+
+    public static void fillArray(Object[] arr, int startData, int step) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = startData + i * step;
+        }
     }
 }

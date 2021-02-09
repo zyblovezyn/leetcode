@@ -12,7 +12,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="com.leetcode" target="8" />
-      <module name="tomcat7" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
