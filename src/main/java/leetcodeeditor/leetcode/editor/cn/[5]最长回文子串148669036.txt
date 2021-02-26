@@ -1,0 +1,28 @@
+class Solution5 {
+    public String longestPalindrome(String s) {
+        if (s.length() == 0) {
+            return s;
+        }
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+        int startIndex = 0;
+        int endIndex = 0;
+        int maxLength = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (hashMap.containsKey(s.charAt(i))) {
+                if ((i - hashMap.get(s.charAt(i)).intValue()) > maxLength) {
+                    maxLength = i - hashMap.get(s.charAt(i)).intValue();
+                    startIndex = hashMap.get(s.charAt(i));
+                    endIndex = i;
+                }
+            } else {
+                hashMap.put(s.charAt(i), i);
+            }
+        }
+
+        return s.substring(startIndex, endIndex+1);
+
+    }
+}
+
+//total_correct:0
+//compile_error:Line 7: error: cannot find symbol [in __Driver__.java]

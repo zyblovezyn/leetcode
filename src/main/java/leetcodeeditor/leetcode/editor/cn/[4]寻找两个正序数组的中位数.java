@@ -58,16 +58,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public static void main(String[] args) {
-        int nums1[] = new int[2];
-        nums1[0] = 1;
-        nums1[1] = 3;
-        int nums2[] = new int[1];
-        nums2[0] = 2;
-        findMedianSortedArrays(nums1, nums2);
-    }
-
+class Solution4 {
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int length = nums1.length + nums2.length;
         int mid1;
@@ -87,12 +78,16 @@ class Solution {
         int next = 0;
         while (true) {
             pre = next;
-            if (nums1[startIndexNum1] > nums2[startIndexNum2]) {
-                next = nums2[startIndexNum2];
-                startIndexNum2++;
-            } else {
-                next = nums1[startIndexNum1];
-                startIndexNum1++;
+            if (startIndexNum1 == nums1.length) {
+                next = nums2[startIndexNum2++];
+            }else if (startIndexNum2 == nums2.length) {
+                next = nums1[startIndexNum1++];
+            }else {
+                if (nums1[startIndexNum1] >= nums2[startIndexNum2]) {
+                    next = nums2[startIndexNum2++];
+                } else {
+                    next = nums1[startIndexNum1++];
+                }
             }
             midLength--;
             if (midLength == -1) {
@@ -101,11 +96,9 @@ class Solution {
         }
 
         if (mid1 == mid2) {
-            System.out.println(next);
             return next;
         } else {
-            System.out.println(((double) (pre + next)) / 2);
-            return   ((double) (pre + next)) / 2;
+            return ((double) (pre + next)) / 2;
         }
     }
 }
